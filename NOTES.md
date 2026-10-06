@@ -1,4 +1,45 @@
-# 第一版提取与验收
+# 组件图鉴 · 提取与验收
+
+## 当前版本：Git 初始化后的优化
+
+2026-10-06。已在本目录初始化本地 Git，基线提交 `50a0ecb`；源实验仍保持原 Git 状态。当前图鉴 15 类 / 23 变体，Laper 9 类 / 10 变体，Cromma 10 类 / 13 变体。图鉴仍只面向桌面。
+
+修正独立审查发现的三个问题：
+
+- Laper 菜单面板设置 `data-state=open`，实测 `animationName=laper-menu-pop-in`。另外修正 Escape 关闭后继续访问空菜单的问题，移除关闭态失效的 aria-controls，保留焦点恢复。
+- `provenance.json` 为每个变体生成实际 files / assets；源码下拉直接使用此清单，包含语言数据与间接导入模块。字体、图片提供下载。普通按钮不再加载 flags、field、clouds。
+- 静态云层按真实舞台初始化 live 几何，停止循环帧和 shader 时间更新。原 `snapshots/` 不改，`engines/` 从来源生成小范围适配，回归核对所有 shader 字符串保持一致。
+
+新增效果的证据与差异：
+
+| 新条目 | 来源 | 当前预览与有意差异 |
+| --- | --- | --- |
+| 共享元素弹层 | `laper/page.js` 的 openLaunchVideo、videoExpandedRect、VIDEO_MOVE | 400ms / 原缓动，原框 → 80% 视口内 16:9；关闭回原框。采用已有本地编辑器图片演示，不加载视频；增加焦点约束、快速中断及 resize 处理。 |
+| 循环剧本带 | `laper/index.html` 轨道、page.js mountScriptReel、page.css 浮动 | 取前 4 张纸、重复两份；样例纸宽 240px、高 340px，而不是整页 448×640px。保留 3s 三次加速和 6.2s 浮动；速度按源 60fps 参考做时间积分，支持暂停。 |
+| 滚动弹簧放大 | `laper/page.js` mountProductShot | 保留比例 0.96→1、420 / 35 / 0.7 参数；观察区域改为 iframe 内滚动，画面使用已有截图，不搬入整个编辑器的不可用控件。隐藏源码面板时暂停目标更新，防止零高度产生 NaN。 |
+| 材质提示条 | `cromma-landing/script.js` showComingSoon 与 CSS 的 laper-toast / toast-progress | 提取原 DOM、阴影、圆环和静态 Newton 点阵；文案改为本地演示。5s 超时、500ms 退出、单条替换，关闭释放帧请求、观察器及 GPU 上下文。 |
+
+新增图片复制自 `laper/assets/landing/laper-feature-script-workspace.png`，没有新增远程素材请求；來源与字节哈希在清单中。两个原实验的本地学习与许可边界继续适用。
+
+当前完整入口 `node tools/verify.mjs` 已通过：15 类 / 23 变体、13 个 JS 文件、85 条直接本地资源引用、7 份来源哈希、WOFF2 文件头和 9 项回归。回归覆盖：静态云形可见且无循环、点阵销毁、shader 原样保留、变体依赖完整、菜单状态与 Escape、轨道刷新率一致、弹簧双向收敛、隐藏面板恢复、弹层边界。
+
+当前浏览器验收：
+
+- 23 个变体均实际初始化，全部样例无横向溢出。15 张索引卡片在 1440×900、1280×800、1024×768、1280×600 下 `scrollWidth == clientWidth`。
+- 菜单动画、语言数据源码读取、共享元素展开与 Squircle、三次快速打开 / Escape 关闭、焦点与 inert 恢复均实测。
+- 轨道 8 张纸可持续播放，暂停后 transform 不变，纸张浮动也暂停，继续后恢复。
+- 滚动样例从 0.960 收敛到 1.000，可反向滚动；发现源码面板隐藏造成 NaN 后已修正，再次切换实测为有限的 1.000。
+- 提示条有实际点阵 canvas 和 toast-progress 圆环；快速重复触发只保留一条。手动关闭、自动退出后均 0 条 toast / 0 个 canvas。
+- `cloud-hero.html?reduced-motion=1` 调用相同静态分支，画面有完整云形，两次 JPEG 字节一致。实机系统设置没有切换；这是调试分支的 GPU 画面检查与静态几何回归，不冒称系统设置验收。
+- 来源计数分别实测 Laper 9 / 10、Cromma 10 / 13；总览顺序与左目录类别一致。
+
+新证据放在 `artifacts/optimization-checks.json`、`artifacts/catalog-optimized.jpg`、`artifacts/cloud-static-desktop.jpg` 和新效果截图。其它浏览器、真实硬件性能、系统 reduced-motion 设置仍未验证；手机窄屏不在范围。没有公开部署或接入原产品接口。
+
+以下保留初始交付记录，用于与基线对照；其中 11 类 / 19 变体及 Git 未初始化等描述是当时状态。
+
+---
+
+## 初始交付记录
 
 日期：2026-10-06。目录：`component-atlas/`。图鉴仅面向桌面使用，用户明确不要求手机窄屏适配。
 
@@ -96,7 +137,7 @@
 
 CSS 当前保留完整来源快照，尚未裁剪成可发布组件包；两个原实验的学习与素材许可边界继续适用。
 
-## 版本控制与运行
+## 初始交付时的版本控制与运行
 
 `D:/code/frontend-test/` 和本新目录不处于 Git 仓库，提交不适用；没有初始化仓库。原实验 Git 状态保持不变，没有提交其用户修改。
 

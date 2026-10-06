@@ -5,6 +5,7 @@ import json
 import shutil
 import hashlib
 import re
+from adapt_engines import build_engines
 
 ROOT = Path(__file__).resolve().parents[1]
 WORKSPACE = ROOT.parent
@@ -86,6 +87,7 @@ def build():
         "cromma-landing/clouds.js": "clouds.js",
         "cromma-landing/field.js": "field.js",
         "cromma-landing/assets/montserrat-Dk9Pm7OY.woff2": "assets/montserrat-Dk9Pm7OY.woff2",
+        "laper/assets/landing/laper-feature-script-workspace.png": "assets/editor-workspace.png",
     }
     provenance = []
     for source, target in copies.items():
@@ -93,22 +95,39 @@ def build():
         destination.parent.mkdir(exist_ok=True, parents=True)
         shutil.copyfile(WORKSPACE / source, destination)
         provenance.append({"source": source, "snapshot": f"snapshots/{target}", "sha256": hashlib.sha256(destination.read_bytes()).hexdigest()})
+    build_engines(ROOT)
 
     def emit(slug, theme, mode, fragment, origin, selector, extra=""):
         # Sample controls stay local, even when their original node was a product link.
         fragment = re.sub(r'\shref="[^"]*"', ' href="#"', fragment)
         fragment = re.sub(r'\sdata-fast-goal="[^"]*"', '', fragment)
+        scripts = []
+        if mode == "menu" and theme == "laper":
+            scripts.append("snapshots/lang-flags.js")
+        if mode in {"field", "toast"}:
+            scripts.append("engines/field.js")
+        if mode == "cloud":
+            scripts.append("engines/clouds.js")
+        scripts.append("demos/demo.js")
+        if mode in {"viewer", "reel", "spring", "toast"}:
+            scripts.append("demos/motion.js")
+        tags = "\n".join(f'<script {"type=\"module\" " if script.endswith("motion.js") else ""}src="../{script}"></script>' for script in scripts)
         document = f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{slug} · Component Atlas</title><link rel="stylesheet" href="../snapshots/{theme}.css">
 <link rel="stylesheet" href="demo.css"></head>
 <body data-demo="{mode}" data-theme="{theme}" data-variant="{slug}">
 <main id="sample" class="sample {extra}">{fragment}</main>
-<script src="../snapshots/lang-flags.js"></script><script src="../snapshots/field.js"></script>
-<script src="../snapshots/clouds.js"></script><script src="demo.js"></script></body></html>
+{tags}</body></html>
 '''
-        (ROOT / "demos" / f"{slug}.html").write_text(document, encoding="utf-8")
-        provenance.append({"variant": slug, "source": origin, "selector": selector, "theme": theme, "mode": mode})
+        (ROOT / "demos" / f"{slug}.html").write_text(document, encoding="utf-8", newline="\n")
+        files = [f"demos/{slug}.html", f"snapshots/{theme}.css", "demos/demo.css", *scripts]
+        if "demos/motion.js" in scripts:
+            files.append("demos/motion-core.js")
+        assets = ["snapshots/assets/montserrat-Dk9Pm7OY.woff2"]
+        if mode in {"viewer", "spring"}:
+            assets.append("snapshots/assets/editor-workspace.png")
+        provenance.append({"variant": slug, "source": origin, "selector": selector, "theme": theme, "mode": mode, "files": files, "assets": assets})
 
     find_text = lambda root, text: first(root, lambda n: n.tag in {"a", "button"} and n.text().strip() == text)
     emit("button-laper-primary", "laper", "button", find_text(laper, "Login").html(), "laper/index.html", "header a[href*='login']")
@@ -155,7 +174,26 @@ def build():
     while not (card.tag == "div" and card.has("group")):
         card = card.parent
     emit("card-cromma", "cromma", "card", card.html(), "cromma-landing/index.html", "#pricing button: Choose Plus → div.group", "card-sample")
-    (ROOT / "provenance.json").write_text(json.dumps(provenance, ensure_ascii=False, indent=2), encoding="utf-8")
+    viewer = '<button type="button" data-viewer-open class="viewer-trigger relative overflow-hidden rounded-xl border border-border bg-card shadow-lg" aria-label="展开共享元素预览"><img src="../snapshots/assets/editor-workspace.png" alt="Laper 编辑器样张"><span class="viewer-caption absolute inset-x-0 bottom-0">点击展开 ↗</span></button>'
+    emit("viewer-laper", "laper", "viewer", viewer, "laper/page.js", "openLaunchVideo(); videoExpandedRect(); VIDEO_MOVE", "viewer-sample")
+    hero = first(laper, lambda n: n.attrs.get("data-fast-scroll") == "scroll_to_hero_chat")
+    row = first(hero, lambda n: "perspective" in n.attrs.get("style", ""))
+    cards = [n for n in row.children if isinstance(n, Node)][:4]
+    items = []
+    for node in cards:
+        html = re.sub(r' style="[^"]*"', ' style="transform-style:preserve-3d"', node.html(), count=1)
+        items.append(html)
+    repeated = "".join(items) + "".join(html.replace('<div ', '<div aria-hidden="true" ', 1) for html in items)
+    reel = '<div class="reel-stage relative w-full h-full overflow-hidden"><div data-reel class="flex items-center h-full" style="perspective:1000px">' + repeated + '</div><button type="button" data-pause class="replay-button absolute bottom-4 right-4 z-20" aria-pressed="false">暂停循环</button></div>'
+    emit("reel-laper", "laper", "reel", reel, "laper/index.html + page.js + page.css", "mountScriptReel(); [data-fast-scroll='scroll_to_hero_chat'] [style*='perspective']", "full")
+    spring = '<div data-spring-scroll tabindex="0" aria-label="滚动弹簧预览" class="spring-scroll relative w-full h-full overflow-y-auto"><div class="spring-intro">向下滚动这一预览，观察画面逐渐放大。<small>滚回顶部可反向观察 · 键盘 Page Down / Page Up</small></div><section data-spring-section><div data-spring-frame style="transform:scale(0.96)"><img src="../snapshots/assets/editor-workspace.png" alt="Laper 编辑器样张"></div></section><div class="spring-outro">滚回顶部，画面会回到起始比例。</div></div><output data-scale class="spring-scale absolute top-3 right-3 z-20">0.960</output>'
+    emit("spring-laper", "laper", "spring", spring, "laper/page.js", "mountProductShot(); [aria-label='Laper editor product preview']", "full relative")
+    source = (WORKSPACE / "cromma-landing/script.js").read_text(encoding="utf-8")
+    toast = re.search(r'toast.innerHTML = `([\s\S]*?)`;', source).group(1)
+    toast = toast.replace('Not available yet — coming soon.', 'This is a local component preview.')
+    fragment = '<button type="button" data-toast-open class="cromma-tag relative overflow-hidden rounded-2xl h-8 px-4">显示材质提示</button><div class="laper-toast-viewport absolute bottom-6 left-1/2 w-125 max-w-[calc(100vw-2rem)]" role="status" aria-live="polite"></div><template id="toast-template"><div class="laper-toast flex min-w-75 max-w-125 items-center gap-3 overflow-hidden rounded-2xl bg-card px-4 py-3">' + toast + '</div></template>'
+    emit("toast-cromma", "cromma", "toast", fragment, "cromma-landing/script.js", "showComingSoon(); .laper-toast; toast-progress", "relative")
+    (ROOT / "provenance.json").write_text(json.dumps(provenance, ensure_ascii=False, indent=2), encoding="utf-8", newline="\n")
     print(f"Extracted {len(list((ROOT / 'demos').glob('*.html')))} variants. Source experiments unchanged.")
 
 

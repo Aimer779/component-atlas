@@ -35,7 +35,7 @@ function renderCatalog(query) {
   const category = query.get('category') || 'all';
   const project = query.get('project') || 'all';
   const pool = components.filter(item => project === 'all' || item.variants.some(variant => variant.project === project));
-  const collection = pool.filter(item => category === 'all' || item.group === category);
+  const collection = groups.flatMap(group => pool.filter(item => item.group === group.id && (category === 'all' || item.group === category)));
   const variantCount = pool.flatMap(item => item.variants).filter(variant => project === 'all' || variant.project === project).length;
   main.innerHTML = `<div class="content">${breadcrumb('组件总览')}
     <div class="page-heading"><div><h1>组件总览</h1><p class="page-intro">把喜欢的界面拆开，留下值得复用的部分。<br>浏览 Laper 与 Cromma 的组件、材质和动效，在预览里试一试。</p></div><div class="inventory"><strong>${pool.length}</strong> COMPONENTS &nbsp;/&nbsp; <strong>${variantCount}</strong> VARIANTS</div></div>
@@ -64,13 +64,18 @@ function renderComponent(item, variant) {
     <nav class="variant-tabs" aria-label="组件变体">${item.variants.map(entry => `<a href="${variantUrl(item, entry)}" ${entry.id === variant.id ? 'aria-current="page"' : ''}>${entry.name}</a>`).join('')}</nav>
     <section class="workspace" aria-label="组件预览与源码"><div class="workspace-toolbar"><div class="view-tabs" role="tablist" aria-label="展示内容"><button role="tab" id="preview-tab" aria-controls="preview-panel" aria-selected="true" data-view="preview">预览</button><button role="tab" id="code-tab" aria-controls="code-panel" aria-selected="false" tabindex="-1" data-view="code">源码</button></div><div class="preview-actions"><button type="button" data-reset>重播 ↻</button><a href="demos/${variant.id}.html" target="_blank" rel="noopener" aria-label="单独打开预览">↗</a></div></div>
     <div id="preview-panel" role="tabpanel" aria-labelledby="preview-tab"><div class="preview-stage" data-tall="${tall}"><iframe id="demo-frame" title="${item.name}：${variant.name}交互预览" src="demos/${variant.id}.html"></iframe></div><div class="preview-note"><span>可直接操作 · ${variant.project} / ${variant.name}</span><strong>HTML + CSS + JavaScript</strong></div></div>
-    <div id="code-panel" role="tabpanel" aria-labelledby="code-tab" hidden><div class="code-toolbar"><select aria-label="源码文件" id="code-file"><option value="demos/${variant.id}.html">${variant.id}.html</option><option value="demos/demo.js">demo.js · 独立交互</option><option value="demos/demo.css">demo.css · 预览容器</option><option value="snapshots/${variant.project.toLowerCase()}.css">${variant.project.toLowerCase()}.css · 原样式快照</option>${['morph-cloud', 'fractal-field', 'pricing-card', 'prompt'].includes(item.id) ? '<option value="snapshots/field.js">field.js · 点阵引擎</option>' : ''}${item.id === 'morph-cloud' ? '<option value="snapshots/clouds.js">clouds.js · 云层引擎</option>' : ''}</select><button type="button" class="text-button" data-copy>复制源码</button></div><pre><code id="source-code">正在读取本地源码…</code></pre><div class="code-note">完整示例在 demos/。原始 CSS 是本地快照；复制 HTML 时需一并保留对应的 CSS 和脚本路径。所有预览无需原站接口。</div></div></section>
+    <div id="code-panel" role="tabpanel" aria-labelledby="code-tab" hidden><div class="code-toolbar"><select aria-label="源码文件" id="code-file"><option value="demos/${variant.id}.html">demos/${variant.id}.html</option></select><button type="button" class="text-button" data-copy>复制源码</button></div><pre><code id="source-code">正在读取本地源码…</code></pre><div class="code-note">下拉列表包含此变体实际需要的 HTML、CSS 与脚本。复用时保留这些文件的相对路径；素材可从下面下载。<div id="asset-links"></div></div></div></section>
     <div class="detail-grid"><section><h2>使用说明</h2><h3>适用场景</h3><p>${item.use}</p><h3>实现机制</h3><p>${item.mechanism}</p><h3>注意事项</h3><p>${item.caution}</p><div class="preference"><span>个人判断</span><span>待你体验后记录</span></div></section><section><h2>关键参数</h2><table class="parameter-table"><tbody>${item.parameters.map(([name, value]) => `<tr><th scope="row">${name}</th><td>${escape(value)}</td></tr>`).join('')}</tbody></table><div class="provenance">提取自 <strong>${variant.project}</strong><code id="origin-path">正在读取来源…</code><a href="${variant.project === 'Laper' ? 'https://laper.ai/' : 'https://cromma.ai/'}" target="_blank" rel="noopener">查看原站 ↗</a> &nbsp;·&nbsp; <a href="#/sources">查看提取记录</a></div></section></div>${footer()}</div>`;
   const version = renderVersion;
   fetch('provenance.json').then(response => response.json()).then(records => {
     if (version !== renderVersion) return;
     const record = records.find(entry => entry.variant === variant.id);
     main.querySelector('#origin-path').textContent = `${record.source}\n${record.selector}`;
+    const select = main.querySelector('#code-file');
+    const selected = select.value;
+    select.innerHTML = record.files.map(file => `<option value="${escape(file)}">${escape(file)}</option>`).join('');
+    if (record.files.includes(selected)) select.value = selected;
+    main.querySelector('#asset-links').innerHTML = record.assets.map(asset => `<a href="${escape(asset)}" download>${escape(asset.split('/').pop())} ↓</a>`).join(' ');
   }).catch(() => { if (version === renderVersion) main.querySelector('#origin-path').textContent = '来源记录读取失败，请使用本地服务器打开。'; });
   const frame = main.querySelector('#demo-frame');
   main.querySelector('[data-reset]').addEventListener('click', () => { frame.src = `demos/${variant.id}.html`; });
@@ -100,7 +105,7 @@ function renderComponent(item, variant) {
       if (version !== renderVersion || request !== sourceRequest) return;
       sourceText = text;
       main.querySelector('#source-code').textContent = url.endsWith('.html') ? text.replace(/></g, '>\n<') : text;
-    } catch { if (version === renderVersion) main.querySelector('#source-code').textContent = '文件读取失败。请通过 node serve.mjs 启动项目。'; }
+    } catch { if (version === renderVersion && request === sourceRequest) main.querySelector('#source-code').textContent = '文件读取失败。请通过 node serve.mjs 启动项目。'; }
   }
   main.querySelector('#code-file').addEventListener('change', loadSource);
   main.querySelector('[data-copy]').addEventListener('click', async () => {

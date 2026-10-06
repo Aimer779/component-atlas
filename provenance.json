@@ -30,136 +30,392 @@
     "sha256": "6438d7b8ea9c7c3992d5e2fd2afdb1ff948570a3ef0bedae76247b51632960ba"
   },
   {
+    "source": "laper/assets/landing/laper-feature-script-workspace.png",
+    "snapshot": "snapshots/assets/editor-workspace.png",
+    "sha256": "063400be3b66695e15a1d09af7fbc8e1cfe6d528eaab399469ed50dcfcf188ce"
+  },
+  {
     "variant": "button-laper-primary",
     "source": "laper/index.html",
     "selector": "header a[href*='login']",
     "theme": "laper",
-    "mode": "button"
+    "mode": "button",
+    "files": [
+      "demos/button-laper-primary.html",
+      "snapshots/laper.css",
+      "demos/demo.css",
+      "demos/demo.js"
+    ],
+    "assets": [
+      "snapshots/assets/montserrat-Dk9Pm7OY.woff2"
+    ]
   },
   {
     "variant": "button-laper-outline",
     "source": "laper/index.html",
     "selector": "button: Add files",
     "theme": "laper",
-    "mode": "button"
+    "mode": "button",
+    "files": [
+      "demos/button-laper-outline.html",
+      "snapshots/laper.css",
+      "demos/demo.css",
+      "demos/demo.js"
+    ],
+    "assets": [
+      "snapshots/assets/montserrat-Dk9Pm7OY.woff2"
+    ]
   },
   {
     "variant": "button-cromma-tag",
     "source": "cromma-landing/index.html",
     "selector": "header a: Download",
     "theme": "cromma",
-    "mode": "button"
+    "mode": "button",
+    "files": [
+      "demos/button-cromma-tag.html",
+      "snapshots/cromma.css",
+      "demos/demo.css",
+      "demos/demo.js"
+    ],
+    "assets": [
+      "snapshots/assets/montserrat-Dk9Pm7OY.woff2"
+    ]
   },
   {
     "variant": "button-cromma-primary",
     "source": "cromma-landing/index.html",
     "selector": "header button: Log in",
     "theme": "cromma",
-    "mode": "button"
+    "mode": "button",
+    "files": [
+      "demos/button-cromma-primary.html",
+      "snapshots/cromma.css",
+      "demos/demo.css",
+      "demos/demo.js"
+    ],
+    "assets": [
+      "snapshots/assets/montserrat-Dk9Pm7OY.woff2"
+    ]
   },
   {
     "variant": "menu-laper",
     "source": "laper/index.html + page.js",
     "selector": "header [aria-haspopup='menu']",
     "theme": "laper",
-    "mode": "menu"
+    "mode": "menu",
+    "files": [
+      "demos/menu-laper.html",
+      "snapshots/laper.css",
+      "demos/demo.css",
+      "snapshots/lang-flags.js",
+      "demos/demo.js"
+    ],
+    "assets": [
+      "snapshots/assets/montserrat-Dk9Pm7OY.woff2"
+    ]
   },
   {
     "variant": "menu-cromma",
     "source": "cromma-landing/index.html + script.js",
     "selector": "header [aria-label='Language']",
     "theme": "cromma",
-    "mode": "menu"
+    "mode": "menu",
+    "files": [
+      "demos/menu-cromma.html",
+      "snapshots/cromma.css",
+      "demos/demo.css",
+      "demos/demo.js"
+    ],
+    "assets": [
+      "snapshots/assets/montserrat-Dk9Pm7OY.woff2"
+    ]
   },
   {
     "variant": "billing-laper",
     "source": "laper/pricing/index.html + page.js",
     "selector": "[role='switch']; YEARLY['Laper Senior']",
     "theme": "laper",
-    "mode": "billing"
+    "mode": "billing",
+    "files": [
+      "demos/billing-laper.html",
+      "snapshots/laper.css",
+      "demos/demo.css",
+      "demos/demo.js"
+    ],
+    "assets": [
+      "snapshots/assets/montserrat-Dk9Pm7OY.woff2"
+    ]
   },
   {
     "variant": "prompt-cromma",
     "source": "cromma-landing/index.html + script.js",
     "selector": "#top form; textarea; button[aria-label='Send']",
     "theme": "cromma",
-    "mode": "prompt"
+    "mode": "prompt",
+    "files": [
+      "demos/prompt-cromma.html",
+      "snapshots/cromma.css",
+      "demos/demo.css",
+      "demos/demo.js"
+    ],
+    "assets": [
+      "snapshots/assets/montserrat-Dk9Pm7OY.woff2"
+    ]
   },
   {
     "variant": "accordion-cromma",
     "source": "cromma-landing/index.html + script.js",
     "selector": "#faq button[aria-expanded]",
     "theme": "cromma",
-    "mode": "accordion"
+    "mode": "accordion",
+    "files": [
+      "demos/accordion-cromma.html",
+      "snapshots/cromma.css",
+      "demos/demo.css",
+      "demos/demo.js"
+    ],
+    "assets": [
+      "snapshots/assets/montserrat-Dk9Pm7OY.woff2"
+    ]
   },
   {
     "variant": "aurora-cromma",
     "source": "cromma-landing/index.html + styles.css",
     "selector": "#top .aurora-fade; .dot-grid; .aurora-wash",
     "theme": "cromma",
-    "mode": "aurora"
+    "mode": "aurora",
+    "files": [
+      "demos/aurora-cromma.html",
+      "snapshots/cromma.css",
+      "demos/demo.css",
+      "demos/demo.js"
+    ],
+    "assets": [
+      "snapshots/assets/montserrat-Dk9Pm7OY.woff2"
+    ]
   },
   {
     "variant": "field-static",
     "source": "cromma-landing/field.js + script.js",
     "selector": "#pricing span.h-44 > div",
     "theme": "cromma",
-    "mode": "field"
+    "mode": "field",
+    "files": [
+      "demos/field-static.html",
+      "snapshots/cromma.css",
+      "demos/demo.css",
+      "engines/field.js",
+      "demos/demo.js"
+    ],
+    "assets": [
+      "snapshots/assets/montserrat-Dk9Pm7OY.woff2"
+    ]
   },
   {
     "variant": "field-animated",
     "source": "cromma-landing/field.js + script.js",
     "selector": "#top .cromma-edge span.absolute.inset-0 > div",
     "theme": "cromma",
-    "mode": "field"
+    "mode": "field",
+    "files": [
+      "demos/field-animated.html",
+      "snapshots/cromma.css",
+      "demos/demo.css",
+      "engines/field.js",
+      "demos/demo.js"
+    ],
+    "assets": [
+      "snapshots/assets/montserrat-Dk9Pm7OY.woff2"
+    ]
   },
   {
     "variant": "cloud-hero",
     "source": "cromma-landing/clouds.js + script.js",
     "selector": "#cloud-root",
     "theme": "cromma",
-    "mode": "cloud"
+    "mode": "cloud",
+    "files": [
+      "demos/cloud-hero.html",
+      "snapshots/cromma.css",
+      "demos/demo.css",
+      "engines/clouds.js",
+      "demos/demo.js"
+    ],
+    "assets": [
+      "snapshots/assets/montserrat-Dk9Pm7OY.woff2"
+    ]
   },
   {
     "variant": "cloud-footer",
     "source": "cromma-landing/clouds.js + script.js",
     "selector": "#download footer cloud",
     "theme": "cromma",
-    "mode": "cloud"
+    "mode": "cloud",
+    "files": [
+      "demos/cloud-footer.html",
+      "snapshots/cromma.css",
+      "demos/demo.css",
+      "engines/clouds.js",
+      "demos/demo.js"
+    ],
+    "assets": [
+      "snapshots/assets/montserrat-Dk9Pm7OY.woff2"
+    ]
   },
   {
     "variant": "reveal-cromma",
     "source": "cromma-landing/styles.css + desk.js",
     "selector": ".reveal → .reveal.is-in",
     "theme": "cromma",
-    "mode": "reveal"
+    "mode": "reveal",
+    "files": [
+      "demos/reveal-cromma.html",
+      "snapshots/cromma.css",
+      "demos/demo.css",
+      "demos/demo.js"
+    ],
+    "assets": [
+      "snapshots/assets/montserrat-Dk9Pm7OY.woff2"
+    ]
   },
   {
     "variant": "reveal-laper",
     "source": "laper/index.html + page.js",
     "selector": "h1[style]; reveal()",
     "theme": "laper",
-    "mode": "reveal"
+    "mode": "reveal",
+    "files": [
+      "demos/reveal-laper.html",
+      "snapshots/laper.css",
+      "demos/demo.css",
+      "demos/demo.js"
+    ],
+    "assets": [
+      "snapshots/assets/montserrat-Dk9Pm7OY.woff2"
+    ]
   },
   {
     "variant": "outline-laper",
     "source": "laper/index.html + assets/site.css",
     "selector": "footer svg text.landing-footer-logo-draw",
     "theme": "laper",
-    "mode": "outline"
+    "mode": "outline",
+    "files": [
+      "demos/outline-laper.html",
+      "snapshots/laper.css",
+      "demos/demo.css",
+      "demos/demo.js"
+    ],
+    "assets": [
+      "snapshots/assets/montserrat-Dk9Pm7OY.woff2"
+    ]
   },
   {
     "variant": "card-laper",
     "source": "laper/pricing/index.html",
     "selector": "h3: Laper Senior → .rounded-3xl",
     "theme": "laper",
-    "mode": "card"
+    "mode": "card",
+    "files": [
+      "demos/card-laper.html",
+      "snapshots/laper.css",
+      "demos/demo.css",
+      "demos/demo.js"
+    ],
+    "assets": [
+      "snapshots/assets/montserrat-Dk9Pm7OY.woff2"
+    ]
   },
   {
     "variant": "card-cromma",
     "source": "cromma-landing/index.html",
     "selector": "#pricing button: Choose Plus → div.group",
     "theme": "cromma",
-    "mode": "card"
+    "mode": "card",
+    "files": [
+      "demos/card-cromma.html",
+      "snapshots/cromma.css",
+      "demos/demo.css",
+      "demos/demo.js"
+    ],
+    "assets": [
+      "snapshots/assets/montserrat-Dk9Pm7OY.woff2"
+    ]
+  },
+  {
+    "variant": "viewer-laper",
+    "source": "laper/page.js",
+    "selector": "openLaunchVideo(); videoExpandedRect(); VIDEO_MOVE",
+    "theme": "laper",
+    "mode": "viewer",
+    "files": [
+      "demos/viewer-laper.html",
+      "snapshots/laper.css",
+      "demos/demo.css",
+      "demos/demo.js",
+      "demos/motion.js",
+      "demos/motion-core.js"
+    ],
+    "assets": [
+      "snapshots/assets/montserrat-Dk9Pm7OY.woff2",
+      "snapshots/assets/editor-workspace.png"
+    ]
+  },
+  {
+    "variant": "reel-laper",
+    "source": "laper/index.html + page.js + page.css",
+    "selector": "mountScriptReel(); [data-fast-scroll='scroll_to_hero_chat'] [style*='perspective']",
+    "theme": "laper",
+    "mode": "reel",
+    "files": [
+      "demos/reel-laper.html",
+      "snapshots/laper.css",
+      "demos/demo.css",
+      "demos/demo.js",
+      "demos/motion.js",
+      "demos/motion-core.js"
+    ],
+    "assets": [
+      "snapshots/assets/montserrat-Dk9Pm7OY.woff2"
+    ]
+  },
+  {
+    "variant": "spring-laper",
+    "source": "laper/page.js",
+    "selector": "mountProductShot(); [aria-label='Laper editor product preview']",
+    "theme": "laper",
+    "mode": "spring",
+    "files": [
+      "demos/spring-laper.html",
+      "snapshots/laper.css",
+      "demos/demo.css",
+      "demos/demo.js",
+      "demos/motion.js",
+      "demos/motion-core.js"
+    ],
+    "assets": [
+      "snapshots/assets/montserrat-Dk9Pm7OY.woff2",
+      "snapshots/assets/editor-workspace.png"
+    ]
+  },
+  {
+    "variant": "toast-cromma",
+    "source": "cromma-landing/script.js",
+    "selector": "showComingSoon(); .laper-toast; toast-progress",
+    "theme": "cromma",
+    "mode": "toast",
+    "files": [
+      "demos/toast-cromma.html",
+      "snapshots/cromma.css",
+      "demos/demo.css",
+      "engines/field.js",
+      "demos/demo.js",
+      "demos/motion.js",
+      "demos/motion-core.js"
+    ],
+    "assets": [
+      "snapshots/assets/montserrat-Dk9Pm7OY.woff2"
+    ]
   }
 ]

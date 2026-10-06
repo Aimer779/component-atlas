@@ -3,7 +3,7 @@
   const mode = body.dataset.demo;
   const variant = body.dataset.variant;
   const theme = body.dataset.theme;
-  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches || new URLSearchParams(location.search).has('reduced-motion');
   const thumbnail = new URLSearchParams(location.search).has('thumbnail');
   body.dataset.thumbnail = String(thumbnail);
   const sample = document.querySelector('#sample');
@@ -58,6 +58,7 @@
     function close(restore = false) {
       menu?.remove(); menu = null;
       trigger.setAttribute('aria-expanded', 'false'); trigger.dataset.state = 'closed';
+      trigger.removeAttribute('aria-controls');
       if (restore) trigger.focus();
     }
     function position() {
@@ -77,6 +78,7 @@
       if (menu) { close(); return; }
       menu = document.createElement('div');
       menu.id = 'language-options'; menu.role = 'menu';
+      menu.dataset.state = 'open';
       menu.className = theme === 'laper'
         ? 'demo-menu rounded-xl border border-border/60 bg-background text-foreground shadow-[var(--shadow-lg)] laper-menu-motion min-w-[8rem] overflow-y-auto overflow-x-hidden p-1.5'
         : 'demo-menu laper-menu-motion outline-none isolate border-0 bg-(--btn-emphasis-bg) ring ring-(--btn-emphasis-ring) shadow-(--surface-shadow) flex flex-col gap-0.5 rounded-2xl text-popover-foreground w-44 p-1 overflow-y-auto overflow-x-hidden';
@@ -112,8 +114,8 @@
     });
     document.addEventListener('keydown', event => {
       if (!menu) return;
-      if (event.key === 'Escape') { event.preventDefault(); close(true); }
-      if (event.key === 'Tab') { close(); return; }
+      if (event.key === 'Escape') { event.preventDefault(); close(true); return; }
+      if (event.key === 'Tab') { close(true); return; }
       const controls = [...menu.querySelectorAll('button')];
       const index = controls.indexOf(document.activeElement);
       const next = { ArrowDown: (index + 1) % controls.length, ArrowUp: (index - 1 + controls.length) % controls.length, Home: 0, End: controls.length - 1 }[event.key];
@@ -177,13 +179,13 @@
   if (mode === 'cloud') {
     const host = sample.querySelector('[data-cloud]');
     const footer = variant === 'cloud-footer';
-    const layer = window.HeroCloud.create(host, { shadow: footer ? 0 : .24, scale: 1, opacity: 1, drift: footer, frameMode: footer ? 'footer' : undefined, cycleMs: footer ? 8000 : 0 });
+    const layer = window.HeroCloud.create(host, { shadow: footer ? 0 : .24, scale: 1, opacity: 1, drift: footer, frameMode: footer ? 'footer' : undefined, cycleMs: footer ? 8000 : 0, static: reduced });
     const resize = () => layer.resize({ width: host.clientWidth, height: host.clientHeight }, innerWidth < 640);
-    resize(); new ResizeObserver(resize).observe(host);
-    if (!footer && !reduced) layer.ready();
+    resize(); const observer = new ResizeObserver(resize); observer.observe(host);
+    if (!footer) layer.ready();
     sample.querySelector('[data-pulse]').addEventListener('click', () => { if (!reduced) layer.pulse(); });
     if (reduced) { sample.querySelector('[data-pulse]').disabled = true; sample.querySelector('[data-pulse]').textContent = '减少动态效果：静态云形'; }
-    addEventListener('pagehide', () => layer.destroy?.(), { once: true });
+    addEventListener('pagehide', () => { observer.disconnect(); layer.destroy?.(); }, { once: true });
     if (!layer.canvas) notify('当前浏览器无法绘制 WebGL 云层。');
   }
   if (mode === 'reveal') {
@@ -201,5 +203,6 @@
   }
   if (mode === 'outline' && reduced) sample.querySelector('text').style.strokeDashoffset = '0';
   if (mode === 'field' && window.__fieldStatus !== 'ok') notify('当前浏览器无法绘制 WebGL 点阵。');
-  body.dataset.ready = 'true';
+  window.AtlasDemo = { reduced, thumbnail, notify };
+  if (!['viewer', 'reel', 'spring', 'toast'].includes(mode)) body.dataset.ready = 'true';
 })();

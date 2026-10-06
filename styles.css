@@ -96,6 +96,8 @@ h1 { font-size: 38px; font-weight: 600; line-height: 1.3; letter-spacing: -.035e
 .text-button:hover { color: var(--text); }
 pre { margin: 0; padding: 22px; font: 12px/1.75 var(--mono); color: #cdd6bb; overflow: auto; tab-size: 2; max-height: 490px; background: #121416; }
 .code-note { padding: 14px 18px; font-size: 11px; color: var(--muted); border-top: 1px solid var(--line); }
+#asset-links { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
+#asset-links a { color: var(--accent); text-underline-offset: 3px; }
 .detail-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 44px; margin-top: 35px; }
 .detail-grid h2, .doc-section h2 { font-size: 19px; font-weight: 500; margin: 0 0 16px; }
 .detail-grid h3 { font-size: 12px; font-weight: 500; margin: 24px 0 7px; color: #ced1d6; }

@@ -8,13 +8,13 @@ import { components, groups, projects, countVariants } from '../data.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
-const files = fs.readdirSync(root, { recursive: true }).filter(file => fs.statSync(path.join(root, file)).isFile());
+const files = fs.readdirSync(root, { recursive: true }).filter(file => !file.startsWith('.git' + path.sep) && !file.includes('__pycache__') && fs.statSync(path.join(root, file)).isFile());
 const variants = components.flatMap(component => component.variants);
 const records = JSON.parse(read('provenance.json'));
 assert.equal(new Set(components.map(component => component.id)).size, components.length, 'Duplicate component route');
 assert.equal(new Set(variants.map(variant => variant.id)).size, variants.length, 'Duplicate variant route');
-assert.equal(countVariants(components), 19, 'First edition inventory contract');
-assert.equal(components.length, 11, 'First edition inventory contract');
+assert.equal(countVariants(components), 23, 'Current inventory contract');
+assert.equal(components.length, 15, 'Current inventory contract');
 assert.equal(files.filter(file => /^demos[/\\].*\.html$/.test(file)).length, variants.length, 'Orphan or missing demo');
 
 for (const component of components) {
@@ -58,5 +58,6 @@ assert.ok(read('styles.css').includes('[hidden] { display: none !important; }'))
 assert.ok(read('demos/demo.css').includes('[hidden] { display: none !important; }'));
 assert.doesNotMatch(read('index.html'), /nav-toggle|sidebar-scrim/, 'Desktop-only shell must not restore the mobile drawer');
 assert.doesNotMatch(read('app.js'), /data-width|窄屏查看/, 'Desktop-only preview must not restore narrow-screen controls');
+execFileSync(process.execPath, ['--test', path.join(root, 'tools/regression.test.mjs')], { stdio: 'inherit' });
 console.log(`PASS: ${components.length} components, ${variants.length} variants, ${scripts.length} scripts, ${references} local references, ${records.filter(record => record.snapshot).length} snapshot hashes, WOFF2 header.`);
-console.log('Scope: source, inventory, provenance and local assets. Browser behavior and visual review are recorded separately in NOTES.md.');
+console.log('Scope: source, inventory, provenance, local assets and regressions. Browser behavior and visual review are recorded separately in NOTES.md.');

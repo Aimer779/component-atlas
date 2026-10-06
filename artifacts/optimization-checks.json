@@ -1,0 +1,334 @@
+{
+  "date": "2026-10-06",
+  "scope": "desktop-only",
+  "baseline": "50a0ecb",
+  "variants": [
+    {
+      "canvas": 0,
+      "ready": "true",
+      "scrollWidth": 1075,
+      "variant": "button-cromma-tag",
+      "width": 1075
+    },
+    {
+      "canvas": 0,
+      "ready": "true",
+      "scrollWidth": 1075,
+      "variant": "button-cromma-primary",
+      "width": 1075
+    },
+    {
+      "canvas": 0,
+      "ready": "true",
+      "scrollWidth": 1075,
+      "variant": "button-laper-primary",
+      "width": 1075
+    },
+    {
+      "canvas": 0,
+      "ready": "true",
+      "scrollWidth": 1075,
+      "variant": "button-laper-outline",
+      "width": 1075
+    },
+    {
+      "canvas": 0,
+      "ready": "true",
+      "scrollWidth": 1075,
+      "variant": "menu-laper",
+      "width": 1075
+    },
+    {
+      "canvas": 0,
+      "ready": "true",
+      "scrollWidth": 1075,
+      "variant": "menu-cromma",
+      "width": 1075
+    },
+    {
+      "canvas": 0,
+      "ready": "true",
+      "scrollWidth": 1075,
+      "variant": "billing-laper",
+      "width": 1075
+    },
+    {
+      "canvas": 0,
+      "ready": "true",
+      "scrollWidth": 1075,
+      "variant": "prompt-cromma",
+      "width": 1075
+    },
+    {
+      "canvas": 0,
+      "ready": "true",
+      "scrollWidth": 1075,
+      "variant": "accordion-cromma",
+      "width": 1075
+    },
+    {
+      "canvas": 0,
+      "ready": "true",
+      "scrollWidth": 1075,
+      "variant": "viewer-laper",
+      "width": 1075
+    },
+    {
+      "canvas": 0,
+      "ready": "true",
+      "scrollWidth": 1075,
+      "variant": "toast-cromma",
+      "width": 1075
+    },
+    {
+      "canvas": 0,
+      "ready": "true",
+      "scrollWidth": 1071,
+      "variant": "card-laper",
+      "width": 1071
+    },
+    {
+      "canvas": 0,
+      "ready": "true",
+      "scrollWidth": 1060,
+      "variant": "card-cromma",
+      "width": 1060
+    },
+    {
+      "canvas": 0,
+      "ready": "true",
+      "scrollWidth": 1075,
+      "variant": "aurora-cromma",
+      "width": 1075
+    },
+    {
+      "canvas": 1,
+      "ready": "true",
+      "scrollWidth": 1075,
+      "variant": "field-static",
+      "width": 1075
+    },
+    {
+      "canvas": 1,
+      "ready": "true",
+      "scrollWidth": 1075,
+      "variant": "field-animated",
+      "width": 1075
+    },
+    {
+      "canvas": 1,
+      "ready": "true",
+      "scrollWidth": 1075,
+      "variant": "cloud-hero",
+      "width": 1075
+    },
+    {
+      "canvas": 1,
+      "ready": "true",
+      "scrollWidth": 1075,
+      "variant": "cloud-footer",
+      "width": 1075
+    },
+    {
+      "canvas": 0,
+      "ready": "true",
+      "scrollWidth": 1075,
+      "variant": "reveal-cromma",
+      "width": 1075
+    },
+    {
+      "canvas": 0,
+      "ready": "true",
+      "scrollWidth": 1071,
+      "variant": "reveal-laper",
+      "width": 1071
+    },
+    {
+      "canvas": 0,
+      "ready": "true",
+      "scrollWidth": 1075,
+      "variant": "reel-laper",
+      "width": 1075
+    },
+    {
+      "canvas": 0,
+      "ready": "true",
+      "scrollWidth": 1075,
+      "variant": "spring-laper",
+      "width": 1075
+    },
+    {
+      "canvas": 0,
+      "ready": "true",
+      "scrollWidth": 1075,
+      "variant": "outline-laper",
+      "width": 1075
+    }
+  ],
+  "layouts": [
+    {
+      "cards": 15,
+      "clientWidth": 1425,
+      "height": 900,
+      "scrollWidth": 1425,
+      "width": 1440
+    },
+    {
+      "cards": 15,
+      "clientWidth": 1265,
+      "height": 800,
+      "scrollWidth": 1265,
+      "width": 1280
+    },
+    {
+      "cards": 15,
+      "clientWidth": 1009,
+      "height": 768,
+      "scrollWidth": 1009,
+      "width": 1024
+    },
+    {
+      "cards": 15,
+      "clientWidth": 1265,
+      "height": 600,
+      "scrollWidth": 1265,
+      "width": 1280
+    }
+  ],
+  "discoveredRegression": [
+    {
+      "finite": false,
+      "scale": "NaN",
+      "test": "Spring survives source/preview switching"
+    }
+  ],
+  "checks": [
+    {
+      "animation": "laper-menu-pop-in",
+      "items": 16,
+      "state": "open",
+      "test": "Laper menu animation"
+    },
+    {
+      "files": [
+        "demos/menu-laper.html",
+        "snapshots/laper.css",
+        "demos/demo.css",
+        "snapshots/lang-flags.js",
+        "demos/demo.js"
+      ],
+      "test": "Menu dependencies"
+    },
+    {
+      "hasList": true,
+      "test": "Language data readable"
+    },
+    {
+      "focus": "关闭预览",
+      "panel": {
+        "bottom": 368.4375114440918,
+        "height": 326.8958435058594,
+        "left": 246.9166717529297,
+        "right": 828.0625457763672,
+        "top": 41.54166793823242,
+        "width": 581.1458740234375,
+        "x": 246.9166717529297,
+        "y": 41.54166793823242
+      },
+      "phase": "entering",
+      "test": "Viewer open"
+    },
+    {
+      "corner": "superellipse(2)",
+      "phase": "expanded",
+      "test": "Viewer settled"
+    },
+    {
+      "cards": 8,
+      "playState": "paused",
+      "test": "Reel paused",
+      "transform": "matrix(1, 0, 0, 1, -0.653107, 0)"
+    },
+    {
+      "test": "Paused reel does not advance",
+      "stable": true
+    },
+    {
+      "scale": "0.960",
+      "test": "Spring start"
+    },
+    {
+      "scale": "scale(0.964188)",
+      "scroll": 192.6666717529297,
+      "test": "Spring scroll input"
+    },
+    {
+      "close": true,
+      "field": 1,
+      "progress": "toast-progress",
+      "test": "Material toast visible"
+    },
+    {
+      "canvases": 1,
+      "test": "Repeated toast replaces one instance",
+      "toasts": 1
+    },
+    {
+      "test": "Static cloud pixels remain stable",
+      "same": true
+    },
+    {
+      "canvases": 0,
+      "test": "Toast manual exit cleanup",
+      "toasts": 0
+    },
+    {
+      "focus": "展开共享元素预览",
+      "overlays": 0,
+      "test": "Viewer repeated interruption restores focus"
+    },
+    {
+      "canvases": 0,
+      "test": "Toast automatic exit cleanup",
+      "toasts": 0
+    },
+    {
+      "scale": "0.968",
+      "scroll": 323.3333435058594,
+      "test": "Spring scroll toward full scale"
+    },
+    {
+      "scale": "1.000",
+      "test": "Spring settles at full scale"
+    },
+    {
+      "controls": null,
+      "expanded": "false",
+      "menu": false,
+      "test": "Menu Escape closes without orphan controls"
+    },
+    {
+      "cards": 9,
+      "inventory": "9 COMPONENTS  /  10 VARIANTS",
+      "test": "Updated Laper source inventory"
+    },
+    {
+      "cards": 10,
+      "inventory": "10 COMPONENTS  /  13 VARIANTS",
+      "test": "Updated Cromma source inventory"
+    },
+    {
+      "finite": true,
+      "scale": "1.000",
+      "test": "Fixed hidden spring preview resumes"
+    },
+    {
+      "scale": "0.984",
+      "test": "Spring returns toward initial scale"
+    },
+    {
+      "scale": "0.960",
+      "test": "Spring reverse settles at initial scale"
+    }
+  ]
+}
