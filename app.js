@@ -117,15 +117,15 @@ function renderComponent(item, variant) {
 
 function renderSystem() {
   const palettes = [
-    ['图鉴外壳', [['页面', '#101113'], ['抬起表面', '#191b1e'], ['边界', '#2b2d31'], ['主要文字', '#eff0f1'], ['选中 / 焦点', '#c9e99a']]],
+    [document.documentElement.dataset.theme === 'light' ? '图鉴外壳 · 浅色' : '图鉴外壳 · 暗黑', ['surface', 'surface-raised', 'line', 'text', 'accent'].map((token, index) => [['页面', '抬起表面', '边界', '主要文字', '选中 / 焦点'][index], getComputedStyle(document.documentElement).getPropertyValue(`--${token}`).trim()])],
     ['Laper', [['背景', '#fcfdfc'], ['前景', '#171a19'], ['主色', '#1a4a35'], ['技术绿', '#0fa958'], ['边界', '#e4e8e6']]],
     ['Cromma', [['背景', 'oklch(95.51% 0 0)'], ['前景', 'oklch(32.11% 0 0)'], ['主色', 'oklch(58% .2 262)'], ['卡片', 'oklch(99.2% 0 0)'], ['边界', 'oklch(91% 0 0)']]],
   ];
   main.innerHTML = `<div class="content">${breadcrumb('设计系统')}<div class="doc-lead"><h1>设计系统</h1><p class="page-intro">基础规范决定如何组合，组件规范记录如何使用。<br>保留两套来源的视觉语言，也为图鉴本身建立一致的规则。</p><div class="doc-links"><a class="doc-link" href="design.md" target="_blank">阅读 design.md ↗</a><a class="doc-link" href="https://m3.material.io/foundations/design-tokens/overview" target="_blank" rel="noopener">Google Material 参考 ↗</a></div></div>
     <section class="doc-section"><h2>组织方式</h2><p>参考 Google Material 的基础、样式与组件规范：先记录颜色、字体、形状、间距和运动，再记录每个组件的变体、状态、参数与适用场景。这里没有将示例换成 Material 的外观。</p><table class="parameter-table"><tbody><tr><th>参考值 Reference</th><td>#1a4a35 / 18px / 150ms</td></tr><tr><th>语义角色 System</th><td>primary / foreground / border / ease-drawer</td></tr><tr><th>组件角色 Component</th><td>开关轨道 / 按钮高光 / 菜单表面</td></tr></tbody></table></section>
-    <section class="doc-section"><h2>颜色与角色</h2><p>预览内保留来源令牌；图鉴外壳使用独立的一组中性色。强调色只用于当前导航和键盘焦点。</p>${palettes.map(([title, values]) => `<h3>${title}</h3><div class="palette">${values.map(([name, value]) => `<div><div class="swatch" style="background:${value}"></div><strong>${name}</strong><code>${value}</code></div>`).join('')}</div>`).join('')}</section>
+    <section class="doc-section"><h2>颜色与角色</h2><p>右上角切换明暗主题并记住选择。外壳使用独立的一组中性色；强调色用于当前导航、卡片悬浮标题和键盘焦点。预览内保留来源令牌。</p>${palettes.map(([title, values]) => `<h3>${title}</h3><div class="palette">${values.map(([name, value]) => `<div><div class="swatch" style="background:${value}"></div><strong>${name}</strong><code>${value}</code></div>`).join('')}</div>`).join('')}</section>
     <section class="doc-section"><h2>形状与材质</h2><p>圆角由半径与 corner-shape 共同决定。来源中的 Squircle 是材质的一部分；标签按钮还需要多层 inset 高光、细边缘与按压状态。</p><div class="shape-grid"><div><div class="shape-example">round / 16px</div><p>普通圆角，弧线更明显。</p></div><div><div class="shape-example squircle">squircle / 16px</div><p>同一半径，转角更连续。</p></div><div><div class="shape-example capsule">round / 999px</div><p>两端半圆，用于明确的胶囊形。</p></div></div></section>
-    <section class="doc-section"><h2>字体与间距</h2><table class="parameter-table"><tbody><tr><th>图鉴标题</th><td>38px / 600</td></tr><tr><th>图鉴正文 / 导航</th><td>13–14px / 12px；系统中文字体</td></tr><tr><th>代码与参数</th><td>Cascadia Code → Consolas → monospace</td></tr><tr><th>预览字体</th><td>本地 Montserrat；中文系统字体；剧本使用 Courier</td></tr><tr><th>间距基础</th><td>4 / 8 / 12 / 16 / 24 / 32 / 48px</td></tr><tr><th>布局</th><td>68px 顶栏、252px 目录、最大 1140px 内容</td></tr></tbody></table></section>
+    <section class="doc-section"><h2>字体与间距</h2><table class="parameter-table"><tbody><tr><th>图鉴标题</th><td>44px / 650</td></tr><tr><th>图鉴正文 / 导航</th><td>13–14px / 12px；系统中文字体</td></tr><tr><th>代码与参数</th><td>Cascadia Code → Consolas → monospace</td></tr><tr><th>预览字体</th><td>本地 Montserrat；中文系统字体；剧本使用 Courier</td></tr><tr><th>间距基础</th><td>4 / 8 / 12 / 16 / 24 / 32 / 48px</td></tr><tr><th>布局</th><td>72px 顶栏、268px 目录区、最大 1140px 内容</td></tr><tr><th>卡片与预览</th><td>16px 外圆角 / 12px 内圆角 / 6px 内边距</td></tr></tbody></table></section>
     <section class="doc-section"><h2>运动与可访问性</h2><p>保留来源的运动时长与缓动。提供重播和独立打开；键盘焦点可见，菜单支持方向键，状态同步到 aria-expanded / aria-checked。减少动态效果时，关闭循环背景与文字位移。</p><table class="parameter-table"><tbody><tr><th>开关</th><td>150ms ease-out</td></tr><tr><th>按钮</th><td>200ms；材质与缩放</td></tr><tr><th>手风琴</th><td>300ms；行高、透明度与图标</td></tr><tr><th>Laper 进入</th><td>700ms cubic-bezier(.16,1,.3,1)</td></tr><tr><th>云形</th><td>1800ms cubic-bezier(.32,.72,0,1)</td></tr></tbody></table></section>
     <section class="doc-section"><h2>提取与复用</h2><p>每个条目有中文名称、英文术语、可操作预览、变体、来源、参数、使用建议与适配差异。图鉴不虚构你的个人偏好；体验后再把采纳或拒绝的理由补进去。</p><p>第一版的样式文件保留完整快照以维持原材质，组件 DOM 已独立提取。后续真正接入产品时，再按使用到的组件裁剪 CSS，并处理来源素材的许可。</p><div class="token-code"><pre><code>:root {
   --background: #fcfdfc; /* 参考值 → 背景角色 */
@@ -163,4 +163,8 @@ function render() {
   if (renderVersion > 1) main.focus({ preventScroll: true });
 }
 addEventListener('hashchange', render);
+document.addEventListener('atlas-theme-change', () => {
+  // Refresh only the documentation palette; live component previews keep their state.
+  if (location.hash.split('?')[0] === '#/system') renderSystem();
+});
 render();

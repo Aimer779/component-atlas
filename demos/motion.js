@@ -85,7 +85,7 @@ function mountSpring() {
   const viewport = sample.querySelector('[data-spring-scroll]');
   const section = sample.querySelector('[data-spring-section]');
   const frame = sample.querySelector('[data-spring-frame]'), output = sample.querySelector('[data-scale]');
-  if (thumbnail) viewport.scrollTop = 330;
+  if (thumbnail) viewport.scrollTop = section.offsetTop;
   if (reduced) { frame.style.transform = 'scale(1)'; output.textContent = '1.000'; return; }
   const state = { value: .96, velocity: 0 };
   let last = performance.now(), raf;

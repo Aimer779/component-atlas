@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="从 Laper 和 Cromma 复刻实验提取的个人组件效果图鉴。">
   <title>组件图鉴 · Component Atlas</title>
+  <script src="theme.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,6 +14,10 @@
     <a class="brand" href="#/catalog" aria-label="组件图鉴首页"><span class="brand-mark" aria-hidden="true">a<span>.</span></span><strong>组件图鉴</strong><span class="brand-en">Component Atlas</span></a>
     <nav class="top-nav" aria-label="主导航"><a href="#/catalog" data-section="catalog">组件</a><a href="#/system" data-section="system">设计系统</a><a href="#/sources" data-section="sources">来源</a></nav>
     <span class="edition">Laper + Cromma / Vol. 01</span>
+    <button class="theme-toggle" type="button" aria-label="暗黑模式" aria-pressed="true" title="切换到浅色模式" data-theme-toggle>
+      <svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+      <svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 13.5A8.7 8.7 0 0 1 10.5 3.5a8.7 8.7 0 1 0 10 10Z"/></svg>
+    </button>
   </header>
   <aside class="sidebar" id="sidebar" aria-label="组件目录"></aside>
   <main id="main" tabindex="-1"></main>

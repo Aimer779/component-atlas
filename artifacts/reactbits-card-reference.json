@@ -1,0 +1,173 @@
+{
+  "nodes": [
+    {
+      "computed": {
+        "background-color": "rgba(255, 255, 255, 0.04)",
+        "background-image": "none",
+        "border": "0.666667px solid rgba(0, 0, 0, 0)",
+        "border-radius": "16px",
+        "box-shadow": "rgba(255, 255, 255, 0.07) 0px 1px 0px 0px inset",
+        "box-sizing": "border-box",
+        "color": "rgb(255, 255, 255)",
+        "corner-shape": "superellipse(1)",
+        "filter": "none",
+        "font": "500 16px / 24px Geist, sans-serif",
+        "isolation": "auto",
+        "overflow": "hidden",
+        "padding": "6px",
+        "position": "static",
+        "transform": "none",
+        "transition": "background-color 0.2s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.2s cubic-bezier(0.23, 1, 0.32, 1), transform 0.12s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.2s cubic-bezier(0.23, 1, 0.32, 1)"
+      },
+      "html": "<a data-item-key=\"Backgrounds/PatternWaves\" role=\"group\" class=\"browse-card css-12as3ye\" href=\"/backgrounds/pattern-waves\"><div class=\"browse-card-media css-p9sdj7\"><div class=\"browse-card-well css-nnah9q\"><video loop=\"\" playsinline=\"\" preload=\"metadata\" class=\"browse-card-video\"><source src=\"/assets/video/patternwaves.webm\" type=\"video/webm\"><source src=\"/assets/video/patternwaves.mp4\" type=\"video/mp4\"></video></div><div class=\"css-1r2blkc\">New</div><button type=\"button\" aria-label=\"Add to favorites\" class=\"chakra-button css-18tzse5\"><svg stroke=\"currentColor\" fill=\"currentColor\" stroke-width=\"0\" viewBox=\"0 0 24 24\" focusable=\"false\" aria-hidden=\"true\" class=\"chakra-icon css-1hmy5a0\" height=\"1em\" width=\"1em\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12.001 4.52853C14.35 2.42 17.98 2.49",
+      "rect": {
+        "height": 262.9583435058594,
+        "width": 231
+      },
+      "selector": ".browse-card"
+    },
+    {
+      "computed": {
+        "background-color": "rgba(0, 0, 0, 0)",
+        "background-image": "none",
+        "border": "0px solid rgb(228, 228, 231)",
+        "border-radius": "12px",
+        "box-shadow": "none",
+        "box-sizing": "border-box",
+        "color": "rgb(255, 255, 255)",
+        "corner-shape": "superellipse(1)",
+        "filter": "none",
+        "font": "500 16px / 24px Geist, sans-serif",
+        "isolation": "auto",
+        "overflow": "hidden",
+        "padding": "0px",
+        "position": "relative",
+        "transform": "none",
+        "transition": "all"
+      },
+      "html": "<div class=\"browse-card-media css-p9sdj7\"><div class=\"browse-card-well css-nnah9q\"><video loop=\"\" playsinline=\"\" preload=\"metadata\" class=\"browse-card-video\"><source src=\"/assets/video/patternwaves.webm\" type=\"video/webm\"><source src=\"/assets/video/patternwaves.mp4\" type=\"video/mp4\"></video></div><div class=\"css-1r2blkc\">New</div><button type=\"button\" aria-label=\"Add to favorites\" class=\"chakra-button css-18tzse5\"><svg stroke=\"currentColor\" fill=\"currentColor\" stroke-width=\"0\" viewBox=\"0 0 24 24\" focusable=\"false\" aria-hidden=\"true\" class=\"chakra-icon css-1hmy5a0\" height=\"1em\" width=\"1em\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12.001 4.52853C14.35 2.42 17.98 2.49 20.2426 4.75736C22.5053 7.02472 22.583 10.637 20.4786 12.993L11.9999 21.485L3.52138 12.993C1.41705 10.637 1.49571 7.01901 ",
+      "rect": {
+        "height": 190,
+        "width": 217.6666717529297
+      },
+      "selector": ".browse-card-media"
+    },
+    {
+      "computed": {
+        "background-color": "rgb(14, 11, 19)",
+        "background-image": "none",
+        "border": "0px solid rgb(228, 228, 231)",
+        "border-radius": "12px",
+        "box-shadow": "none",
+        "box-sizing": "border-box",
+        "color": "rgb(255, 255, 255)",
+        "corner-shape": "superellipse(1)",
+        "filter": "none",
+        "font": "500 16px / 24px Geist, sans-serif",
+        "isolation": "auto",
+        "overflow": "hidden",
+        "padding": "0px",
+        "position": "relative",
+        "transform": "none",
+        "transition": "all"
+      },
+      "html": "<div class=\"browse-card-well css-nnah9q\"><video loop=\"\" playsinline=\"\" preload=\"metadata\" class=\"browse-card-video\"><source src=\"/assets/video/patternwaves.webm\" type=\"video/webm\"><source src=\"/assets/video/patternwaves.mp4\" type=\"video/mp4\"></video></div>",
+      "rect": {
+        "height": 190,
+        "width": 217.6666717529297
+      },
+      "selector": ".browse-card-well"
+    },
+    {
+      "computed": {
+        "background-color": "rgba(0, 0, 0, 0)",
+        "background-image": "none",
+        "border": "0px solid rgb(228, 228, 231)",
+        "border-radius": "0px",
+        "box-shadow": "none",
+        "box-sizing": "border-box",
+        "color": "rgb(255, 255, 255)",
+        "corner-shape": "superellipse(1)",
+        "filter": "none",
+        "font": "600 14.5px / 18.125px Geist, sans-serif",
+        "isolation": "auto",
+        "overflow": "visible",
+        "padding": "0px",
+        "position": "static",
+        "transform": "none",
+        "transition": "color 0.2s cubic-bezier(0.23, 1, 0.32, 1)"
+      },
+      "html": "<p class=\"browse-card-title css-17kpux6\">Pattern Waves</p>",
+      "rect": {
+        "height": 18.125,
+        "width": 197.6666717529297
+      },
+      "selector": ".browse-card-title"
+    },
+    {
+      "computed": {
+        "background-color": "rgba(0, 0, 0, 0)",
+        "background-image": "none",
+        "border": "0px solid rgb(228, 228, 231)",
+        "border-radius": "0px",
+        "box-shadow": "none",
+        "box-sizing": "border-box",
+        "color": "rgb(255, 255, 255)",
+        "corner-shape": "superellipse(1)",
+        "filter": "none",
+        "font": "500 16px / 24px Geist, sans-serif",
+        "isolation": "auto",
+        "overflow": "visible",
+        "padding": "12px 10px 8px",
+        "position": "static",
+        "transform": "none",
+        "transition": "all"
+      },
+      "html": "<div class=\"css-iatp15\"><p class=\"browse-card-title css-17kpux6\">Pattern Waves</p><p class=\"css-49tmd7\">Backgrounds</p></div>",
+      "rect": {
+        "height": 59.625,
+        "width": 217.6666717529297
+      },
+      "selector": ".css-iatp15"
+    },
+    {
+      "computed": {
+        "background-color": "rgba(0, 0, 0, 0)",
+        "background-image": "none",
+        "border": "0px solid rgb(228, 228, 231)",
+        "border-radius": "0px",
+        "box-shadow": "none",
+        "box-sizing": "border-box",
+        "color": "rgb(161, 161, 170)",
+        "corner-shape": "superellipse(1)",
+        "filter": "none",
+        "font": "500 11px / 16.5px Geist, sans-serif",
+        "isolation": "auto",
+        "overflow": "visible",
+        "padding": "0px",
+        "position": "static",
+        "transform": "none",
+        "transition": "all"
+      },
+      "html": "<p class=\"css-49tmd7\">Backgrounds</p>",
+      "rect": {
+        "height": 16.5,
+        "width": 197.6666717529297
+      },
+      "selector": ".css-49tmd7"
+    }
+  ],
+  "rules": [
+    ".css-12as3ye { display: block; background: var(--surface-ghost-track); --bg-currentcolor: var(--surface-ghost-track); border: 1px solid transparent; box-shadow: var(--surface-ghost-highlight); border-radius: 16px; padding: 6px; text-decoration: none; overflow: hidden; }",
+    ".css-p9sdj7 { position: relative; overflow: hidden; border-radius: 12px; }",
+    ".css-nnah9q { height: 190px; border-radius: 12px; overflow: hidden; }",
+    ".css-iatp15 { padding-inline: var(--chakra-spacing-2\\.5); padding-top: var(--chakra-spacing-3); padding-bottom: var(--chakra-spacing-2); }",
+    ".css-17kpux6 { color: var(--text-primary); font-size: 14.5px; font-weight: 600; line-height: 1.25; letter-spacing: -0.25px; }",
+    ".css-49tmd7 { color: var(--text-dimmed); font-weight: 500; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 5px; }"
+  ],
+  "url": "https://reactbits.dev/get-started/index",
+  "viewport": [
+    1440,
+    900
+  ]
+}

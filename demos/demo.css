@@ -59,5 +59,6 @@ body[data-demo='reveal'] [data-reveal] { text-align: center; }
 .laper-toast-viewport { pointer-events: none; }
 body[data-thumbnail='true'][data-demo='toast'] [data-toast-open] { visibility: hidden; }
 body[data-thumbnail='true'][data-demo='menu'] .sample { align-items: flex-start; padding-top: 20px; }
+body[data-thumbnail='true'][data-demo='outline'] .sample svg { width: 88%; height: auto; }
 @media (max-width: 420px) { .sample:not(.full) { padding: 20px; } .faq-sample button { padding: 12px; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; } }

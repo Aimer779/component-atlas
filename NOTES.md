@@ -1,6 +1,39 @@
 # 组件图鉴 · 提取与验收
 
-## 当前版本：Git 初始化后的优化
+## 外壳质感与明暗主题（2026-10-06）
+
+本轮沿用 React Bits 材质机制并适配图鉴主题，覆盖全部 15 张组件卡片、目录与变体链接、页头导航、分类与来源控件、详情工作台、源码表面、设计系统和来源页。来源组件保留原材质；仅调整五个缩略图的取景。
+
+### SOURCE 与有意差异
+
+- 参考 URL：https://reactbits.dev/get-started/index，2026-10-06 实时访问。
+- `.browse-card.css-12as3ye`：普通圆角 16px、padding 6px、border-box、透明 1px 边缘、白色 4% 表面、7% 白色 inset 顶部高光；`.browse-card-media` / `.browse-card-well`：普通圆角 12px、190px 高、overflow hidden。标签区 `.css-iatp15`：12 / 10 / 8px。计算值和内联 CSS 规则在 `artifacts/reactbits-card-reference.json`。
+- 部署 CSS：`https://reactbits.dev/assets/index-DvjHduJd.css`，`.browse-card:hover` 提高表面亮度并加阴影，标题换强调色。后置规则覆盖旧按压缩放，原站最终 `:active` 为 transform none；按部署源码核对。
+- 图鉴沿用 16 / 12px 圆角、6px 内边距和 inset 顶部高光；标签区改为 14 / 10 / 9px，以容纳中文、英文术语和变体信息。增加低对比常驻边缘，使两种主题中来源舞台的边界清楚。
+- 使用自己的中性灰与绿强调色，hover 阴影不带原站紫色。按压 0.985 倍、箭头右上 2px 是有意增加的反馈；200ms 缓动 `cubic-bezier(.23,1,.32,1)`，按压 120ms。
+- 参考站侧栏功能较多，当前保留已有目录功能；目录改成距窗口边缘 16px 的圆角面板，控件普通圆角 9px。
+- `styles.css` 定义全部外壳令牌。暗色卡片实际计算 padding 6px、radius 16px；预览 radius 12px；真实鼠标 hover 后边框 `#4b5159`、表面 `#24272b`、箭头 matrix 位移 `(2,-2)`。
+- `demos/demo.css` 只对 thumbnail 描边文字调整 SVG 居中取景；`demos/motion.js` 缩略图滚动到示例 section 顶部。外壳对共享元素、提示条、输入框调整 iframe 缩放。独立详情仍沿用原演示。
+
+### 主题契约
+
+- `theme.js` 在样式表前读取 `component-atlas-theme`，在初始绘制前恢复保存的主题。首次默认暗黑；只接受 light / dark，未知或无法读取时使用暗黑。
+- 太阳 / 月亮按钮名为「暗黑模式」，`aria-pressed` 表达实际模式，title 表达点击结果，支持 Space / Enter 与可见焦点。
+- localStorage 保存选择；存储受限仍可切换；其他同源标签页的 storage 事件同步外壳。主题切换不重建详情 iframe，已选择的年付等状态保持。
+- 设计系统色板读取当前主题令牌并同步更新；外壳文字、边界、源码、反馈条共用语义令牌。iframe 保留来源主题。
+
+### 本轮验证
+
+- `node tools/verify.mjs`：12 项回归通过，15 类 / 23 变体、14 份脚本语法、86 条本地资源引用、7 个快照哈希和 WOFF2 头通过。新增主题回归覆盖早期恢复、切换保存、存储受限 / 无效值、跨标签页同步。
+- Chromium：双主题分别检查 1440×900、1280×800、1024×768、1280×600；总览均 15 张卡片，1024 宽两列，其余三列，scrollWidth 等于 clientWidth。窄桌面与短窗口实际截图评审，目录可滚动，卡片、文案和分类没有遮挡。
+- 逐项查看全部卡片并调整五个取景；这五个 iframe 均 ready，内部 scrollWidth 等于 clientWidth。
+- 双主题抽查正文、选中目录、分类、卡片文字、主题按钮、变体、详情 tabs、源码与来源链接的前景 / 叠加背景，最低对比度 4.98:1。验证真实卡片 hover、主题按钮 hover 与键盘 2px 焦点。
+- 刷新保持浅色；主题切换前后年付开关均为 true；源码 ArrowLeft 回到预览且焦点正确；设计系统色板更新；背景效果 + Laper 组合显示明确空状态。
+- console error 为空。运行记录在 `artifacts/polish-checks.json`；明暗首屏、暗色完整索引与源码详情截图为同目录 `*-polished.jpg`。
+- 视觉评审：内外圆角、边缘亮度、标签留白和目录层级在两套主题下清楚；来源预览保持自己的背景。正常、窄桌面与短窗口保留纵向滚动。
+- 未实测：其他浏览器、真实系统 reduced-motion 切换、实体设备性能；外壳沿用减少动态效果 CSS，本轮未操作系统设置。手机窄屏按用户要求不在范围内。跨标签同步做了确定性回归，未另开真实双标签联动测试。截图不证明全部动效中间帧或性能。
+
+## 上一版本：Git 初始化后的优化
 
 2026-10-06。已在本目录初始化本地 Git，基线提交 `50a0ecb`；源实验仍保持原 Git 状态。当前图鉴 15 类 / 23 变体，Laper 9 类 / 10 变体，Cromma 10 类 / 13 变体。图鉴仍只面向桌面。
 

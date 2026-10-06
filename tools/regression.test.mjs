@@ -6,6 +6,58 @@ import { expandedRect, springStep, scrollTarget, reelDistance } from '../demos/m
 
 const read = relative => fs.readFileSync(new URL(relative, import.meta.url), 'utf8');
 
+function themeHarness(saved, blocked = false) {
+  const events = {}, windowEvents = {}, values = new Map();
+  const button = { attrs: {}, title: '', setAttribute(key, value) { this.attrs[key] = value; }, addEventListener(name, callback) { events[name] = callback; } };
+  const root = { dataset: { theme: 'dark' } };
+  const document = { documentElement: root, querySelector: () => button, addEventListener(name, callback) { events[name] = callback; }, dispatchEvent() {} };
+  const localStorage = {
+    getItem() { if (blocked) throw new Error('Storage blocked'); return saved; },
+    setItem(key, value) { if (blocked) throw new Error('Storage blocked'); values.set(key, value); },
+  };
+  vm.runInNewContext(read('../theme.js'), { document, localStorage, Event: class {}, window: { addEventListener(name, callback) { windowEvents[name] = callback; } } });
+  return { root, button, events, windowEvents, values };
+}
+
+test('theme is restored before DOM readiness and toggle exposes and persists the actual mode', () => {
+  const page = themeHarness('light');
+  assert.equal(page.root.dataset.theme, 'light');
+  page.events.DOMContentLoaded();
+  assert.equal(page.button.attrs['aria-pressed'], 'false');
+  assert.equal(page.button.title, '切换到暗黑模式');
+  page.events.click();
+  assert.equal(page.root.dataset.theme, 'dark');
+  assert.equal(page.button.attrs['aria-pressed'], 'true');
+  assert.equal(page.values.get('component-atlas-theme'), 'dark');
+  page.events.click();
+  assert.equal(page.root.dataset.theme, 'light');
+  assert.equal(page.values.get('component-atlas-theme'), 'light');
+});
+
+test('theme switching works when storage is blocked and invalid saved modes use the dark default', () => {
+  for (const [saved, blocked] of [['invalid', false], ['light', true]]) {
+    const page = themeHarness(saved, blocked);
+    assert.equal(page.root.dataset.theme, 'dark');
+    page.events.DOMContentLoaded();
+    assert.doesNotThrow(() => page.events.click());
+    assert.equal(page.root.dataset.theme, 'light');
+    assert.equal(page.button.attrs['aria-pressed'], 'false');
+  }
+});
+
+test('theme follows storage changes in other tabs without responding to unrelated keys', () => {
+  const page = themeHarness('dark');
+  page.events.DOMContentLoaded();
+  page.windowEvents.storage({ key: 'unrelated', newValue: 'light' });
+  assert.equal(page.root.dataset.theme, 'dark');
+  page.windowEvents.storage({ key: 'component-atlas-theme', newValue: 'light' });
+  assert.equal(page.root.dataset.theme, 'light');
+  assert.equal(page.button.attrs['aria-pressed'], 'false');
+  page.windowEvents.storage({ key: null, newValue: null });
+  assert.equal(page.root.dataset.theme, 'dark');
+  assert.equal(page.button.attrs['aria-pressed'], 'true');
+});
+
 function cloudHarness(reduced) {
   const uniforms = {}, frames = new Map(), deleted = [];
   let id = 0, time = 0, draws = 0;
