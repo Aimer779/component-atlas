@@ -101,7 +101,9 @@ h1 { font-size: 44px; font-weight: 650; line-height: 1.2; letter-spacing: -.045e
 .gs-portal[data-owner='code-file'] .glide-select__option { font-family: var(--mono); font-size: 12px; }
 .glide-select__option[aria-selected='true'] .glide-select__name { color: var(--accent); }
 .catalog-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-.component-card { display: block; border-radius: var(--radius); padding: 6px; border: 1px solid var(--line-soft); background: var(--surface-raised); overflow: hidden; box-shadow: inset 0 1px var(--highlight); transition: background 200ms var(--ease), border-color 200ms var(--ease), box-shadow 200ms var(--ease), transform 120ms var(--ease); }
+.component-card { position: relative; display: block; border-radius: var(--radius); padding: 6px; border: 1px solid var(--line-soft); background: var(--surface-raised); overflow: hidden; box-shadow: inset 0 1px var(--highlight); transition: background 200ms var(--ease), border-color 200ms var(--ease), box-shadow 200ms var(--ease), transform 120ms var(--ease); }
+/* Keep iframe hit testing below one continuous native link target. */
+.component-card::after { content: ''; position: absolute; inset: 0; z-index: 2; border-radius: inherit; }
 .component-card:hover { border-color: var(--line-hover); background: var(--surface-hover); box-shadow: inset 0 1px var(--highlight), 0 6px 22px var(--shadow); }
 .component-card:active { transform: scale(.985); box-shadow: inset 0 1px var(--highlight); }
 .thumbnail { position: relative; overflow: hidden; height: 190px; border-radius: var(--radius-inner); background: #f4f5f4; }
@@ -123,10 +125,11 @@ h1 { font-size: 44px; font-weight: 650; line-height: 1.2; letter-spacing: -.045e
 .variant-tabs a[aria-current='page'] { color: var(--accent); border-color: var(--accent-line); background: var(--accent-soft); }
 .workspace { border: 1px solid var(--line); border-radius: var(--radius); padding: 6px; background: var(--surface-raised); overflow: hidden; box-shadow: inset 0 1px var(--highlight); }
 .workspace-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 52px; padding: 0 10px; }
-.view-tabs { display: flex; gap: 4px; }
-.view-tabs button { color: var(--muted); font-size: 13px; padding: 5px 13px; border: 1px solid transparent; border-radius: var(--radius-control); transition: background 180ms var(--ease), color 180ms var(--ease); }
-.view-tabs button:hover { color: var(--text); background: var(--surface-hover); }
-.view-tabs button[aria-selected='true'] { color: var(--text); background: var(--surface); border-color: var(--line); box-shadow: inset 0 1px var(--highlight); }
+.segmented-control { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; padding: 3px; border: 1px solid var(--line); border-radius: var(--radius-control); background: var(--surface-panel); }
+.segmented-control button { min-width: 64px; height: 28px; padding: 0 13px; color: var(--muted); font-size: 13px; border-radius: 6px; transition: background 180ms var(--ease), color 180ms var(--ease), box-shadow 180ms var(--ease); }
+.segmented-control button:hover { color: var(--text); background: var(--surface-hover); }
+.segmented-control button[aria-selected='true'] { color: var(--text); background: var(--surface-raised); box-shadow: inset 0 0 0 1px var(--line-soft), 0 1px 3px var(--shadow); }
+.segmented-control button:focus-visible { outline-offset: 1px; }
 .preview-actions { display: flex; gap: 5px; align-items: center; font-size: 13px; color: var(--muted); }
 .preview-actions button, .preview-actions a { padding: 5px 9px; border-radius: 7px; transition: background 180ms var(--ease), color 180ms var(--ease); }
 .preview-actions button:hover, .preview-actions a:hover { color: var(--text); background: var(--surface-hover); }

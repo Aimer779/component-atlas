@@ -3,6 +3,7 @@ import fs from 'node:fs/promises';
 import { chromium, expect } from '@playwright/test';
 import { components } from '../data.js';
 import { startServer, trackAnimationWork, frameWork } from './browser-support.mjs';
+import { checkNavigation } from './navigation-checks.mjs';
 
 const server = await startServer(18192);
 const browser = await chromium.launch({ headless: true });
@@ -92,12 +93,14 @@ try {
     }
   });
 
+  await check('physical card navigation and segmented preview/code controls', () => checkNavigation(page, server.url));
+
   await check('hidden code panels stop cloud, field and reel scheduling without replacing the frame', async () => {
     for (const [component, variant] of [['morph-cloud', 'cloud-hero'], ['morph-cloud', 'cloud-footer'], ['fractal-field', 'field-animated'], ['script-reel', 'reel-laper']]) {
       const frame = await detail(component, variant);
       await expect.poll(() => frame.evaluate(() => window.__atlasMetrics.pending.size)).toBe(1);
       const handle = await page.locator('#demo-frame').elementHandle();
-      await page.getByRole('tab', { name: '源码', exact: true }).click();
+      await page.getByRole('tab', { name: '代码', exact: true }).click();
       await expect.poll(() => frame.locator('body').getAttribute('data-active')).toBe('false');
       assert.equal(await frame.evaluate(() => window.__atlasMetrics.pending.size), 0, variant);
       await page.getByRole('tab', { name: '预览', exact: true }).click();
@@ -110,7 +113,7 @@ try {
     const frame = await detail('script-reel', 'reel-laper');
     await frame.getByRole('button', { name: '暂停循环', exact: true }).click();
     assert.equal(await frame.evaluate(() => window.__atlasMetrics.pending.size), 0);
-    await page.getByRole('tab', { name: '源码', exact: true }).click();
+    await page.getByRole('tab', { name: '代码', exact: true }).click();
     await page.getByRole('tab', { name: '预览', exact: true }).click();
     await page.evaluate(() => {
       Object.defineProperty(document, 'hidden', { configurable: true, value: true });
@@ -123,7 +126,7 @@ try {
     await frame.getByRole('button', { name: '继续循环', exact: true }).click();
     await expect.poll(() => frame.evaluate(() => window.__atlasMetrics.pending.size)).toBe(1);
     for (let index = 0; index < 5; index++) {
-      await page.getByRole('tab', { name: '源码', exact: true }).click();
+      await page.getByRole('tab', { name: '代码', exact: true }).click();
       await page.getByRole('tab', { name: '预览', exact: true }).click();
     }
     await expect.poll(() => frame.evaluate(() => window.__atlasMetrics.pending.size)).toBe(1);
@@ -146,7 +149,7 @@ try {
     await expect.poll(() => frame.locator('[data-scale]').textContent()).toBe('0.960');
     await expect.poll(() => frame.evaluate(() => window.__atlasMetrics.pending.size)).toBe(0);
     await scroll(true);
-    await page.getByRole('tab', { name: '源码', exact: true }).click();
+    await page.getByRole('tab', { name: '代码', exact: true }).click();
     await expect.poll(() => frame.locator('body').getAttribute('data-active')).toBe('false');
     assert.equal(await frame.evaluate(() => window.__atlasMetrics.pending.size), 0);
     await page.getByRole('tab', { name: '预览', exact: true }).click();
@@ -159,7 +162,7 @@ try {
     const frame = await detail('billing', 'billing-laper');
     await frame.getByRole('switch').click();
     const selected = await frame.getByRole('switch').getAttribute('aria-checked');
-    await page.getByRole('tab', { name: '源码', exact: true }).click();
+    await page.getByRole('tab', { name: '代码', exact: true }).click();
     await expect.poll(() => page.getByRole('button', { name: '复制源码', exact: true }).isEnabled()).toBe(true);
     await page.locator('[data-theme-toggle]').click();
     await page.getByRole('tab', { name: '预览', exact: true }).click();

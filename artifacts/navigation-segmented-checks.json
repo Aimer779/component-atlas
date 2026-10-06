@@ -1,0 +1,629 @@
+{
+  "visits": [
+    {
+      "href": "#/component/buttons/button-cromma-tag",
+      "area": "thumbnail",
+      "query": ""
+    },
+    {
+      "href": "#/component/buttons/button-cromma-tag",
+      "area": "title",
+      "query": ""
+    },
+    {
+      "href": "#/component/buttons/button-cromma-tag",
+      "area": "edge",
+      "query": ""
+    },
+    {
+      "href": "#/component/language-menu/menu-laper",
+      "area": "thumbnail",
+      "query": ""
+    },
+    {
+      "href": "#/component/language-menu/menu-laper",
+      "area": "title",
+      "query": ""
+    },
+    {
+      "href": "#/component/language-menu/menu-laper",
+      "area": "edge",
+      "query": ""
+    },
+    {
+      "href": "#/component/billing/billing-laper",
+      "area": "thumbnail",
+      "query": ""
+    },
+    {
+      "href": "#/component/billing/billing-laper",
+      "area": "title",
+      "query": ""
+    },
+    {
+      "href": "#/component/billing/billing-laper",
+      "area": "edge",
+      "query": ""
+    },
+    {
+      "href": "#/component/prompt/prompt-cromma",
+      "area": "thumbnail",
+      "query": ""
+    },
+    {
+      "href": "#/component/prompt/prompt-cromma",
+      "area": "title",
+      "query": ""
+    },
+    {
+      "href": "#/component/prompt/prompt-cromma",
+      "area": "edge",
+      "query": ""
+    },
+    {
+      "href": "#/component/accordion/accordion-cromma",
+      "area": "thumbnail",
+      "query": ""
+    },
+    {
+      "href": "#/component/accordion/accordion-cromma",
+      "area": "title",
+      "query": ""
+    },
+    {
+      "href": "#/component/accordion/accordion-cromma",
+      "area": "edge",
+      "query": ""
+    },
+    {
+      "href": "#/component/shared-viewer/viewer-laper",
+      "area": "thumbnail",
+      "query": ""
+    },
+    {
+      "href": "#/component/shared-viewer/viewer-laper",
+      "area": "title",
+      "query": ""
+    },
+    {
+      "href": "#/component/shared-viewer/viewer-laper",
+      "area": "edge",
+      "query": ""
+    },
+    {
+      "href": "#/component/material-toast/toast-cromma",
+      "area": "thumbnail",
+      "query": ""
+    },
+    {
+      "href": "#/component/material-toast/toast-cromma",
+      "area": "title",
+      "query": ""
+    },
+    {
+      "href": "#/component/material-toast/toast-cromma",
+      "area": "edge",
+      "query": ""
+    },
+    {
+      "href": "#/component/pricing-card/card-laper",
+      "area": "thumbnail",
+      "query": ""
+    },
+    {
+      "href": "#/component/pricing-card/card-laper",
+      "area": "title",
+      "query": ""
+    },
+    {
+      "href": "#/component/pricing-card/card-laper",
+      "area": "edge",
+      "query": ""
+    },
+    {
+      "href": "#/component/aurora/aurora-cromma",
+      "area": "thumbnail",
+      "query": ""
+    },
+    {
+      "href": "#/component/aurora/aurora-cromma",
+      "area": "title",
+      "query": ""
+    },
+    {
+      "href": "#/component/aurora/aurora-cromma",
+      "area": "edge",
+      "query": ""
+    },
+    {
+      "href": "#/component/fractal-field/field-static",
+      "area": "thumbnail",
+      "query": ""
+    },
+    {
+      "href": "#/component/fractal-field/field-static",
+      "area": "title",
+      "query": ""
+    },
+    {
+      "href": "#/component/fractal-field/field-static",
+      "area": "edge",
+      "query": ""
+    },
+    {
+      "href": "#/component/morph-cloud/cloud-hero",
+      "area": "thumbnail",
+      "query": ""
+    },
+    {
+      "href": "#/component/morph-cloud/cloud-hero",
+      "area": "title",
+      "query": ""
+    },
+    {
+      "href": "#/component/morph-cloud/cloud-hero",
+      "area": "edge",
+      "query": ""
+    },
+    {
+      "href": "#/component/reveal/reveal-cromma",
+      "area": "thumbnail",
+      "query": ""
+    },
+    {
+      "href": "#/component/reveal/reveal-cromma",
+      "area": "title",
+      "query": ""
+    },
+    {
+      "href": "#/component/reveal/reveal-cromma",
+      "area": "edge",
+      "query": ""
+    },
+    {
+      "href": "#/component/script-reel/reel-laper",
+      "area": "thumbnail",
+      "query": ""
+    },
+    {
+      "href": "#/component/script-reel/reel-laper",
+      "area": "title",
+      "query": ""
+    },
+    {
+      "href": "#/component/script-reel/reel-laper",
+      "area": "edge",
+      "query": ""
+    },
+    {
+      "href": "#/component/scroll-spring/spring-laper",
+      "area": "thumbnail",
+      "query": ""
+    },
+    {
+      "href": "#/component/scroll-spring/spring-laper",
+      "area": "title",
+      "query": ""
+    },
+    {
+      "href": "#/component/scroll-spring/spring-laper",
+      "area": "edge",
+      "query": ""
+    },
+    {
+      "href": "#/component/outline-type/outline-laper",
+      "area": "thumbnail",
+      "query": ""
+    },
+    {
+      "href": "#/component/outline-type/outline-laper",
+      "area": "title",
+      "query": ""
+    },
+    {
+      "href": "#/component/outline-type/outline-laper",
+      "area": "edge",
+      "query": ""
+    },
+    {
+      "href": "#/component/buttons/button-cromma-tag",
+      "area": "keyboard",
+      "query": ""
+    },
+    {
+      "href": "#/component/buttons/button-laper-primary",
+      "area": "thumbnail",
+      "query": "?project=Laper"
+    },
+    {
+      "href": "#/component/language-menu/menu-laper",
+      "area": "thumbnail",
+      "query": "?project=Laper"
+    },
+    {
+      "href": "#/component/billing/billing-laper",
+      "area": "thumbnail",
+      "query": "?project=Laper"
+    },
+    {
+      "href": "#/component/shared-viewer/viewer-laper",
+      "area": "thumbnail",
+      "query": "?project=Laper"
+    },
+    {
+      "href": "#/component/pricing-card/card-laper",
+      "area": "thumbnail",
+      "query": "?project=Laper"
+    },
+    {
+      "href": "#/component/reveal/reveal-laper",
+      "area": "thumbnail",
+      "query": "?project=Laper"
+    },
+    {
+      "href": "#/component/script-reel/reel-laper",
+      "area": "thumbnail",
+      "query": "?project=Laper"
+    },
+    {
+      "href": "#/component/scroll-spring/spring-laper",
+      "area": "thumbnail",
+      "query": "?project=Laper"
+    },
+    {
+      "href": "#/component/outline-type/outline-laper",
+      "area": "thumbnail",
+      "query": "?project=Laper"
+    },
+    {
+      "href": "#/component/buttons/button-cromma-tag",
+      "area": "thumbnail",
+      "query": "?project=Cromma"
+    },
+    {
+      "href": "#/component/language-menu/menu-cromma",
+      "area": "thumbnail",
+      "query": "?project=Cromma"
+    },
+    {
+      "href": "#/component/prompt/prompt-cromma",
+      "area": "thumbnail",
+      "query": "?project=Cromma"
+    },
+    {
+      "href": "#/component/accordion/accordion-cromma",
+      "area": "thumbnail",
+      "query": "?project=Cromma"
+    },
+    {
+      "href": "#/component/material-toast/toast-cromma",
+      "area": "thumbnail",
+      "query": "?project=Cromma"
+    },
+    {
+      "href": "#/component/pricing-card/card-cromma",
+      "area": "thumbnail",
+      "query": "?project=Cromma"
+    },
+    {
+      "href": "#/component/aurora/aurora-cromma",
+      "area": "thumbnail",
+      "query": "?project=Cromma"
+    },
+    {
+      "href": "#/component/fractal-field/field-static",
+      "area": "thumbnail",
+      "query": "?project=Cromma"
+    },
+    {
+      "href": "#/component/morph-cloud/cloud-hero",
+      "area": "thumbnail",
+      "query": "?project=Cromma"
+    },
+    {
+      "href": "#/component/reveal/reveal-cromma",
+      "area": "thumbnail",
+      "query": "?project=Cromma"
+    }
+  ],
+  "states": [
+    {
+      "width": 1600,
+      "height": 36,
+      "theme": "light",
+      "selection": "preview",
+      "widths": [
+        64,
+        64
+      ],
+      "background": "rgb(245, 247, 245)",
+      "tabs": [
+        {
+          "selected": "true",
+          "color": "rgb(32, 38, 32)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "selected": "false",
+          "color": "rgb(101, 112, 103)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1600,
+      "height": 36,
+      "theme": "light",
+      "selection": "code",
+      "widths": [
+        64,
+        64
+      ],
+      "background": "rgb(245, 247, 245)",
+      "tabs": [
+        {
+          "selected": "false",
+          "color": "rgb(101, 112, 103)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selected": "true",
+          "color": "rgb(32, 38, 32)",
+          "background": "rgb(255, 255, 255)"
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1600,
+      "height": 36,
+      "theme": "dark",
+      "selection": "preview",
+      "widths": [
+        64,
+        64
+      ],
+      "background": "rgb(21, 23, 26)",
+      "tabs": [
+        {
+          "selected": "true",
+          "color": "rgb(241, 243, 245)",
+          "background": "rgb(27, 29, 32)"
+        },
+        {
+          "selected": "false",
+          "color": "rgb(157, 165, 175)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1600,
+      "height": 36,
+      "theme": "dark",
+      "selection": "code",
+      "widths": [
+        64,
+        64
+      ],
+      "background": "rgb(21, 23, 26)",
+      "tabs": [
+        {
+          "selected": "false",
+          "color": "rgb(157, 165, 175)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selected": "true",
+          "color": "rgb(241, 243, 245)",
+          "background": "rgb(27, 29, 32)"
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "height": 36,
+      "theme": "light",
+      "selection": "preview",
+      "widths": [
+        64,
+        64
+      ],
+      "background": "rgb(245, 247, 245)",
+      "tabs": [
+        {
+          "selected": "true",
+          "color": "rgb(32, 38, 32)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "selected": "false",
+          "color": "rgb(101, 112, 103)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "height": 36,
+      "theme": "light",
+      "selection": "code",
+      "widths": [
+        64,
+        64
+      ],
+      "background": "rgb(245, 247, 245)",
+      "tabs": [
+        {
+          "selected": "false",
+          "color": "rgb(101, 112, 103)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selected": "true",
+          "color": "rgb(32, 38, 32)",
+          "background": "rgb(255, 255, 255)"
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "height": 36,
+      "theme": "dark",
+      "selection": "preview",
+      "widths": [
+        64,
+        64
+      ],
+      "background": "rgb(21, 23, 26)",
+      "tabs": [
+        {
+          "selected": "true",
+          "color": "rgb(241, 243, 245)",
+          "background": "rgb(27, 29, 32)"
+        },
+        {
+          "selected": "false",
+          "color": "rgb(157, 165, 175)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "height": 36,
+      "theme": "dark",
+      "selection": "code",
+      "widths": [
+        64,
+        64
+      ],
+      "background": "rgb(21, 23, 26)",
+      "tabs": [
+        {
+          "selected": "false",
+          "color": "rgb(157, 165, 175)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selected": "true",
+          "color": "rgb(241, 243, 245)",
+          "background": "rgb(27, 29, 32)"
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "height": 36,
+      "theme": "light",
+      "selection": "preview",
+      "widths": [
+        64,
+        64
+      ],
+      "background": "rgb(245, 247, 245)",
+      "tabs": [
+        {
+          "selected": "true",
+          "color": "rgb(32, 38, 32)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "selected": "false",
+          "color": "rgb(101, 112, 103)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "height": 36,
+      "theme": "light",
+      "selection": "code",
+      "widths": [
+        64,
+        64
+      ],
+      "background": "rgb(245, 247, 245)",
+      "tabs": [
+        {
+          "selected": "false",
+          "color": "rgb(101, 112, 103)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selected": "true",
+          "color": "rgb(32, 38, 32)",
+          "background": "rgb(255, 255, 255)"
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "height": 36,
+      "theme": "dark",
+      "selection": "preview",
+      "widths": [
+        64,
+        64
+      ],
+      "background": "rgb(21, 23, 26)",
+      "tabs": [
+        {
+          "selected": "true",
+          "color": "rgb(241, 243, 245)",
+          "background": "rgb(27, 29, 32)"
+        },
+        {
+          "selected": "false",
+          "color": "rgb(157, 165, 175)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "height": 36,
+      "theme": "dark",
+      "selection": "code",
+      "widths": [
+        64,
+        64
+      ],
+      "background": "rgb(21, 23, 26)",
+      "tabs": [
+        {
+          "selected": "false",
+          "color": "rgb(157, 165, 175)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selected": "true",
+          "color": "rgb(241, 243, 245)",
+          "background": "rgb(27, 29, 32)"
+        }
+      ],
+      "overflow": false
+    }
+  ],
+  "checks": [
+    "physical thumbnail/title/edge clicks",
+    "keyboard activation",
+    "back/forward/reload",
+    "source-filtered destinations",
+    "iframe hit-test protection",
+    "mouse and directional segmented selection",
+    "desktop themes and overflow",
+    "reduced-motion emulation"
+  ]
+}

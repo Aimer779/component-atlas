@@ -1,6 +1,7 @@
 {
   "checks": [
     "catalog loads only nearby demos and every card can subsequently load",
+    "physical card navigation and segmented preview/code controls",
     "hidden code panels stop cloud, field and reel scheduling without replacing the frame",
     "manual reel pause survives code-panel and document-visibility changes",
     "spring stops after convergence and restarts for both scroll directions and hidden-panel recovery",
@@ -23,7 +24,7 @@
     },
     {
       "url": "http://127.0.0.1:18192/demos/button-laper-primary.html?thumbnail=1&managed=1",
-      "active": "false",
+      "active": "true",
       "ready": "true",
       "callbacks": 0,
       "draws": 0,
