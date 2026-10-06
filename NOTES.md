@@ -1,5 +1,31 @@
 # 组件图鉴 · 提取与验收
 
+## 2026-10-06 · 图标描边入口与有限扫光
+
+### 范围与依据
+
+- 用户标注「返回组件图鉴」与「打开 DESIGN.md」。要求后续不再使用下划线加箭头。返回、文档、来源与材质详情入口共用 `ui/action-link.js`。清理旧 `system-text-link` 与 `doc-link` 样式。来源预览的原始组件保持原样。
+- 查看 [React Bits Specular Button](https://reactbits.dev/components/specular-button) 与 [Glare Hover](https://reactbits.dev/animations/glare-hover)。前者依赖 OGL 与持续 RAF 渲染。此处采用后者的 CSS 背景位置过渡。
+- 原站证据为 `artifacts/action-link-reference.json`。记录真实 DOM，以及静止、悬浮的盒模型、填充、边框、字体、层级、形状与过渡值。官方 CSS 固定在已有提交 `ca44b3f9ee180676a06d7de8ec6bea84cddff85b`，存入 `vendor/react-bits/GlareHover.css` 并纳入哈希检查。
+- React Bits 保留 MIT + Commons Clause 原声明。仅在图鉴应用内使用。新增 Lucide 的 file-text / book-open 图标，保留 ISC / MIT 许可。三条源资源均匿名返回 HTTP 200；CSS 为 text/plain，图标为 image/svg+xml。
+
+### 当前实现与有意差异
+
+- 目标是机制适配，不是逐值复刻。原站预览为 400×300px，20px 圆角，白色 0.3 扫光，300% 背景尺寸，800ms 进入与退出。本地控件高 36px，9px 圆角，16px 图标，13px 字号。沿用图鉴主题令牌。
+- 保留 -45deg 扫光及背景位置 -100% → 100% 的机制。背景尺寸改为 250%，扫光色使用强调色的 14% 混合，时间缩短为 500ms。退出即时复位，下一次悬浮重新扫过。没有循环动画。
+- 使用原生 a 元素。内部链接保留 hash 导航；文件与外部链接使用新标签页。可访问名称说明新标签页。图标与扫光层均为装饰。扫光层禁用 pointer-events。
+- CSS 的位置、裁切与层级通过 utility class 指定。文本层位于扫光上方。悬浮改变表面与边框；键盘聚焦显示轮廓；按下缩放到 0.98。减少动态效果时关闭扫光与缩放。关闭折叠区内的链接不执行主题过渡。
+- 侧栏入口与文档入口共用同一变体。侧栏仅增加占满可用宽度的布局约束。没有新增生产依赖、常驻 JS 动画或 WebGL 实例。
+
+### 验证记录
+
+- 完整 `pnpm verify` 通过。34 个 Node 回归、15 组浏览器检查通过。23 个变体的 73 个样式状态、2329 个节点仍与来源一致。没有页面错误或运行时外部请求。字体总量保持 276,048 字节。
+- 浏览器回归覆盖原生返回、三系统文档实际打开、双主题、键盘、短窗口、减少动态效果及旧样式移除。结果写入 `artifacts/action-link-checks.json`。
+- 首次完整回归在关闭的折叠区内等待停滞。Chromium 留下过渡的 finished 等待，即使过渡已结束。关闭隐藏链接的过渡，并让检查只等待正在运行的可见过渡。重跑完整检查后通过。
+- 实际内置浏览器检查亮暗主题与两个入口的计算值。最新验收图为 `artifacts/action-links-acceptance.png` 及暗色版本。用户页面保留 Laper 的 DESIGN.md 章节。1600×900、1280×720、1024×600 均无横滚，短窗口的底部入口可达。
+- 视觉检查还覆盖来源页、键盘轮廓，以及自然录制 `artifacts/action-links.webm` 的悬浮、离开、再进入与聚焦过程。逐帧核对亮暗扫光，没有文本跳位、遮挡或控件尺寸变化。自动通过与视觉判断分别记录。
+- 原站与本地差异为以上明确适配。未测量实体设备耗电与其它浏览器。
+
 ## 2026-10-06 · 详细规范与 Google Stitch DESIGN.md
 
 用户确认「谷歌标准」指 Google Stitch 的文档格式。本轮不改成 Material Design 3 的视觉默认值。

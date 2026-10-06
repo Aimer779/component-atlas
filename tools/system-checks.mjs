@@ -11,7 +11,8 @@ export async function checkSystem(browser, url) {
   async function settle() {
     await page.evaluate(async () => {
       await document.fonts.ready;
-      await Promise.all(document.getAnimations().filter(a => Number.isFinite(a.effect.getComputedTiming().endTime)).map(a => a.finished.catch(() => {})));
+      // Chromium can retain an unresolved finished promise after a disclosure hides a transition.
+      await Promise.all(document.getAnimations().filter(a => a.playState === 'running' && a.effect.target?.getClientRects().length && Number.isFinite(a.effect.getComputedTiming().endTime)).map(a => a.finished.catch(() => {})));
     });
   }
   async function visit(id, chapter = 'overview') {
@@ -184,7 +185,7 @@ export async function checkSystem(browser, url) {
     await expect(systemSelect).toBeFocused();
     await expect(page.locator('.gs-portal')).toHaveCount(0);
     await systemSelect.click();
-    await page.getByRole('link', { name: '返回组件图鉴 →' }).click();
+    await page.getByRole('link', { name: '返回组件图鉴', exact: true }).click();
     await expect(page.locator('.category-segments button')).toHaveCount(5);
     await expect(page.locator('[data-system-chapter]')).toHaveCount(0);
     await expect(page.locator('[data-owner="system-select"]')).toHaveCount(0);

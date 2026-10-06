@@ -51,8 +51,6 @@
 .font-summary { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; margin: 24px 0 12px; }
 .font-summary h3 { font-size: 18px; font-weight: 500; margin: 6px 0; }
 .font-summary p { font-size: 13px; color: var(--muted); }
-.system-text-link { display: inline-block; color: var(--secondary); font-size: 12px; text-decoration: underline; text-underline-offset: 4px; }
-.system-text-link:hover { color: var(--accent); }
 .geometry-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 48px; }
 .geometry-grid h3 span { color: var(--muted); font-size: 12px; font-weight: 400; margin-left: 8px; }
 .geometry-grid .system-note { margin: 8px 0 16px; }
@@ -94,7 +92,6 @@
 .system-method { margin-top: 32px; font-size: 13px; color: var(--muted); }
 .system-method p { margin: 12px 0; }
 .system-resource-links { display: flex; flex-wrap: wrap; gap: 16px; font-size: 12px; }
-.system-resource-links a { text-decoration: underline; text-underline-offset: 4px; }
 .system-table-wrap { width: 100%; }
 .overflow-x-auto { overflow-x: auto; }
 .system-table { width: 100%; border-collapse: collapse; font-size: 13px; }
@@ -129,7 +126,6 @@
 .system-chapters { padding-top: 12px; }
 .system-chapters a + a { margin-top: 4px; }
 .sidebar .system-chapters a[aria-current='location'] { color: var(--accent); background: var(--accent-soft); border-color: var(--accent-line); }
-.sidebar .system-back { margin-top: 12px; border-top: 1px solid var(--line-soft); border-radius: 0; font-size: 12px; flex-shrink: 0; }
 @media (max-width: 1180px) {
   .system-description { margin-top: 24px; }
   .type-sample { grid-template-columns: minmax(0,1fr); }

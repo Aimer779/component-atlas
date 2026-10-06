@@ -1,0 +1,58 @@
+/* Sweep mechanism adapted from React Bits Glare Hover; vendor notice retained. */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.isolate { isolation: isolate; }
+.overflow-hidden { overflow: hidden; }
+.inset-0 { inset: 0; }
+.z-0 { z-index: 0; }
+.z-10 { z-index: 10; }
+.pointer-events-none { pointer-events: none; }
+.action-links { display: flex; flex-wrap: wrap; gap: 12px; }
+.action-link, .sidebar a.action-link, .provenance a.action-link, .source-row a.action-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 7px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-control);
+  corner-shape: round;
+  appearance: none;
+  background: var(--surface-panel);
+  color: var(--secondary);
+  font: 500 13px/20px var(--font);
+  text-decoration: none;
+  box-shadow: inset 0 1px var(--highlight);
+  vertical-align: middle;
+  transition: background-color 180ms var(--ease), border-color 180ms var(--ease), color 180ms var(--ease), transform 120ms var(--ease);
+}
+.action-link-content { display: inline-flex; align-items: center; gap: 8px; }
+.action-link .ui-icon { width: 16px; height: 16px; flex-shrink: 0; }
+.action-link-glare {
+  border-radius: inherit;
+  background-image: linear-gradient(-45deg, transparent 60%, color-mix(in srgb, var(--accent) 14%, transparent) 70%, transparent 100%);
+  background-size: 250% 250%;
+  background-repeat: no-repeat;
+  background-position: -100% -100%;
+  transition: none;
+}
+.action-link:hover, .action-link:focus-visible, .sidebar a.action-link:hover, .source-row a.action-link:hover {
+  background: var(--surface-hover);
+  border-color: var(--line-hover);
+  color: var(--text);
+}
+.action-link:is(:hover, :focus-visible) .action-link-glare {
+  background-position: 100% 100%;
+  transition: background-position 500ms ease;
+}
+.action-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.action-link:active { transform: scale(.98); }
+.action-link[hidden] { display: none; }
+/* Closed disclosures do not paint their links; avoid invisible theme transitions. */
+details:not([open]) .action-link { transition: none; }
+.sidebar a.system-back.action-link { width: 100%; margin-top: 12px; flex-shrink: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .action-link, .sidebar a.action-link, .provenance a.action-link, .source-row a.action-link { transition: none; }
+  .action-link:active { transform: none; }
+  .action-link-glare { display: none; }
+}

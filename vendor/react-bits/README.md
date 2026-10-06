@@ -5,7 +5,10 @@
 - `GlideSelect.jsx` / `GlideSelect.css`：官方 Glide Select 原文件。CSS 直接用于图鉴外壳；JSX 保留作为对照，不参与浏览器运行。
 - `PreviewSelect.jsx`：官网下拉通过 portal 避免被工作台裁切的源码依据。
 - `sidebar.css`：官网文档导航的间距、文本 hover 及静止容器依据；不整体加载，避免覆盖图鉴自己的布局。
-- `source.json`：原路径、提交与字节哈希；完整检查会验证这五份源文件未变化。
+- `GlareHover.css`：官方扫光源码对照。`ui/action-link.css` 沿用背景位置过渡，适配图鉴主题。
+- `source.json`：原路径、提交与字节哈希；完整检查会验证这六份源文件未变化。
 - `LICENSE.md`：原始 MIT + Commons Clause 许可与 David Haz 版权声明。
 
 `../../ui/glide-select.js` 是适配当前 HTML/JS 工程的 DOM 实现，沿用官方 DOM 层次、选项高亮、旋转箭头、键盘与按住拖动选择逻辑；菜单 portal 借鉴 PreviewSelect。没有引入 React 或图标依赖。主题、菜单定位与资源生命周期的差异写在 `../../NOTES.md`。
+
+`../../ui/action-link.js` 使用原生链接语义。扫光只在悬浮或键盘聚焦时运行 500ms。减少动态效果时隐藏扫光层。没有常驻 JS 动画或 WebGL。许可沿用本目录声明；本项目在图鉴应用内使用，不将组件作为单独产品分发。

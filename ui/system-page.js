@@ -4,6 +4,7 @@ import { mountPreviews } from './previews.js';
 import { mountGlideSelect } from './glide-select.js';
 import { fontFamilies } from './system-details.js';
 import { createDesignMarkdown, documentPath, stitchReference } from './design-document.js';
+import { actionLink } from './action-link.js';
 
 const escape = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 const copy = (value, label = '复制', className = 'system-copy') => `<button type="button" class="${className}" data-copy-value="${escape(value)}" data-state="idle"><span data-copy-label aria-live="polite">${label}</span></button>`;
@@ -22,7 +23,7 @@ function palette(system) {
 function typography(system) {
   return `<p class="system-note">${system.typeNote}</p><div class="type-specimens">${system.types.map(([role, size, weight, height, tracking, family]) => `<div class="type-row"><div class="specimen-meta"><strong>${role}</strong><code>${size}px · ${weight} · ${height}</code></div><div class="type-sample" data-family="${family}" style="--sample-size:${size}px;--sample-weight:${weight};--sample-leading:${height};--sample-tracking:${tracking}"><span lang="zh-CN">设计让细节可见</span><span lang="en">Design in detail</span></div><div class="type-properties"><span>${fontFamilies[family]}</span><code>行高 ${Number((size * height).toFixed(3))}px · 字距 ${tracking}</code></div></div>`).join('')}</div>
     <div class="font-summary">${system.fonts.map(([role, name, note]) => `<div><span class="system-label">${role}</span><h3>${name}</h3><p>${note}</p></div>`).join('')}</div>
-    <a class="system-text-link" href="${system.id === 'atlas' ? 'assets/fonts/SOURCES.md' : 'assets/SOURCES.md'}" target="_blank" rel="noopener">字体来源与许可 ↗</a>`;
+    ${actionLink(system.id === 'atlas' ? 'assets/fonts/SOURCES.md' : 'assets/SOURCES.md', '字体来源与许可', 'book-open', { external: true })}`;
 }
 
 function geometry(system) {
@@ -33,7 +34,7 @@ function geometry(system) {
 
 function material(system) {
   if (system.id === 'atlas') return `<p class="system-note">细边缘与顶部高光区分控件表面。</p><div class="shell-material"><div class="material-stage"><button type="button" class="copy-button" data-copy-value="--radius-control: 9px;" data-state="idle"><span data-copy-label aria-live="polite">复制参数</span></button></div><div><h3>复制控件</h3><p>悬浮、按下与成功反馈共用现有控件。</p><code>36px 高 · 9px 圆角</code></div></div>`;
-  return `<p class="system-note">悬浮或按下查看材质变化。预览沿用来源样式。</p><div class="material-grid">${system.material.map(([name, variant, note]) => `<div class="material-item"><div class="material-stage"><iframe title="${system.name} ${name}材质预览" data-src="demos/${variant}.html?managed=1"></iframe></div><h3>${name}</h3><p>${note}</p><a class="system-text-link" href="#/component/buttons/${variant}">查看组件与源码 →</a></div>`).join('')}</div>`;
+  return `<p class="system-note">悬浮或按下查看材质变化。预览沿用来源样式。</p><div class="material-grid">${system.material.map(([name, variant, note]) => `<div class="material-item"><div class="material-stage"><iframe title="${system.name} ${name}材质预览" data-src="demos/${variant}.html?managed=1"></iframe></div><h3>${name}</h3><p>${note}</p>${actionLink(`#/component/buttons/${variant}`, '查看组件与源码', 'code-xml')}</div>`).join('')}</div>`;
 }
 
 function layout(system) {
@@ -58,7 +59,7 @@ function componentRules(system) {
 const documentButton = `<button type="button" class="copy-button system-document-copy" data-document-copy data-state="idle"><span class="copy-symbol" aria-hidden="true"><svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><svg class="copy-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg></span><span data-copy-label aria-live="polite">复制 DESIGN.md</span></button>`;
 
 function documentPreview(system) {
-  return `<p class="system-note">完整文档包含 YAML 元数据与六个主体章节。</p><div class="design-document-meta"><strong>${system.name} · ${system.theme === 'light' ? '浅色' : '暗黑'}</strong><a class="system-text-link" data-document-link href="${documentPath(system)}" target="_blank" rel="noopener">打开 DESIGN.md ↗</a></div><textarea class="design-document-text" aria-label="完整 DESIGN.md 文档" readonly spellcheck="false">${escape(createDesignMarkdown(system))}</textarea><p class="system-note">依据 Google Stitch 的源码提取文档约定。尚未连接或导入 Stitch 项目。</p><a class="system-text-link" href="${stitchReference}" target="_blank" rel="noopener">Google 官方文档格式 ↗</a>`;
+  return `<p class="system-note">完整文档包含 YAML 元数据与六个主体章节。</p><div class="design-document-meta"><strong>${system.name} · ${system.theme === 'light' ? '浅色' : '暗黑'}</strong>${actionLink(documentPath(system), '打开 DESIGN.md', 'file-text', { external: true, document: true })}</div><textarea class="design-document-text" aria-label="完整 DESIGN.md 文档" readonly spellcheck="false">${escape(createDesignMarkdown(system))}</textarea><p class="system-note">依据 Google Stitch 的源码提取文档约定。尚未连接或导入 Stitch 项目。</p>${actionLink(stitchReference, 'Google 官方文档格式', 'book-open', { external: true })}`;
 }
 
 function motions(system) {
@@ -66,7 +67,7 @@ function motions(system) {
 }
 
 function guidelines(system) {
-  return `<div class="guideline-grid"><div><h3>建议采用</h3><ul>${system.do.map(text => `<li>${text}</li>`).join('')}</ul></div><div><h3>避免使用</h3><ul>${system.avoid.map(text => `<li>${text}</li>`).join('')}</ul></div></div><div class="system-generation-notes"><h3>Stitch 生成提示</h3><ol>${system.prompts.map(text => `<li>${text}</li>`).join('')}</ol></div><details class="system-method"><summary>规范的组织与复用</summary><p>参考值 → 语义角色 → 组件角色。</p><p>来源规范以本地提取版本为准。接入产品前核实依赖与素材许可。</p><div class="system-resource-links"><a href="#/sources">提取来源 →</a><a href="https://styles.refero.design/style/12255b63-e506-4bc1-a4cd-d05487de32f3" target="_blank" rel="noopener">展示参考 · Refero ↗</a></div></details>`;
+  return `<div class="guideline-grid"><div><h3>建议采用</h3><ul>${system.do.map(text => `<li>${text}</li>`).join('')}</ul></div><div><h3>避免使用</h3><ul>${system.avoid.map(text => `<li>${text}</li>`).join('')}</ul></div></div><div class="system-generation-notes"><h3>Stitch 生成提示</h3><ol>${system.prompts.map(text => `<li>${text}</li>`).join('')}</ol></div><details class="system-method"><summary>规范的组织与复用</summary><p>参考值 → 语义角色 → 组件角色。</p><p>来源规范以本地提取版本为准。接入产品前核实依赖与素材许可。</p><div class="system-resource-links">${actionLink('#/sources', '提取来源', 'code-xml')}${actionLink('https://styles.refero.design/style/12255b63-e506-4bc1-a4cd-d05487de32f3', '展示参考 · Refero', 'book-open', { external: true })}</div></details>`;
 }
 
 /** Mounts one selected system; theme updates keep the specimens and preview instances. */
@@ -83,7 +84,7 @@ export function mountSystemPage(main, sidebar, { id, notify, onSwitch }) {
     ${section('guidelines', '使用原则', 'Guidelines', guidelines(system))}
     ${section('document', 'DESIGN.md', 'Google Stitch format', documentPreview(system))}</div>`;
   sidebar.setAttribute('aria-label', '设计系统目录');
-  sidebar.innerHTML = `<div class="sidebar-top system-sidebar-title"><strong>设计系统</strong><div id="system-select" class="system-select"></div></div><nav class="sidebar-list system-chapters" aria-label="设计系统章节">${chapters.map(([chapter, name]) => `<a href="${systemUrl(system.id, chapter)}" data-system-chapter="${chapter}">${name}</a>`).join('')}</nav><a class="system-back" href="#/catalog">返回组件图鉴 →</a>`;
+  sidebar.innerHTML = `<div class="sidebar-top system-sidebar-title"><strong>设计系统</strong><div id="system-select" class="system-select"></div></div><nav class="sidebar-list system-chapters" aria-label="设计系统章节">${chapters.map(([chapter, name]) => `<a href="${systemUrl(system.id, chapter)}" data-system-chapter="${chapter}">${name}</a>`).join('')}</nav>${actionLink('#/catalog', '返回组件图鉴', 'layout-grid', { className: 'system-back' })}`;
   return mountInteractions(main, sidebar, system, { notify, onSwitch });
 }
 

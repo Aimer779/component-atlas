@@ -27,6 +27,11 @@
       "sha256": "b4b7b5a8ce8321893538bb7a8e6ba41838c95a09ea09f67921206dbfa1635bbc",
       "source": "src/css/sidebar.css",
       "file": "sidebar.css"
+    },
+    {
+      "sha256": "df3c0291d3946cb0f902b25d81ace5f5a9d98f8eb2e9139f1d383d3bb6d11f5f",
+      "source": "src/content/Animations/GlareHover/GlareHover.css",
+      "file": "GlareHover.css"
     }
   ]
 }

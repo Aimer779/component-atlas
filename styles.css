@@ -1,6 +1,7 @@
 @import url('ui/scrollbars.css');
 @import url('assets/fonts/fonts.css');
 @import url('ui/system.css');
+@import url('ui/action-link.css');
 :root {
   color-scheme: dark;
   --surface: #111214; --surface-raised: #1b1d20; --surface-hover: #24272b;
@@ -186,12 +187,9 @@ pre:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .source-details summary:hover { color: var(--text); }
 .provenance { padding-top: 8px; }
 .provenance code { font: 12px/1.7 var(--mono); display: block; padding: 8px 0; overflow-wrap: anywhere; }
-.provenance a { text-decoration: underline; text-underline-offset: 4px; color: var(--secondary); }
 .doc-section { padding: 28px 0; border-top: 1px solid var(--line); scroll-margin-top: 90px; }
 .doc-section p { color: var(--muted); font-size: 14px; max-width: 740px; line-height: 1.85; }
 .doc-links { display: flex; gap: 12px; flex-wrap: wrap; margin: 25px 0; }
-.doc-link { padding: 7px 12px; border: 1px solid var(--line); border-radius: var(--radius-control); font-size: 13px; color: var(--accent); background: var(--surface-panel); transition: background 200ms var(--ease), border-color 200ms var(--ease); }
-.doc-link:hover { background: var(--surface-hover); border-color: var(--line-hover); }
 .source-row { padding: 28px 0; border-top: 1px solid var(--line); }
 .source-row h2 { margin: 0 0 8px; font-size: 20px; font-weight: 500; }
 .source-row p { color: var(--muted); font-size: 14px; max-width: 760px; }

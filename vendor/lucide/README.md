@@ -11,6 +11,8 @@ Retrieved 2026-10-06. Each URL returned HTTP 200 and `image/svg+xml` without aut
 - https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/type.svg
 - https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/eye.svg
 - https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/code-xml.svg
+- https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/file-text.svg
+- https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/book-open.svg
 
 `icons.js` preserves the source geometry. It uses inline decorative SVGs, an 18px default size and 1.8px strokes to match the atlas controls. Workspace icons use 15px CSS dimensions. No remote assets or icon package load at runtime.
 

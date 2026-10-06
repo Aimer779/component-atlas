@@ -7,6 +7,7 @@
     "native theme reveal preserves state and settles interrupted transitions",
     "design-system specimens, chapters, copying and motion work across themes",
     "complete selected DESIGN.md copies match the preview and generated file",
+    "shared action links navigate with finite sweeps, keyboard focus and reduced motion",
     "physical card navigation and segmented preview/code controls",
     "hidden code panels stop cloud, field and reel scheduling without replacing the frame",
     "manual reel pause survives code-panel and document-visibility changes",
