@@ -1,0 +1,363 @@
+{
+  "date": "2026-10-06",
+  "before": {
+    "nodes": [
+      {
+        "css": {
+          "display": "block",
+          "left": "0px",
+          "padding": "0px",
+          "right": "0px",
+          "transform": "none",
+          "zoom": "1"
+        },
+        "rect": {
+          "bottom": 375.9166870117187,
+          "height": 32,
+          "left": 336.66668701171875,
+          "right": 816.6666870117188,
+          "top": 343.91668701171875,
+          "width": 480
+        },
+        "selector": "#code-file"
+      },
+      {
+        "css": {
+          "display": "inline-flex",
+          "left": "0px",
+          "padding": "0px 8px 0px 10px",
+          "right": "0px",
+          "transform": "none",
+          "zoom": "1"
+        },
+        "rect": {
+          "bottom": 375.9166870117187,
+          "height": 32,
+          "left": 336.66668701171875,
+          "right": 816.6666870117188,
+          "top": 343.91668701171875,
+          "width": 480
+        },
+        "selector": "#code-file button"
+      },
+      {
+        "css": {
+          "display": "block",
+          "left": "336.667px",
+          "padding": "4px",
+          "right": "453.333px",
+          "transform": "none",
+          "zoom": "1"
+        },
+        "rect": {
+          "bottom": 543.9166870117188,
+          "height": 162,
+          "left": 336.66668701171875,
+          "right": 816.6666870117188,
+          "top": 381.9166870117187,
+          "width": 480
+        },
+        "selector": ".gs-portal"
+      },
+      {
+        "css": {
+          "display": "grid",
+          "left": "auto",
+          "padding": "0px",
+          "right": "auto",
+          "transform": "none",
+          "zoom": "1"
+        },
+        "rect": {
+          "bottom": 53.66666793823242,
+          "height": 36,
+          "left": 1206,
+          "right": 1242,
+          "top": 17.666667938232422,
+          "width": 36
+        },
+        "selector": ".theme-toggle"
+      },
+      {
+        "css": {
+          "display": "block",
+          "left": "auto",
+          "padding": "0px",
+          "right": "auto",
+          "transform": "none",
+          "zoom": "1"
+        },
+        "rect": {
+          "bottom": 1429.4895839691162,
+          "height": 1402.15625,
+          "left": 312,
+          "right": 1226,
+          "top": 27.33333396911621,
+          "width": 914
+        },
+        "selector": ".content"
+      },
+      {
+        "css": {
+          "display": "block",
+          "left": "auto",
+          "padding": "6px",
+          "right": "auto",
+          "transform": "none",
+          "zoom": "1"
+        },
+        "rect": {
+          "bottom": 960.3125,
+          "height": 688.0625,
+          "left": 312,
+          "right": 1226,
+          "top": 272.25,
+          "width": 914
+        },
+        "selector": ".workspace"
+      },
+      {
+        "css": {
+          "display": "flex",
+          "left": "0px",
+          "padding": "0px 28px",
+          "right": "0px",
+          "transform": "none",
+          "zoom": "1"
+        },
+        "rect": {
+          "bottom": 72,
+          "height": 72,
+          "left": 0,
+          "right": 1270,
+          "top": 0,
+          "width": 1270
+        },
+        "selector": ".header"
+      }
+    ],
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  "desktopCases": [
+    {
+      "controlHeights": [
+        36,
+        36
+      ],
+      "controlsCenter": 0,
+      "copyVisible": true,
+      "fieldWidth": 480,
+      "menuEdges": [
+        0,
+        0
+      ],
+      "menuInViewport": true,
+      "overflow": 0,
+      "theme": "light",
+      "themeRight": 0,
+      "viewport": [
+        1024,
+        768
+      ]
+    },
+    {
+      "controlHeights": [
+        36,
+        36
+      ],
+      "controlsCenter": 0,
+      "copyVisible": true,
+      "fieldWidth": 480,
+      "menuEdges": [
+        0,
+        0
+      ],
+      "menuInViewport": true,
+      "overflow": 0,
+      "theme": "light",
+      "themeRight": 0,
+      "viewport": [
+        1180,
+        800
+      ]
+    },
+    {
+      "controlHeights": [
+        36,
+        36
+      ],
+      "controlsCenter": 0,
+      "copyVisible": true,
+      "fieldWidth": 480,
+      "menuEdges": [
+        0,
+        0
+      ],
+      "menuInViewport": true,
+      "overflow": 0,
+      "theme": "light",
+      "themeRight": 0,
+      "viewport": [
+        1181,
+        800
+      ]
+    },
+    {
+      "controlHeights": [
+        36,
+        36
+      ],
+      "controlsCenter": 0,
+      "copyVisible": true,
+      "fieldWidth": 480,
+      "menuEdges": [
+        0,
+        0
+      ],
+      "menuInViewport": true,
+      "overflow": 0,
+      "theme": "light",
+      "themeRight": 0,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "controlHeights": [
+        36,
+        36
+      ],
+      "controlsCenter": 0,
+      "copyVisible": true,
+      "fieldWidth": 480,
+      "menuEdges": [
+        0,
+        0
+      ],
+      "menuInViewport": true,
+      "overflow": 0,
+      "theme": "light",
+      "themeRight": 0,
+      "viewport": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "controlHeights": [
+        36,
+        36
+      ],
+      "controlsCenter": 0,
+      "copyVisible": true,
+      "fieldWidth": 480,
+      "menuEdges": [
+        0,
+        0
+      ],
+      "menuInViewport": true,
+      "overflow": 0,
+      "theme": "light",
+      "themeRight": 0,
+      "viewport": [
+        1280,
+        600
+      ]
+    },
+    {
+      "menuEdges": [
+        0,
+        0
+      ],
+      "overflow": 0,
+      "theme": "dark",
+      "themeRight": 0,
+      "viewport": [
+        1024,
+        768
+      ]
+    },
+    {
+      "menuEdges": [
+        0,
+        0
+      ],
+      "overflow": 0,
+      "theme": "dark",
+      "themeRight": 0,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "menuEdges": [
+        0,
+        0
+      ],
+      "overflow": 0,
+      "theme": "dark",
+      "themeRight": 0,
+      "viewport": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "fieldWidth": 458.6666870117187,
+      "menuEdges": [
+        0,
+        0
+      ],
+      "menuWidth": 458.6666870117187,
+      "overflow": 0,
+      "theme": "dark",
+      "themeRight": 0,
+      "viewport": [
+        940,
+        720
+      ]
+    }
+  ],
+  "copy": {
+    "nativePasteMatchesRawFile": true,
+    "length": 12930,
+    "idleBounds": {
+      "height": 36,
+      "left": 1224.666748046875,
+      "right": 1342.666748046875,
+      "width": 118
+    }
+  },
+  "content": {
+    "components": 15,
+    "englishTerms": 15,
+    "minimumVisibleOuterTextPx": 12,
+    "sourceDisclosureOpened": true,
+    "emptyFilterChecked": true
+  },
+  "console": {
+    "observerErrors": [
+      {
+        "level": "error",
+        "message": "Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.",
+        "timestamp": "2026-10-06T10:42:40.991Z"
+      },
+      {
+        "level": "error",
+        "message": "Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.",
+        "timestamp": "2026-10-06T10:49:00.318Z"
+      },
+      {
+        "level": "error",
+        "message": "Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.",
+        "timestamp": "2026-10-06T10:55:37.231Z"
+      }
+    ],
+    "note": "MutationObserver errors have no source URL; repository JS/HTML contains no MutationObserver. These do not establish an application error; browser instrumentation remains unverified."
+  }
+}

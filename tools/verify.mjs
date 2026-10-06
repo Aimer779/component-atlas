@@ -63,6 +63,6 @@ assert.ok(read('styles.css').includes('[hidden] { display: none !important; }'))
 assert.ok(read('demos/demo.css').includes('[hidden] { display: none !important; }'));
 assert.doesNotMatch(read('index.html'), /nav-toggle|sidebar-scrim/, 'Desktop-only shell must not restore the mobile drawer');
 assert.doesNotMatch(read('app.js'), /data-width|窄屏查看/, 'Desktop-only preview must not restore narrow-screen controls');
-execFileSync(process.execPath, ['--test', path.join(root, 'tools/regression.test.mjs'), path.join(root, 'tools/widgets.test.mjs')], { stdio: 'inherit' });
+execFileSync(process.execPath, ['--test', path.join(root, 'tools/regression.test.mjs'), path.join(root, 'tools/widgets.test.mjs'), path.join(root, 'tools/copy-button.test.mjs')], { stdio: 'inherit' });
 console.log(`PASS: ${components.length} components, ${variants.length} variants, ${scripts.length} scripts, ${references} local references, ${records.filter(record => record.snapshot).length} snapshot hashes, ${bitsSource.files.length} React Bits source hashes, WOFF2 header.`);
 console.log('Scope: source, inventory, provenance, local assets and regressions. Browser behavior and visual review are recorded separately in NOTES.md.');

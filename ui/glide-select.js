@@ -22,7 +22,7 @@ export function menuPlacement(rect, count, viewport, menuWidth = 176, align = 'l
 }
 
 /** Owns one combobox and its portaled list; destroy before removing its root. */
-export function mountGlideSelect(root, { options, value, label, onChange, menuWidth = 176, align = 'left' }) {
+export function mountGlideSelect(root, { options, value, label, onChange, menuWidth = 176, align = 'left', matchWidth = false }) {
   const id = root.id;
   const lifetime = new AbortController();
   let items = [], current = value, active = null, menu, list, pill, open = false;
@@ -48,7 +48,9 @@ export function mountGlideSelect(root, { options, value, label, onChange, menuWi
   }
   function position() {
     if (!menu) return;
-    const { width, height, side, left, top } = menuPlacement(trigger.getBoundingClientRect(), items.length, { width: window.innerWidth, height: window.innerHeight }, menuWidth, align);
+    // The trigger scales on press; its layout container remains a stable anchor.
+    const anchor = root.getBoundingClientRect();
+    const { width, height, side, left, top } = menuPlacement(anchor, items.length, { width: window.innerWidth, height: window.innerHeight }, matchWidth ? anchor.width : menuWidth, align);
     menu.style.width = `${width}px`;
     menu.style.maxHeight = `${height}px`;
     menu.style.left = `${left}px`; menu.style.top = `${top}px`;
@@ -73,7 +75,7 @@ export function mountGlideSelect(root, { options, value, label, onChange, menuWi
     if (!items.length) return;
     close(true); open = true;
     menu = document.createElement('div');
-    menu.className = 'glide-select__menu gs-portal'; menu.dataset.state = 'closed';
+    menu.className = 'glide-select__menu gs-portal'; menu.dataset.state = 'closed'; menu.dataset.owner = id;
     menu.innerHTML = '<div class="glide-select__list" role="listbox"><span class="glide-select__pill" aria-hidden="true"></span></div>';
     list = menu.firstElementChild; pill = list.firstElementChild;
     list.id = `${id}-list`; list.setAttribute('aria-label', label);
