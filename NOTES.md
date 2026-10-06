@@ -1,5 +1,35 @@
 # 组件图鉴 · 提取与验收
 
+## 2026-10-06 · 详细规范与 Google Stitch DESIGN.md
+
+用户确认「谷歌标准」指 Google Stitch 的文档格式。本轮不改成 Material Design 3 的视觉默认值。
+
+### 格式依据与参考差异
+
+- 核对 [Google 官方 design-md](https://github.com/google-labs-code/stitch-skills/blob/main/plugins/stitch-utilities/skills/design-md/SKILL.md) 与 [源码提取流程](https://github.com/google-labs-code/stitch-skills/blob/main/plugins/stitch-design/skills/extract-design-md/SKILL.md)。前者面向已有 Stitch 屏幕，列出五个主体章节。后者面向本地源码，要求 YAML 的 name / colors，并补充生成提示为第六章。本项目采用后者。
+- 同时核对 [官方示例](https://github.com/google-labs-code/stitch-skills/blob/main/plugins/stitch-design/skills/extract-design-md/examples/DESIGN.md)。保留机器可读颜色与字体元数据。未知的 Project ID 不填写。没有执行 skill 的上传流程，也没有连接 Stitch 账户。
+- 再次查看 Refero 左侧的色板、字体参数、间距、形状与使用原则。右侧提供完整 DESIGN.md 及复制操作。新证据是 `artifacts/system-detail-reference.json`，包括 DOM、章节与复制控件计算值。来源复制按钮高 28px。本轮沿用现有 36px 复制控件，适配图鉴。
+- 保留侧栏下拉框，不恢复已删除的系统分段控件。没有移植参考站的品牌字体、配色、推荐与宣传内容。
+
+### 文档与页面共用数据
+
+- `ui/system-details.js` 补充风格描述、布局、表面、状态、组件规则与生成提示。来源组件参数继续从 `data.js` 读取。未采集的原站页面网格、移动断点和禁用态明确注明，不补成来源事实。
+- 色板增加行动文字、输入表面与反馈角色。OKLCH 原值保留。`ui/system-colors.js` 按 CSS Color 4 的转换计算 sRGB 近似值。与 Chromium Canvas 的差异不超过单通道 1/255。近似值用于 YAML，正文不覆盖原始表达。
+- 字体样张补充回退字体、像素行高与字距。新增布局、表面层次、状态表和组件参数展开项。颜色配对显示近似对比度，不宣称所有透明层或交互状态均通过评审。
+- `ui/design-document.js` 生成选中系统的完整 Markdown。包含 YAML，以及风格、颜色、字体、组件、布局、生成提示六个主体章节。页头复制、全文预览和本地文件使用相同生成器。
+- 根文档改名为 `DESIGN.md`，记录默认暗色外壳。浅色外壳、Laper、Cromma 位于 `design-systems/`。四份文件由 `tools/build-design-documents.mjs` 生成。完整检查检测数据与文件的漂移。
+- 复制复用现有异步控件。主题变化更新外壳的复制内容与文件链接。复制失败时保留可选中的全文。用户直接粘贴即可保留完整 YAML 和 Markdown。Windows 剪贴板使用 CRLF，测试按行尾归一化后比较全文。
+- 中文子集更新为 700 字符、188,664 字节。三份外壳字体共 276,048 字节，仍在 300KB 门槛内。没有新增生产依赖。
+
+### 验证与边界
+
+- 完整 `pnpm verify` 通过。34 个 Node 回归、14 组浏览器检查通过。23 个变体的 73 个样式状态仍与来源一致，覆盖 2329 个节点。没有页面 JS 错误或运行时外部请求。
+- 四份 YAML 用本机 PyYAML 6.0.2 实际解析。四种系统 / 主题文档的真实剪贴板内容与全文预览、本地文件一致。检查六章完整性、颜色、身份、主题更新、复制拒绝与手动复制入口。
+- 页面检查覆盖三系统、双主题与五种桌面尺寸。新增章节的定位、参数无重叠和根节点无横滚均通过。正文仍没有系统分段控件。来源材质与有限动效保持原行为。
+- 实际内置浏览器已刷新，并成功复制 Cromma 的 8137 字符完整文档。初版复制标签受旧四字宽度限制，已改成长标签布局。最终按钮高 36px，标签保持单行。
+- 验收证据为 `artifacts/design-details-acceptance.png` 与 `artifacts/design-document-acceptance.png`。详细章节另有 `artifacts/system-*-layout-*`、`system-*-components-*` 与 `system-*-document-*` 的双主题记录。完整复制检查记录在 `artifacts/design-document-checks.json`。
+- 未上传或实际导入 Stitch，未测其他浏览器、实体手机、笔记本功耗或 GPU 帧率。原站全局布局尚未采集。文档只承诺本地已提取范围。
+
 ## 2026-10-06 · 系统选择移至侧栏下拉框
 
 - 标注目标是侧栏的系统名称。该位置改为 Glide Select。正文右侧的分段控件已删除。旧按钮监听、焦点恢复分支和布局样式同时清理。

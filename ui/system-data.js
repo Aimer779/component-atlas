@@ -1,6 +1,9 @@
+import { enrichSystem } from './system-details.js';
+
 export const chapters = [
   ['overview', '系统简介'], ['colors', '色彩'], ['typography', '字体'],
-  ['geometry', '间距与形状'], ['material', '材质'], ['motion', '动效'], ['guidelines', '使用原则'],
+  ['geometry', '间距与形状'], ['layout', '布局'], ['material', '材质与层次'],
+  ['components', '组件规范'], ['motion', '动效'], ['guidelines', '使用原则'], ['document', 'DESIGN.md'],
 ];
 export const systemOptions = [['atlas', '图鉴外壳'], ['laper', 'Laper'], ['cromma', 'Cromma']];
 export const systemId = value => systemOptions.some(([id]) => id === value) ? value : 'atlas';
@@ -10,11 +13,14 @@ const shellColors = [
   ['表面', 'surface', '页面', '页面、顶栏与目录'],
   ['表面', 'surface-raised', '抬起表面', '卡片与选中控件'],
   ['表面', 'surface-panel', '控件表面', '分段控件与参数区'],
+  ['表面', 'surface-hover', '悬浮表面', '可操作区域的悬浮反馈'],
+  ['表面', 'surface-code', '源码表面', '代码阅读区域'],
   ['文字', 'text', '主要文字', '标题与主要信息'],
   ['文字', 'secondary', '次级文字', '参数与辅助标题'],
   ['文字', 'muted', '说明文字', '说明与次要信息'],
   ['边界', 'line', '内容边界', '内容分隔与控件边缘'],
   ['边界', 'line-soft', '轻边界', '静止卡片与章节分隔'],
+  ['边界', 'line-hover', '悬浮边界', '悬浮控件的清楚边缘'],
 ];
 // Values describe the extracted local demos, not a complete upstream brand system.
 const systems = {
@@ -38,6 +44,9 @@ const systems = {
       ['强调色', 'primary', '主色', '#1a4a35', '行动按钮与年付开关'], ['强调色', 'tech-green', '技术绿', '#0fa958', '标题与按钮渐变'],
       ['表面', 'background', '页面', '#fcfdfc', '来源页面背景'], ['表面', 'panel', '面板', '#f8faf9', '浅色内容面板'], ['表面', 'card', '卡片', '#ffffff', '定价与菜单表面'],
       ['文字', 'foreground', '主要文字', '#171a19', '标题与正文'], ['文字', 'muted-foreground', '说明文字', '#6b7370', '辅助说明'], ['边界', 'border', '边界', '#e4e8e6', '卡片与控件边缘'],
+      ['强调色', 'primary-foreground', '行动文字', '#ffffff', '深绿行动按钮上的文字'], ['强调色', 'tech-green-dark', '渐变中绿', '#2d6a4f', '绿色行动按钮的中间色'],
+      ['表面', 'muted', '低强调表面', '#f4f6f5', '浅色 hover 与弱强调区域'], ['表面', 'input', '输入表面', '#ffffff', '源 CSS 的输入角色'],
+      ['反馈状态', 'destructive', '错误红', '#dc2626', '源 CSS 的错误角色'], ['反馈状态', 'success', '成功绿', '#1a4a35', '源 CSS 的成功角色'], ['反馈状态', 'warning', '警告黄', '#f59e0b', '源 CSS 的警告角色'], ['反馈状态', 'info', '信息蓝', '#3b82f6', '源 CSS 的信息角色'],
     ],
     typeNote: '取自本地预览：进入标题、预览正文和行动按钮。',
     types: [['剧本标题', 44, 300, 1.12, 'normal', 'screenplay'], ['预览正文', 16, 400, 1.5, 'normal', 'source'], ['行动按钮', 12, 500, 1.42857, 'normal', 'source']],
@@ -56,6 +65,8 @@ const systems = {
       ['强调色', 'primary', '主色', 'oklch(58% .2 262)', '强调按钮与焦点'],
       ['表面', 'background', '页面', 'oklch(95.51% 0 0)', '来源页面背景'], ['表面', 'panel', '面板', 'oklch(97.02% 0 0)', '内容面板'], ['表面', 'card', '卡片', 'oklch(99.2% 0 0)', '卡片与弹出表面'],
       ['文字', 'foreground', '主要文字', 'oklch(32.11% 0 0)', '标题与正文'], ['文字', 'muted-foreground', '说明文字', 'oklch(51.03% 0 0)', '辅助说明'], ['边界', 'border', '边界', 'oklch(91% 0 0)', '内容与控件边缘'],
+      ['强调色', 'primary-foreground', '行动文字', 'oklch(100% 0 0)', '蓝色行动按钮上的文字'], ['表面', 'input', '输入表面', 'oklch(98.5% 0 0)', '源 CSS 的输入角色'],
+      ['反馈状态', 'destructive', '错误红', 'oklch(55.94% .19 25.8625)', '源 CSS 的错误角色'], ['反馈状态', 'success', '成功绿', 'oklch(64% .17 150)', '源 CSS 的成功角色'], ['反馈状态', 'warning', '警告黄', 'oklch(76.9% .17 70)', '源 CSS 的警告角色'], ['反馈状态', 'info', '信息蓝', 'oklch(62.3% .188 260)', '源 CSS 的信息角色'],
     ],
     typeNote: '取自本地预览：进入标题、预览正文和标签按钮。',
     types: [['进入标题', 44, 500, 1.375, '-.025em', 'source'], ['预览正文', 16, 400, 1.5, 'normal', 'source'], ['标签按钮', 14, 500, 1.5, 'normal', 'source']],
@@ -69,8 +80,8 @@ const systems = {
   },
 };
 
-export function getSystem(value, root = document.documentElement) {
+export function getSystem(value, root = document.documentElement, readToken = token => getComputedStyle(root).getPropertyValue(`--${token}`).trim()) {
   const id = systemId(value), definition = systems[id];
-  const colors = id === 'atlas' ? shellColors.map(([group, token, name, purpose]) => [group, token, name, getComputedStyle(root).getPropertyValue(`--${token}`).trim(), purpose]) : definition.colors;
-  return { ...definition, id, colors };
+  const colors = id === 'atlas' ? shellColors.map(([group, token, name, purpose]) => [group, token, name, readToken(token), purpose]) : definition.colors;
+  return enrichSystem({ ...definition, id, colors, theme: id === 'atlas' ? root.dataset.theme : 'light' });
 }

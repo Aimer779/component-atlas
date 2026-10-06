@@ -28,7 +28,7 @@ License URLs were checked anonymously on 2026-10-06. Each returned HTTP 200 and 
 
 `tools/build-fonts.py` retains Noto's license and author records, changes the derivative's primary name to Atlas CJK, and includes the non-Latin characters used by shell content and source-viewer files. The source font stays outside the committed runtime assets. A corpus check fails when new Chinese characters require rebuilding. Missing characters outside the corpus retain the system fallback.
 
-The design-system specimen update rebuilt this corpus on 2026-10-06. Atlas CJK contains 650 codepoints and uses 176,828 bytes. The three shell font files total 264,212 bytes. `manifest.json` records their current hashes. The source specimen uses the existing local Montserrat file; its provenance and learning scope remain in `../SOURCES.md`.
+The detailed design-system update rebuilt this corpus on 2026-10-06. Atlas CJK contains 700 codepoints and uses 188,664 bytes. The three shell font files total 276,048 bytes. `manifest.json` records their current hashes. The source specimen uses the existing local Montserrat file; its provenance and learning scope remain in `../SOURCES.md`.
 
 Runtime files total less than 300KB. Inter and Atlas CJK preload; all faces use `font-display: swap`. JetBrains Mono disables code ligatures through CSS. Component iframe fonts, original snapshots and their existing material boundaries are unchanged.
 

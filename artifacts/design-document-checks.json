@@ -1,0 +1,38 @@
+{
+  "documents": [
+    {
+      "id": "atlas",
+      "theme": "dark",
+      "href": "DESIGN.md",
+      "characters": 5426,
+      "sections": 6,
+      "clipboardMatchesPreviewAndFile": true
+    },
+    {
+      "id": "atlas",
+      "theme": "light",
+      "href": "design-systems/atlas-light/DESIGN.md",
+      "characters": 5426,
+      "sections": 6,
+      "clipboardMatchesPreviewAndFile": true
+    },
+    {
+      "id": "laper",
+      "theme": "light",
+      "href": "design-systems/laper/DESIGN.md",
+      "characters": 7885,
+      "sections": 6,
+      "clipboardMatchesPreviewAndFile": true
+    },
+    {
+      "id": "cromma",
+      "theme": "light",
+      "href": "design-systems/cromma/DESIGN.md",
+      "characters": 8137,
+      "sections": 6,
+      "clipboardMatchesPreviewAndFile": true
+    }
+  ],
+  "pageErrors": [],
+  "boundary": "Real Chromium clipboard; complete local documents verified, no Stitch upload or import performed."
+}

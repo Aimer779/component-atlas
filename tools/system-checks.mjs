@@ -48,7 +48,7 @@ export async function checkSystem(browser, url) {
           await expect(menu).toHaveCount(0);
           const layout = await page.evaluate(() => ({
             overflow: document.documentElement.scrollWidth > innerWidth,
-            collisions: [...document.querySelectorAll('.system-sidebar-title,.token-heading,.specimen-meta,.motion-row')].filter(node => {
+            collisions: [...document.querySelectorAll('.system-sidebar-title,.system-title-row,.token-heading,.specimen-meta,.motion-row')].filter(node => {
               const children = [...node.children].map(child => child.getBoundingClientRect());
               return children.some((a, i) => children.slice(i + 1).some(b => a.left < b.right - 1 && a.right > b.left + 1 && a.top < b.bottom - 1 && a.bottom > b.top + 1));
             }).map(node => node.className),
@@ -64,7 +64,7 @@ export async function checkSystem(browser, url) {
               return box.top >= 72 && box.top < innerHeight;
             }));
             await settle();
-            if (width === 1280 && ['geometry', 'material', 'motion'].includes(chapter)) await page.screenshot({ path: `artifacts/system-${id}-${chapter}-${theme}.png` });
+            if (width === 1280 && ['geometry', 'layout', 'material', 'components', 'motion', 'document'].includes(chapter)) await page.screenshot({ path: `artifacts/system-${id}-${chapter}-${theme}.png` });
           }
           await page.getByRole('link', { name: '系统简介', exact: true }).click();
           await expect(page.locator('#system-overview')).toBeFocused();
@@ -105,7 +105,7 @@ export async function checkSystem(browser, url) {
     await expect(page.locator('.system-page')).toHaveAttribute('data-system', 'laper');
     await page.reload();
     await expect(systemSelect).toHaveText('Laper');
-    await page.getByRole('link', { name: '材质', exact: true }).click();
+    await page.getByRole('link', { name: '材质与层次', exact: true }).click();
     await expect.poll(() => page.locator('.material-stage iframe[src]').count()).toBe(2);
     await page.waitForFunction(() => [...document.querySelectorAll('iframe')].every(frame => frame.contentDocument?.body.dataset.ready === 'true'));
     const frame = await page.locator('iframe').first().elementHandle();

@@ -9,6 +9,7 @@ import { checkTooltips } from './tooltip-checks.mjs';
 import { checkFonts } from './font-checks.mjs';
 import { checkThemeReveal } from './theme-browser-checks.mjs';
 import { checkSystem } from './system-checks.mjs';
+import { checkDesignDocuments } from './design-document-checks.mjs';
 
 const server = await startServer(18192);
 const browser = await chromium.launch({ headless: true });
@@ -103,6 +104,7 @@ try {
   await check('local bilingual fonts actually render, preserve code alignment and have readable fallbacks', () => checkFonts(browser, server.url));
   await check('native theme reveal preserves state and settles interrupted transitions', () => checkThemeReveal(browser, server.url));
   await check('design-system specimens, chapters, copying and motion work across themes', () => checkSystem(browser, server.url));
+  await check('complete selected DESIGN.md copies match the preview and generated file', () => checkDesignDocuments(browser, server.url));
   await check('physical card navigation and segmented preview/code controls', () => checkNavigation(page, server.url));
 
   await check('hidden code panels stop cloud, field and reel scheduling without replacing the frame', async () => {

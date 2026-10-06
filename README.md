@@ -14,7 +14,8 @@ node serve.mjs
 
 ## 查看与复用
 
-- 设计系统页用侧栏下拉框切换「图鉴外壳 / Laper / Cromma」。下拉框复用已有 Glide Select，支持键盘选择与 Escape。左侧目录定位章节，支持直接地址、前进与后退。色值可复制；字体按实际字号展示；间距与轮廓提供图形样张。材质复用原组件，动效按需播放一次。
+- 设计系统页用侧栏下拉框切换「图鉴外壳 / Laper / Cromma」。下拉框复用已有 Glide Select，支持键盘选择与 Escape。左侧目录定位章节，支持直接地址、前进与后退。色值可复制；字体展示字号、字重、行高、字距和回退字体。页面还包括布局、表面层次、交互状态与组件参数。材质复用原组件，动效按需播放一次。
+- 页头「复制 DESIGN.md」复制当前系统的完整文档。文档采用 Google Stitch 源码提取格式，包含 YAML 元数据与六个主体章节。文末提供可选中的全文与本地文件链接。切换系统或外壳主题时同步更新复制内容。
 - 左侧目录可展开变体；目录项和每个详情都有独立 hash 地址。
 - 侧栏的名称进入组件，右侧箭头单独展开变体；筛选和导航保留展开状态。箭头使用固定 32px 点击区与居中 SVG。
 - 每个主导航用徽标显示变体数。分组标题使用较粗字重、疏朗字距与组间分隔，区分可点击链接。
@@ -27,12 +28,14 @@ node serve.mjs
 - 页头与正文共用对齐线；源码菜单以稳定容器定位并等宽展开。复制按钮加载完成后可用，成功在按钮内显示勾选与「已复制」，切换文件会复位。
 - 保留术语、参数和来源，删除版本标记、重复计数、预览说明、未填写的个人判断与页脚套话；来源节点定位收进详情的「提取来源」。
 - `demos/*.html` 是独立样例，对应的 `runtime/` 样式、`engines/` 和演示模块依赖在源码下拉中列出。`snapshots/` 保存原始证据。
-- [design.md](design.md) 记录设计系统，[NOTES.md](NOTES.md) 记录来源、差异和验证边界。
+- [DESIGN.md](DESIGN.md) 记录暗色外壳规范。[浅色外壳](design-systems/atlas-light/DESIGN.md)、[Laper](design-systems/laper/DESIGN.md)、[Cromma](design-systems/cromma/DESIGN.md) 各有完整文档。[NOTES.md](NOTES.md) 记录来源、差异和验证边界。
 - 每个演示按钮只提供本地交互，不进入原产品流程。
 - 新收录共享元素弹层、循环剧本带、滚动弹簧放大和材质提示条。弹层使用已有本地图片演示，不加载视频。
 - 源码文件下拉由变体依赖清单生成，字体和图片提供下载链接；普通按钮不加载无用的画布引擎。
 
 ## 检查
+
+四份 DESIGN.md 由页面规范数据生成。修改 `ui/system-data.js`、`ui/system-details.js` 或外壳颜色后，执行 `node tools/build-design-documents.mjs`。完整检查会检测文档与页面的数据漂移。文档格式依据 [Google Stitch 源码提取约定](https://github.com/google-labs-code/stitch-skills/blob/main/plugins/stitch-design/skills/extract-design-md/SKILL.md)，不等同于 Material Design 3 的视觉默认值。当前未进行 Stitch 上传或实际导入。
 
 首次准备检查工具：
 
