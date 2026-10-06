@@ -162,14 +162,9 @@ function renderComponent(item, variant) {
 function renderSystem(query) {
   systemPage = registerWidget(mountSystemPage(main, sidebar, {
     id: systemId(query.get('system')), notify: notification,
-    onSwitch(id, keyboard) {
-      const hash = systemUrl(id);
-      if (keyboard) systemFocus = id;
-      if (location.hash === hash) {
-        systemPage.goToChapter('overview', false);
-        main.querySelector('[data-system-option][aria-pressed="true"]').focus();
-        systemFocus = undefined;
-      } else location.hash = hash;
+    onSwitch(id) {
+      systemFocus = true;
+      location.hash = systemUrl(id);
     },
   }));
 }
@@ -195,7 +190,6 @@ function render() {
   const query = new URLSearchParams(queryText);
   if (section === 'system' && systemPage?.id === systemId(query.get('system'))) {
     systemPage.goToChapter(query.get('section'));
-    if (systemFocus) { main.querySelector(`[data-system-option="${systemFocus}"]`)?.focus(); systemFocus = undefined; }
     return;
   }
   widgets.forEach(widget => widget.destroy()); widgets = []; systemPage = undefined;
@@ -211,7 +205,7 @@ function render() {
   if (renderVersion > 1) main.focus({ preventScroll: true });
   if (categoryFocus) { sidebar.querySelector(`[data-category="${categoryFocus}"]`).focus(); categoryFocus = undefined; }
   if (systemPage) systemPage.goToChapter(query.get('section'), false);
-  if (systemFocus) { main.querySelector(`[data-system-option="${systemFocus}"]`)?.focus(); systemFocus = undefined; }
+  if (systemFocus) { sidebar.querySelector('#system-select [role="combobox"]')?.focus(); systemFocus = undefined; }
 }
 addEventListener('hashchange', render);
 document.addEventListener('atlas-theme-change', () => {

@@ -1,6 +1,7 @@
 import { chapters, systemOptions, systemUrl, getSystem } from './system-data.js';
 import { mountCopyButton } from './copy-button.js';
 import { mountPreviews } from './previews.js';
+import { mountGlideSelect } from './glide-select.js';
 
 const escape = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 const copy = (value, label = '复制', className = 'system-copy') => `<button type="button" class="${className}" data-copy-value="${escape(value)}" data-state="idle"><span data-copy-label aria-live="polite">${label}</span></button>`;
@@ -38,7 +39,7 @@ function guidelines(system) {
 /** Mounts one selected system; theme updates keep the specimens and preview instances. */
 export function mountSystemPage(main, sidebar, { id, notify, onSwitch }) {
   const system = getSystem(id);
-  main.innerHTML = `<div class="content system-page" data-system="${system.id}"><header class="system-lead" id="system-overview" data-chapter="overview" tabindex="-1"><div class="system-heading"><h1>设计系统</h1><div class="segmented-control system-segments" role="group" aria-label="选择设计系统">${systemOptions.map(([value, label]) => `<button type="button" data-system-option="${value}" aria-pressed="${value === system.id}" tabindex="${value === system.id ? 0 : -1}">${label}</button>`).join('')}</div></div><div class="system-description"><h2>${system.subtitle}</h2><p>${system.description}</p><span class="system-label" data-system-theme>${system.id === 'atlas' ? '' : '本地提取版本 · 保留来源主题'}</span></div></header>
+  main.innerHTML = `<div class="content system-page" data-system="${system.id}"><header class="system-lead" id="system-overview" data-chapter="overview" tabindex="-1"><h1>设计系统</h1><div class="system-description"><h2>${system.subtitle}</h2><p>${system.description}</p><span class="system-label" data-system-theme>${system.id === 'atlas' ? '' : '本地提取版本 · 保留来源主题'}</span></div></header>
     ${section('colors', '色彩', 'Color palette', '<div data-system-palette>' + palette(system) + '</div>')}
     ${section('typography', '字体', 'Typography', typography(system))}
     ${section('geometry', '间距与形状', 'Spacing & shape', geometry(system))}
@@ -46,7 +47,7 @@ export function mountSystemPage(main, sidebar, { id, notify, onSwitch }) {
     ${section('motion', '动效', 'Motion', motions(system))}
     ${section('guidelines', '使用原则', 'Guidelines', guidelines(system))}</div>`;
   sidebar.setAttribute('aria-label', '设计系统目录');
-  sidebar.innerHTML = `<div class="sidebar-top system-sidebar-title"><strong>设计系统</strong><span>${system.name}</span></div><nav class="sidebar-list system-chapters" aria-label="设计系统章节">${chapters.map(([chapter, name]) => `<a href="${systemUrl(system.id, chapter)}" data-system-chapter="${chapter}">${name}</a>`).join('')}</nav><a class="system-back" href="#/catalog">返回组件图鉴 →</a>`;
+  sidebar.innerHTML = `<div class="sidebar-top system-sidebar-title"><strong>设计系统</strong><div id="system-select" class="system-select"></div></div><nav class="sidebar-list system-chapters" aria-label="设计系统章节">${chapters.map(([chapter, name]) => `<a href="${systemUrl(system.id, chapter)}" data-system-chapter="${chapter}">${name}</a>`).join('')}</nav><a class="system-back" href="#/catalog">返回组件图鉴 →</a>`;
   return mountInteractions(main, sidebar, system, { notify, onSwitch });
 }
 
@@ -68,15 +69,9 @@ function mountInteractions(main, sidebar, system, { notify, onSwitch }) {
   const previews = mountPreviews(main);
   const sections = [...main.querySelectorAll('[data-chapter]')];
   const links = [...sidebar.querySelectorAll('[data-system-chapter]')];
-  const buttons = [...main.querySelectorAll('[data-system-option]')];
-  buttons.forEach((button, index) => {
-    button.addEventListener('click', () => onSwitch(button.dataset.systemOption, false));
-    button.addEventListener('keydown', event => {
-      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
-      event.preventDefault();
-      const next = event.key === 'Home' ? 0 : event.key === 'End' ? buttons.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : -1) + buttons.length) % buttons.length;
-      onSwitch(buttons[next].dataset.systemOption, true);
-    });
+  const select = mountGlideSelect(sidebar.querySelector('#system-select'), {
+    options: systemOptions.map(([value, label]) => ({ value, label })),
+    value: system.id, label: '选择设计系统', align: 'right', onChange: onSwitch,
   });
   function markChapter(chapter) {
     links.forEach(link => {
@@ -155,7 +150,7 @@ function mountInteractions(main, sidebar, system, { notify, onSwitch }) {
     },
     destroy() {
       if (disposed) return;
-      disposed = true; cancelAll(); observer.disconnect(); previews.destroy();
+      disposed = true; select.destroy(); cancelAll(); observer.disconnect(); previews.destroy();
       copies.forEach(({ widget }) => widget.destroy());
       cancelAnimationFrame(scrollFrame);
       window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll);

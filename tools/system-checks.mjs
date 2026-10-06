@@ -29,13 +29,26 @@ export async function checkSystem(browser, url) {
           await settle();
           await expect(page.locator('.category-segments')).toHaveCount(0);
           await expect(page.locator('[data-system-chapter]')).toHaveCount(chapters.length);
-          await expect(page.locator('[data-system-option][aria-pressed="true"]')).toHaveCount(1);
-          await expect(page.locator('[data-system-option][tabindex="0"]')).toHaveCount(1);
-          const segmentTops = await page.locator('[data-system-option]').evaluateAll(nodes => nodes.map(node => node.getBoundingClientRect().top));
-          assert.equal(new Set(segmentTops).size, 1, 'System segments must share one row');
+          await expect(page.locator('main .segmented-control, [data-system-option]')).toHaveCount(0);
+          const select = page.getByRole('combobox', { name: '选择设计系统' });
+          await expect(select).toHaveText({ atlas: '图鉴外壳', laper: 'Laper', cromma: 'Cromma' }[id]);
+          await select.click();
+          const menu = page.locator('[data-owner="system-select"]');
+          await expect(menu.getByRole('option')).toHaveCount(3);
+          await expect(menu.getByRole('option', { selected: true })).toHaveText({ atlas: '图鉴外壳', laper: 'Laper', cromma: 'Cromma' }[id]);
+          await settle();
+          const placement = await menu.evaluate(node => {
+            const a = document.querySelector('#system-select').getBoundingClientRect(), b = node.getBoundingClientRect();
+            return { gap: Math.round(b.top - a.bottom), aligned: Math.abs(b.right - a.right) < 1, within: b.left >= 8 && b.right <= innerWidth - 8 && b.bottom <= innerHeight - 8, portaled: node.parentNode === document.body };
+          });
+          assert.deepEqual(placement, { gap: 6, aligned: true, within: true, portaled: true });
+          if (width === 1280 && id === 'cromma') await page.screenshot({ path: `artifacts/system-select-${theme}.png` });
+          await select.press('Escape');
+          await expect(select).toBeFocused();
+          await expect(menu).toHaveCount(0);
           const layout = await page.evaluate(() => ({
             overflow: document.documentElement.scrollWidth > innerWidth,
-            collisions: [...document.querySelectorAll('.system-heading,.token-heading,.specimen-meta,.motion-row')].filter(node => {
+            collisions: [...document.querySelectorAll('.system-sidebar-title,.token-heading,.specimen-meta,.motion-row')].filter(node => {
               const children = [...node.children].map(child => child.getBoundingClientRect());
               return children.some((a, i) => children.slice(i + 1).some(b => a.left < b.right - 1 && a.right > b.left + 1 && a.top < b.bottom - 1 && a.bottom > b.top + 1));
             }).map(node => node.className),
@@ -57,7 +70,7 @@ export async function checkSystem(browser, url) {
           await expect(page.locator('#system-overview')).toBeFocused();
           await settle();
           if (width === 1280 || width === 1024) await page.screenshot({ path: `artifacts/system-${id}-${width}-${theme}.png` });
-          states.push({ width, height, id, theme, layout, sizes });
+          states.push({ width, height, id, theme, layout, sizes, placement });
         }
       }
     }
@@ -77,19 +90,31 @@ export async function checkSystem(browser, url) {
       }
     }
     await visit('atlas');
-    await page.getByRole('button', { name: '图鉴外壳', exact: true }).press('ArrowRight');
-    await expect(page.getByRole('button', { name: 'Laper', exact: true })).toBeFocused();
+    const systemSelect = page.getByRole('combobox', { name: '选择设计系统' });
+    await systemSelect.press('ArrowDown');
+    await systemSelect.press('ArrowDown');
+    await systemSelect.press('Enter');
+    await expect(systemSelect).toBeFocused();
     await expect(page.locator('.system-page')).toHaveAttribute('data-system', 'laper');
-    await page.getByRole('button', { name: 'Laper', exact: true }).press('End');
-    await expect(page.getByRole('button', { name: 'Cromma', exact: true })).toBeFocused();
+    await systemSelect.press('ArrowDown');
+    await systemSelect.press('End');
+    await systemSelect.press('Enter');
+    await expect(page.locator('.system-page')).toHaveAttribute('data-system', 'cromma');
+    await expect(systemSelect).toBeFocused();
     await page.goBack();
     await expect(page.locator('.system-page')).toHaveAttribute('data-system', 'laper');
     await page.reload();
-    await expect(page.locator('[data-system-option="laper"]')).toHaveAttribute('aria-pressed', 'true');
+    await expect(systemSelect).toHaveText('Laper');
     await page.getByRole('link', { name: '材质', exact: true }).click();
     await expect.poll(() => page.locator('.material-stage iframe[src]').count()).toBe(2);
     await page.waitForFunction(() => [...document.querySelectorAll('iframe')].every(frame => frame.contentDocument?.body.dataset.ready === 'true'));
     const frame = await page.locator('iframe').first().elementHandle();
+    const materialUrl = page.url();
+    await systemSelect.click();
+    await page.getByRole('option', { name: 'Laper', exact: true }).click();
+    assert.equal(page.url(), materialUrl);
+    assert.ok(await frame.evaluate(node => node === document.querySelector('iframe')));
+    await expect(systemSelect).toBeFocused();
     await page.locator('[data-theme-toggle]').click();
     await settle();
     assert.ok(await frame.evaluate(node => node === document.querySelector('iframe')));
@@ -153,9 +178,16 @@ export async function checkSystem(browser, url) {
     }
     await page.goto(`${url}/#/system?system=invalid&section=unknown`);
     await expect(page.locator('.system-page')).toHaveAttribute('data-system', 'atlas');
+    await systemSelect.click();
+    await page.getByRole('option', { name: 'Cromma', exact: true }).click();
+    await expect(page.locator('.system-page')).toHaveAttribute('data-system', 'cromma');
+    await expect(systemSelect).toBeFocused();
+    await expect(page.locator('.gs-portal')).toHaveCount(0);
+    await systemSelect.click();
     await page.getByRole('link', { name: '返回组件图鉴 →' }).click();
     await expect(page.locator('.category-segments button')).toHaveCount(5);
     await expect(page.locator('[data-system-chapter]')).toHaveCount(0);
+    await expect(page.locator('[data-owner="system-select"]')).toHaveCount(0);
     await expect(page.locator('.component-card')).toHaveCount(15);
     assert.deepEqual(errors, []); assert.deepEqual(external, []);
     await fs.writeFile('artifacts/system-checks.json', JSON.stringify({ states, evidence, errors, external, boundary: 'Chromium desktop, both themes; no physical GPU or mobile-browser measurements.' }, null, 2) + '\n');
