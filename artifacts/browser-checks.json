@@ -1,0 +1,352 @@
+{
+  "date": "2026-10-06",
+  "scope": "desktop-only",
+  "variants": [
+    {
+      "canvas": [],
+      "ready": "true",
+      "scroll": 1075,
+      "text": "Download",
+      "variant": "button-cromma-tag",
+      "width": 1075
+    },
+    {
+      "canvas": [],
+      "ready": "true",
+      "scroll": 1075,
+      "text": "Log in",
+      "variant": "button-cromma-primary",
+      "width": 1075
+    },
+    {
+      "canvas": [],
+      "ready": "true",
+      "scroll": 1075,
+      "text": "Login",
+      "variant": "button-laper-primary",
+      "width": 1075
+    },
+    {
+      "canvas": [],
+      "ready": "true",
+      "scroll": 1075,
+      "text": "Add files",
+      "variant": "button-laper-outline",
+      "width": 1075
+    },
+    {
+      "canvas": [],
+      "ready": "true",
+      "scroll": 1075,
+      "text": "EN",
+      "variant": "menu-laper",
+      "width": 1075
+    },
+    {
+      "canvas": [],
+      "ready": "true",
+      "scroll": 1075,
+      "text": "EN",
+      "variant": "menu-cromma",
+      "width": 1075
+    },
+    {
+      "canvas": [],
+      "ready": "true",
+      "scroll": 1075,
+      "text": "Save more with annual billing\n$20 / mo.",
+      "variant": "billing-laper",
+      "width": 1075
+    },
+    {
+      "canvas": [],
+      "ready": "true",
+      "scroll": 1075,
+      "text": "本地交互演示\nFor me",
+      "variant": "prompt-cromma",
+      "width": 1075
+    },
+    {
+      "canvas": [],
+      "ready": "true",
+      "scroll": 1075,
+      "text": "What is Cromma?\n\nA generator, loader and publisher of apps. It starts as a brows",
+      "variant": "accordion-cromma",
+      "width": 1075
+    },
+    {
+      "canvas": [],
+      "ready": "true",
+      "scroll": 1071,
+      "text": "Laper\nSenior\n\nEverything to birth your script\n\n$20\n/ mo.\n\n500AI chats per month ",
+      "variant": "card-laper",
+      "width": 1071
+    },
+    {
+      "canvas": [],
+      "ready": "true",
+      "scroll": 1060,
+      "text": "Plus\nPlus\n$\n20\nUSD / mo\nYour first app, for yourself\nChoose Plus\n300credits a mo",
+      "variant": "card-cromma",
+      "width": 1060
+    },
+    {
+      "canvas": [],
+      "ready": "true",
+      "scroll": 1075,
+      "text": "Aurora wash\n旋转色场 · 漂移光束 · 点状网格",
+      "variant": "aurora-cromma",
+      "width": 1075
+    },
+    {
+      "canvas": [
+        {
+          "buffer": [
+            1075,
+            410
+          ],
+          "display": [
+            1075,
+            410
+          ]
+        }
+      ],
+      "ready": "true",
+      "scroll": 1075,
+      "text": "Newton field\n6px 单元 · 透明背景 · 原始着色器",
+      "variant": "field-static",
+      "width": 1075
+    },
+    {
+      "canvas": [
+        {
+          "buffer": [
+            1075,
+            410
+          ],
+          "display": [
+            1075,
+            410
+          ]
+        }
+      ],
+      "ready": "true",
+      "scroll": 1075,
+      "text": "Newton field\n6px 单元 · 透明背景 · 原始着色器",
+      "variant": "field-animated",
+      "width": 1075
+    },
+    {
+      "canvas": [
+        {
+          "buffer": [
+            806,
+            307
+          ],
+          "display": [
+            1075,
+            410
+          ]
+        }
+      ],
+      "ready": "true",
+      "scroll": 1075,
+      "text": "变换云形 ↗",
+      "variant": "cloud-hero",
+      "width": 1075
+    },
+    {
+      "canvas": [
+        {
+          "buffer": [
+            806,
+            307
+          ],
+          "display": [
+            1075,
+            410
+          ]
+        }
+      ],
+      "ready": "true",
+      "scroll": 1075,
+      "text": "变换云形 ↗",
+      "variant": "cloud-footer",
+      "width": 1075
+    },
+    {
+      "canvas": [],
+      "ready": "true",
+      "scroll": 1075,
+      "text": "Questions, answered.\n重新播放 ↻",
+      "variant": "reveal-cromma",
+      "width": 1075
+    },
+    {
+      "canvas": [],
+      "ready": "true",
+      "scroll": 1071,
+      "text": "AI Screenwriting Software, Without the AI Aftertaste. Advancing film and televis",
+      "variant": "reveal-laper",
+      "width": 1071
+    },
+    {
+      "canvas": [],
+      "ready": "true",
+      "scroll": 1075,
+      "text": "Laper",
+      "variant": "outline-laper",
+      "width": 1075
+    }
+  ],
+  "layouts": [
+    {
+      "cards": 11,
+      "clientWidth": 1425,
+      "columns": "344.219px 344.219px 344.219px",
+      "height": 900,
+      "scrollWidth": 1425,
+      "width": 1440
+    },
+    {
+      "cards": 11,
+      "clientWidth": 1265,
+      "columns": "290.885px 290.885px 290.896px",
+      "height": 800,
+      "scrollWidth": 1265,
+      "width": 1280
+    },
+    {
+      "cards": 11,
+      "clientWidth": 1009,
+      "columns": "230.552px 230.552px 230.562px",
+      "height": 768,
+      "scrollWidth": 1009,
+      "width": 1024
+    },
+    {
+      "cards": 11,
+      "clientWidth": 1265,
+      "columns": "290.885px 290.885px 290.896px",
+      "height": 600,
+      "scrollWidth": 1265,
+      "width": 1280
+    }
+  ],
+  "interactions": [
+    {
+      "flags": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "gap": 4,
+      "height": 179,
+      "items": 16,
+      "radius": "12px",
+      "right": 0.302093505859375,
+      "scroll": 1075,
+      "test": "Laper menu",
+      "width": 129.30209350585938
+    },
+    {
+      "gap": 6,
+      "height": 175,
+      "items": 6,
+      "radius": "16px",
+      "test": "Cromma menu",
+      "width": 176
+    },
+    {
+      "average": "$16 / mo. · Save 20%",
+      "checked": "true",
+      "price": "$192",
+      "test": "Annual billing",
+      "thumb": "18px"
+    },
+    {
+      "checked": "false",
+      "price": "$20",
+      "test": "Monthly billing keyboard"
+    },
+    {
+      "disabled": "true",
+      "feedback": "先输入一段文字。",
+      "test": "Empty prompt"
+    },
+    {
+      "disabled": "false",
+      "feedback": "输入已接收，仅在浏览器内演示。",
+      "test": "Prompt Enter"
+    },
+    {
+      "states": [
+        "false",
+        "true",
+        "false"
+      ],
+      "test": "Accordion exclusive"
+    },
+    {
+      "states": [
+        "false",
+        "false",
+        "false"
+      ],
+      "test": "Accordion all closed"
+    },
+    {
+      "cards": 6,
+      "test": "Source filter",
+      "url": "#/catalog?project=Laper"
+    },
+    {
+      "cards": 0,
+      "empty": "这个分类下没有来自该实验的组件，请切换分类或来源。",
+      "test": "Empty state",
+      "url": "#/catalog?category=backgrounds&project=Laper"
+    },
+    {
+      "cards": 6,
+      "categories": [
+        "全部6",
+        "基础交互3",
+        "内容展示1",
+        "背景效果0",
+        "文字与动效2"
+      ],
+      "inventory": "6 COMPONENTS  /  7 VARIANTS",
+      "test": "Final desktop source counts"
+    },
+    {
+      "cards": 0,
+      "empty": true,
+      "test": "Final desktop empty state"
+    },
+    {
+      "test": "Source copy",
+      "hasShader": true,
+      "hasAPI": true,
+      "length": 17978
+    },
+    {
+      "active": "true",
+      "narrowControls": 0,
+      "sourceHidden": true,
+      "test": "Preview tab Home key"
+    }
+  ]
+}

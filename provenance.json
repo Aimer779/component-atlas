@@ -1,0 +1,165 @@
+[
+  {
+    "source": "laper/assets/site.css",
+    "snapshot": "snapshots/laper.css",
+    "sha256": "7c6d980d6e11a64957a27d6475406b9c09aca576496351bf810308dd8f322d95"
+  },
+  {
+    "source": "laper/lang-flags.js",
+    "snapshot": "snapshots/lang-flags.js",
+    "sha256": "be8f56dd153230142ead214b197c55b105fe2d7956e9ee13ac45c5b66f642c11"
+  },
+  {
+    "source": "cromma-landing/styles.css",
+    "snapshot": "snapshots/cromma.css",
+    "sha256": "25905a0a8206d9a55e4e1137cb98808de8919012f2890154a9009f3b2451ea7a"
+  },
+  {
+    "source": "cromma-landing/clouds.js",
+    "snapshot": "snapshots/clouds.js",
+    "sha256": "1c9662c5704551a5c8a9b1580c959edb4b9cbdea5ad1406efadfb4c8e6b800f1"
+  },
+  {
+    "source": "cromma-landing/field.js",
+    "snapshot": "snapshots/field.js",
+    "sha256": "a1ad6fa92c8d1b28b782357ffcdf4ae258c3238ebac3eb3a4c4275cfc884fec1"
+  },
+  {
+    "source": "cromma-landing/assets/montserrat-Dk9Pm7OY.woff2",
+    "snapshot": "snapshots/assets/montserrat-Dk9Pm7OY.woff2",
+    "sha256": "6438d7b8ea9c7c3992d5e2fd2afdb1ff948570a3ef0bedae76247b51632960ba"
+  },
+  {
+    "variant": "button-laper-primary",
+    "source": "laper/index.html",
+    "selector": "header a[href*='login']",
+    "theme": "laper",
+    "mode": "button"
+  },
+  {
+    "variant": "button-laper-outline",
+    "source": "laper/index.html",
+    "selector": "button: Add files",
+    "theme": "laper",
+    "mode": "button"
+  },
+  {
+    "variant": "button-cromma-tag",
+    "source": "cromma-landing/index.html",
+    "selector": "header a: Download",
+    "theme": "cromma",
+    "mode": "button"
+  },
+  {
+    "variant": "button-cromma-primary",
+    "source": "cromma-landing/index.html",
+    "selector": "header button: Log in",
+    "theme": "cromma",
+    "mode": "button"
+  },
+  {
+    "variant": "menu-laper",
+    "source": "laper/index.html + page.js",
+    "selector": "header [aria-haspopup='menu']",
+    "theme": "laper",
+    "mode": "menu"
+  },
+  {
+    "variant": "menu-cromma",
+    "source": "cromma-landing/index.html + script.js",
+    "selector": "header [aria-label='Language']",
+    "theme": "cromma",
+    "mode": "menu"
+  },
+  {
+    "variant": "billing-laper",
+    "source": "laper/pricing/index.html + page.js",
+    "selector": "[role='switch']; YEARLY['Laper Senior']",
+    "theme": "laper",
+    "mode": "billing"
+  },
+  {
+    "variant": "prompt-cromma",
+    "source": "cromma-landing/index.html + script.js",
+    "selector": "#top form; textarea; button[aria-label='Send']",
+    "theme": "cromma",
+    "mode": "prompt"
+  },
+  {
+    "variant": "accordion-cromma",
+    "source": "cromma-landing/index.html + script.js",
+    "selector": "#faq button[aria-expanded]",
+    "theme": "cromma",
+    "mode": "accordion"
+  },
+  {
+    "variant": "aurora-cromma",
+    "source": "cromma-landing/index.html + styles.css",
+    "selector": "#top .aurora-fade; .dot-grid; .aurora-wash",
+    "theme": "cromma",
+    "mode": "aurora"
+  },
+  {
+    "variant": "field-static",
+    "source": "cromma-landing/field.js + script.js",
+    "selector": "#pricing span.h-44 > div",
+    "theme": "cromma",
+    "mode": "field"
+  },
+  {
+    "variant": "field-animated",
+    "source": "cromma-landing/field.js + script.js",
+    "selector": "#top .cromma-edge span.absolute.inset-0 > div",
+    "theme": "cromma",
+    "mode": "field"
+  },
+  {
+    "variant": "cloud-hero",
+    "source": "cromma-landing/clouds.js + script.js",
+    "selector": "#cloud-root",
+    "theme": "cromma",
+    "mode": "cloud"
+  },
+  {
+    "variant": "cloud-footer",
+    "source": "cromma-landing/clouds.js + script.js",
+    "selector": "#download footer cloud",
+    "theme": "cromma",
+    "mode": "cloud"
+  },
+  {
+    "variant": "reveal-cromma",
+    "source": "cromma-landing/styles.css + desk.js",
+    "selector": ".reveal → .reveal.is-in",
+    "theme": "cromma",
+    "mode": "reveal"
+  },
+  {
+    "variant": "reveal-laper",
+    "source": "laper/index.html + page.js",
+    "selector": "h1[style]; reveal()",
+    "theme": "laper",
+    "mode": "reveal"
+  },
+  {
+    "variant": "outline-laper",
+    "source": "laper/index.html + assets/site.css",
+    "selector": "footer svg text.landing-footer-logo-draw",
+    "theme": "laper",
+    "mode": "outline"
+  },
+  {
+    "variant": "card-laper",
+    "source": "laper/pricing/index.html",
+    "selector": "h3: Laper Senior → .rounded-3xl",
+    "theme": "laper",
+    "mode": "card"
+  },
+  {
+    "variant": "card-cromma",
+    "source": "cromma-landing/index.html",
+    "selector": "#pricing button: Choose Plus → div.group",
+    "theme": "cromma",
+    "mode": "card"
+  }
+]
