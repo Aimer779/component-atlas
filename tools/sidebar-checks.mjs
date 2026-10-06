@@ -23,6 +23,13 @@ export async function checkSidebar(page, url) {
   await category('全部').click();
   await expect(page.locator('.nav-item-link')).toHaveCount(15);
   await expect(page.locator('.component-card')).toHaveCount(15);
+  for (const item of components) {
+    const link = page.locator(`.nav-item-link[href="#/component/${item.id}/${item.variants[0].id}"]`);
+    await expect(link.locator('.nav-count')).toHaveText(String(item.variants.length));
+    await expect(link.locator('.nav-count')).toHaveAttribute('aria-hidden', 'true');
+    await expect(link).toHaveAccessibleName(`${item.name}，${item.variants.length} 个变体`);
+  }
+  assert.equal(await page.locator('.nav-count').evaluateAll(nodes => nodes.reduce((total, node) => total + Number(node.textContent), 0)), 23);
 
   await page.getByRole('combobox', { name: '按实验来源查看' }).click();
   await page.getByRole('option', { name: 'Laper', exact: true }).click();
@@ -101,6 +108,19 @@ export async function checkSidebar(page, url) {
       assert.ok(appearance.buttons[0].outline.startsWith('rgb'));
       evidence.push({ width, height, theme, ...appearance });
       await page.locator('.sidebar-list').evaluate(node => node.scrollTop = 0);
+      const rows = await page.locator('.nav-item-row').evaluateAll(nodes => nodes.map(node => {
+        const label = node.querySelector('.nav-label').getBoundingClientRect();
+        const badge = node.querySelector('.nav-count').getBoundingClientRect();
+        const arrow = node.querySelector('.nav-expand').getBoundingClientRect();
+        const style = getComputedStyle(node.querySelector('.nav-count'));
+        return { labelRight: label.right, badgeLeft: badge.left, badgeRight: badge.right, arrowLeft: arrow.left, badgeHeight: badge.height, fontSize: style.fontSize, borderRadius: style.borderRadius };
+      }));
+      assert.ok(rows.every(row => row.labelRight <= row.badgeLeft && row.badgeRight <= row.arrowLeft && row.badgeHeight === 20 && row.fontSize === '12px'), JSON.stringify(rows));
+      const heading = await page.locator('.nav-group h2').first().evaluate(node => ({ weight: getComputedStyle(node).fontWeight, tracking: getComputedStyle(node).letterSpacing, size: getComputedStyle(node).fontSize }));
+      assert.equal(heading.weight, '650');
+      assert.ok(parseFloat(heading.tracking) > 0);
+      assert.equal(heading.size, '12px');
+      evidence.push({ width, theme, countBadges: rows, groupHeading: heading });
       await page.screenshot({ path: `artifacts/sidebar-${width}-${theme}.png` });
     }
   }
