@@ -58,7 +58,7 @@ function renderCatalog(query) {
     <div class="catalog-grid">${collection.map(item => {
       const variants = item.variants.filter(variant => project === 'all' || variant.project === project), first = variants[0];
       const meta = [project === 'all' ? [...new Set(variants.map(variant => variant.project))].join(' / ') : '', variants.length > 1 ? `${variants.length} 个变体` : ''].filter(Boolean);
-      return `<a class="component-card" href="${variantUrl(item, first)}"><div class="thumbnail" data-component="${item.id}"><iframe title="${item.name}缩略预览" src="demos/${first.id}.html?thumbnail=1" loading="lazy" tabindex="-1" aria-hidden="true" inert></iframe></div><div class="card-meta"><div class="card-title"><h2>${item.name}</h2><span aria-hidden="true">↗</span></div><p class="card-english">${item.english}</p>${meta.length ? `<div class="card-bottom">${meta.map(value => `<span>${value}</span>`).join('')}</div>` : ''}</div></a>`;
+      return `<a class="component-card" href="${variantUrl(item, first)}"><div class="thumbnail" data-component="${item.id}"><iframe title="${item.name}缩略预览" src="demos/${first.id}.html?thumbnail=1" loading="lazy" tabindex="-1" aria-hidden="true" inert></iframe></div><div class="card-meta"><h2 class="card-title">${item.name}</h2><p class="card-english">${item.english}</p>${meta.length ? `<div class="card-bottom">${meta.map(value => `<span>${value}</span>`).join('')}</div>` : ''}</div></a>`;
     }).join('')}</div>${collection.length ? '' : '<p class="empty-state">这个分类下没有来自该实验的组件，请切换分类或来源。</p>'}</div>`;
   function apply(nextCategory, nextProject) {
     const values = new URLSearchParams();
