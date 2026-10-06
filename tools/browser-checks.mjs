@@ -4,6 +4,7 @@ import { chromium, expect } from '@playwright/test';
 import { components } from '../data.js';
 import { startServer, trackAnimationWork, frameWork } from './browser-support.mjs';
 import { checkNavigation } from './navigation-checks.mjs';
+import { checkSidebar } from './sidebar-checks.mjs';
 
 const server = await startServer(18192);
 const browser = await chromium.launch({ headless: true });
@@ -93,6 +94,7 @@ try {
     }
   });
 
+  await check('sidebar category segments filter destinations and keep keyboard navigation usable', () => checkSidebar(page, server.url));
   await check('physical card navigation and segmented preview/code controls', () => checkNavigation(page, server.url));
 
   await check('hidden code panels stop cloud, field and reel scheduling without replacing the frame', async () => {

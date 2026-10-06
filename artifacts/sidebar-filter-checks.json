@@ -1,0 +1,661 @@
+{
+  "evidence": [
+    {
+      "category": "controls",
+      "cards": 7
+    },
+    {
+      "category": "content",
+      "cards": 1
+    },
+    {
+      "category": "backgrounds",
+      "cards": 3
+    },
+    {
+      "category": "motion",
+      "cards": 4
+    },
+    {
+      "width": 1600,
+      "height": 900,
+      "theme": "light",
+      "rect": {
+        "width": 226,
+        "height": 40
+      },
+      "padding": "3px",
+      "gap": "2px",
+      "buttons": [
+        {
+          "name": "全部",
+          "selected": "true",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(32, 38, 32)",
+          "background": "rgb(255, 255, 255)",
+          "outline": "rgb(56, 99, 50) solid 2px",
+          "iconSize": 18
+        },
+        {
+          "name": "基础交互",
+          "selected": "false",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(32, 38, 32)",
+          "background": "rgb(240, 242, 240)",
+          "outline": "rgb(32, 38, 32) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "内容展示",
+          "selected": "false",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(101, 112, 103)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(101, 112, 103) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "背景效果",
+          "selected": "false",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(101, 112, 103)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(101, 112, 103) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "文字与动效",
+          "selected": "false",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(101, 112, 103)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(101, 112, 103) none 3px",
+          "iconSize": 18
+        }
+      ]
+    },
+    {
+      "width": 1600,
+      "height": 900,
+      "theme": "dark",
+      "rect": {
+        "width": 226,
+        "height": 40
+      },
+      "padding": "3px",
+      "gap": "2px",
+      "buttons": [
+        {
+          "name": "全部",
+          "selected": "true",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(241, 243, 245)",
+          "background": "rgb(27, 29, 32)",
+          "outline": "rgb(201, 233, 154) solid 2px",
+          "iconSize": 18
+        },
+        {
+          "name": "基础交互",
+          "selected": "false",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(241, 243, 245)",
+          "background": "rgb(36, 39, 43)",
+          "outline": "rgb(241, 243, 245) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "内容展示",
+          "selected": "false",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(157, 165, 175)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(157, 165, 175) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "背景效果",
+          "selected": "false",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(157, 165, 175)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(157, 165, 175) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "文字与动效",
+          "selected": "false",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(157, 165, 175)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(157, 165, 175) none 3px",
+          "iconSize": 18
+        }
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "theme": "light",
+      "rect": {
+        "width": 226,
+        "height": 40
+      },
+      "padding": "3px",
+      "gap": "2px",
+      "buttons": [
+        {
+          "name": "全部",
+          "selected": "true",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(32, 38, 32)",
+          "background": "rgb(255, 255, 255)",
+          "outline": "rgb(56, 99, 50) solid 2px",
+          "iconSize": 18
+        },
+        {
+          "name": "基础交互",
+          "selected": "false",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(32, 38, 32)",
+          "background": "rgb(240, 242, 240)",
+          "outline": "rgb(32, 38, 32) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "内容展示",
+          "selected": "false",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(101, 112, 103)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(101, 112, 103) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "背景效果",
+          "selected": "false",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(101, 112, 103)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(101, 112, 103) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "文字与动效",
+          "selected": "false",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(101, 112, 103)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(101, 112, 103) none 3px",
+          "iconSize": 18
+        }
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "theme": "dark",
+      "rect": {
+        "width": 226,
+        "height": 40
+      },
+      "padding": "3px",
+      "gap": "2px",
+      "buttons": [
+        {
+          "name": "全部",
+          "selected": "true",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(241, 243, 245)",
+          "background": "rgb(27, 29, 32)",
+          "outline": "rgb(201, 233, 154) solid 2px",
+          "iconSize": 18
+        },
+        {
+          "name": "基础交互",
+          "selected": "false",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(241, 243, 245)",
+          "background": "rgb(36, 39, 43)",
+          "outline": "rgb(241, 243, 245) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "内容展示",
+          "selected": "false",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(157, 165, 175)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(157, 165, 175) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "背景效果",
+          "selected": "false",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(157, 165, 175)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(157, 165, 175) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "文字与动效",
+          "selected": "false",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(157, 165, 175)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(157, 165, 175) none 3px",
+          "iconSize": 18
+        }
+      ]
+    },
+    {
+      "width": 1181,
+      "height": 600,
+      "theme": "light",
+      "rect": {
+        "width": 226,
+        "height": 40
+      },
+      "padding": "3px",
+      "gap": "2px",
+      "buttons": [
+        {
+          "name": "全部",
+          "selected": "true",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(32, 38, 32)",
+          "background": "rgb(255, 255, 255)",
+          "outline": "rgb(56, 99, 50) solid 2px",
+          "iconSize": 18
+        },
+        {
+          "name": "基础交互",
+          "selected": "false",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(32, 38, 32)",
+          "background": "rgb(240, 242, 240)",
+          "outline": "rgb(32, 38, 32) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "内容展示",
+          "selected": "false",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(101, 112, 103)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(101, 112, 103) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "背景效果",
+          "selected": "false",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(101, 112, 103)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(101, 112, 103) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "文字与动效",
+          "selected": "false",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(101, 112, 103)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(101, 112, 103) none 3px",
+          "iconSize": 18
+        }
+      ]
+    },
+    {
+      "width": 1181,
+      "height": 600,
+      "theme": "dark",
+      "rect": {
+        "width": 226,
+        "height": 40
+      },
+      "padding": "3px",
+      "gap": "2px",
+      "buttons": [
+        {
+          "name": "全部",
+          "selected": "true",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(241, 243, 245)",
+          "background": "rgb(27, 29, 32)",
+          "outline": "rgb(201, 233, 154) solid 2px",
+          "iconSize": 18
+        },
+        {
+          "name": "基础交互",
+          "selected": "false",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(241, 243, 245)",
+          "background": "rgb(36, 39, 43)",
+          "outline": "rgb(241, 243, 245) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "内容展示",
+          "selected": "false",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(157, 165, 175)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(157, 165, 175) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "背景效果",
+          "selected": "false",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(157, 165, 175)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(157, 165, 175) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "文字与动效",
+          "selected": "false",
+          "width": 42,
+          "height": 32,
+          "color": "rgb(157, 165, 175)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(157, 165, 175) none 3px",
+          "iconSize": 18
+        }
+      ]
+    },
+    {
+      "width": 1180,
+      "height": 600,
+      "theme": "light",
+      "rect": {
+        "width": 202,
+        "height": 40
+      },
+      "padding": "3px",
+      "gap": "2px",
+      "buttons": [
+        {
+          "name": "全部",
+          "selected": "true",
+          "width": 37.1875,
+          "height": 32,
+          "color": "rgb(32, 38, 32)",
+          "background": "rgb(255, 255, 255)",
+          "outline": "rgb(56, 99, 50) solid 2px",
+          "iconSize": 18
+        },
+        {
+          "name": "基础交互",
+          "selected": "false",
+          "width": 37.203125,
+          "height": 32,
+          "color": "rgb(32, 38, 32)",
+          "background": "rgb(240, 242, 240)",
+          "outline": "rgb(32, 38, 32) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "内容展示",
+          "selected": "false",
+          "width": 37.203125,
+          "height": 32,
+          "color": "rgb(101, 112, 103)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(101, 112, 103) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "背景效果",
+          "selected": "false",
+          "width": 37.203125,
+          "height": 32,
+          "color": "rgb(101, 112, 103)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(101, 112, 103) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "文字与动效",
+          "selected": "false",
+          "width": 37.203125,
+          "height": 32,
+          "color": "rgb(101, 112, 103)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(101, 112, 103) none 3px",
+          "iconSize": 18
+        }
+      ]
+    },
+    {
+      "width": 1180,
+      "height": 600,
+      "theme": "dark",
+      "rect": {
+        "width": 202,
+        "height": 40
+      },
+      "padding": "3px",
+      "gap": "2px",
+      "buttons": [
+        {
+          "name": "全部",
+          "selected": "true",
+          "width": 37.1875,
+          "height": 32,
+          "color": "rgb(241, 243, 245)",
+          "background": "rgb(27, 29, 32)",
+          "outline": "rgb(201, 233, 154) solid 2px",
+          "iconSize": 18
+        },
+        {
+          "name": "基础交互",
+          "selected": "false",
+          "width": 37.203125,
+          "height": 32,
+          "color": "rgb(241, 243, 245)",
+          "background": "rgb(36, 39, 43)",
+          "outline": "rgb(241, 243, 245) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "内容展示",
+          "selected": "false",
+          "width": 37.203125,
+          "height": 32,
+          "color": "rgb(157, 165, 175)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(157, 165, 175) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "背景效果",
+          "selected": "false",
+          "width": 37.203125,
+          "height": 32,
+          "color": "rgb(157, 165, 175)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(157, 165, 175) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "文字与动效",
+          "selected": "false",
+          "width": 37.203125,
+          "height": 32,
+          "color": "rgb(157, 165, 175)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(157, 165, 175) none 3px",
+          "iconSize": 18
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "height": 600,
+      "theme": "light",
+      "rect": {
+        "width": 202,
+        "height": 40
+      },
+      "padding": "3px",
+      "gap": "2px",
+      "buttons": [
+        {
+          "name": "全部",
+          "selected": "true",
+          "width": 37.1875,
+          "height": 32,
+          "color": "rgb(32, 38, 32)",
+          "background": "rgb(255, 255, 255)",
+          "outline": "rgb(56, 99, 50) solid 2px",
+          "iconSize": 18
+        },
+        {
+          "name": "基础交互",
+          "selected": "false",
+          "width": 37.203125,
+          "height": 32,
+          "color": "rgb(32, 38, 32)",
+          "background": "rgb(240, 242, 240)",
+          "outline": "rgb(32, 38, 32) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "内容展示",
+          "selected": "false",
+          "width": 37.203125,
+          "height": 32,
+          "color": "rgb(101, 112, 103)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(101, 112, 103) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "背景效果",
+          "selected": "false",
+          "width": 37.203125,
+          "height": 32,
+          "color": "rgb(101, 112, 103)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(101, 112, 103) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "文字与动效",
+          "selected": "false",
+          "width": 37.203125,
+          "height": 32,
+          "color": "rgb(101, 112, 103)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(101, 112, 103) none 3px",
+          "iconSize": 18
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "height": 600,
+      "theme": "dark",
+      "rect": {
+        "width": 202,
+        "height": 40
+      },
+      "padding": "3px",
+      "gap": "2px",
+      "buttons": [
+        {
+          "name": "全部",
+          "selected": "true",
+          "width": 37.1875,
+          "height": 32,
+          "color": "rgb(241, 243, 245)",
+          "background": "rgb(27, 29, 32)",
+          "outline": "rgb(201, 233, 154) solid 2px",
+          "iconSize": 18
+        },
+        {
+          "name": "基础交互",
+          "selected": "false",
+          "width": 37.203125,
+          "height": 32,
+          "color": "rgb(241, 243, 245)",
+          "background": "rgb(36, 39, 43)",
+          "outline": "rgb(241, 243, 245) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "内容展示",
+          "selected": "false",
+          "width": 37.203125,
+          "height": 32,
+          "color": "rgb(157, 165, 175)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(157, 165, 175) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "背景效果",
+          "selected": "false",
+          "width": 37.203125,
+          "height": 32,
+          "color": "rgb(157, 165, 175)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(157, 165, 175) none 3px",
+          "iconSize": 18
+        },
+        {
+          "name": "文字与动效",
+          "selected": "false",
+          "width": 37.203125,
+          "height": 32,
+          "color": "rgb(157, 165, 175)",
+          "background": "rgba(0, 0, 0, 0)",
+          "outline": "rgb(157, 165, 175) none 3px",
+          "iconSize": 18
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "five categories filter catalog and directory",
+    "source filter preservation and empty state",
+    "refresh/back/forward",
+    "roving focus and directional selection",
+    "detail category and decorative icons",
+    "variant expansion retention and navigation",
+    "fixed filter header during scroll",
+    "desktop widths and both themes",
+    "reduced-motion emulation"
+  ]
+}

@@ -333,8 +333,8 @@
       "theme": "light",
       "selection": "preview",
       "widths": [
-        64,
-        64
+        82,
+        82
       ],
       "background": "rgb(245, 247, 245)",
       "tabs": [
@@ -357,8 +357,8 @@
       "theme": "light",
       "selection": "code",
       "widths": [
-        64,
-        64
+        82,
+        82
       ],
       "background": "rgb(245, 247, 245)",
       "tabs": [
@@ -381,8 +381,8 @@
       "theme": "dark",
       "selection": "preview",
       "widths": [
-        64,
-        64
+        82,
+        82
       ],
       "background": "rgb(21, 23, 26)",
       "tabs": [
@@ -405,8 +405,8 @@
       "theme": "dark",
       "selection": "code",
       "widths": [
-        64,
-        64
+        82,
+        82
       ],
       "background": "rgb(21, 23, 26)",
       "tabs": [
@@ -429,8 +429,8 @@
       "theme": "light",
       "selection": "preview",
       "widths": [
-        64,
-        64
+        82,
+        82
       ],
       "background": "rgb(245, 247, 245)",
       "tabs": [
@@ -453,8 +453,8 @@
       "theme": "light",
       "selection": "code",
       "widths": [
-        64,
-        64
+        82,
+        82
       ],
       "background": "rgb(245, 247, 245)",
       "tabs": [
@@ -477,8 +477,8 @@
       "theme": "dark",
       "selection": "preview",
       "widths": [
-        64,
-        64
+        82,
+        82
       ],
       "background": "rgb(21, 23, 26)",
       "tabs": [
@@ -501,8 +501,8 @@
       "theme": "dark",
       "selection": "code",
       "widths": [
-        64,
-        64
+        82,
+        82
       ],
       "background": "rgb(21, 23, 26)",
       "tabs": [
@@ -525,8 +525,8 @@
       "theme": "light",
       "selection": "preview",
       "widths": [
-        64,
-        64
+        82,
+        82
       ],
       "background": "rgb(245, 247, 245)",
       "tabs": [
@@ -549,8 +549,8 @@
       "theme": "light",
       "selection": "code",
       "widths": [
-        64,
-        64
+        82,
+        82
       ],
       "background": "rgb(245, 247, 245)",
       "tabs": [
@@ -573,8 +573,8 @@
       "theme": "dark",
       "selection": "preview",
       "widths": [
-        64,
-        64
+        82,
+        82
       ],
       "background": "rgb(21, 23, 26)",
       "tabs": [
@@ -597,8 +597,8 @@
       "theme": "dark",
       "selection": "code",
       "widths": [
-        64,
-        64
+        82,
+        82
       ],
       "background": "rgb(21, 23, 26)",
       "tabs": [

@@ -96,7 +96,7 @@ export async function checkNavigation(page, url) {
           await document.fonts.ready;
           await Promise.all(document.getAnimations().map(animation => animation.finished.catch(() => {})));
         });
-        const appearance = await page.locator('.segmented-control').evaluate(node => {
+        const appearance = await page.locator('.workspace-segments').evaluate(node => {
           const tabs = [...node.querySelectorAll('button')];
           const boxes = tabs.map(tab => tab.getBoundingClientRect());
           return {
@@ -118,7 +118,7 @@ export async function checkNavigation(page, url) {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.getByRole('tab', { name: '预览', exact: true }).click();
   await page.getByRole('tab', { name: '代码', exact: true }).click();
-  assert.equal(await page.locator('.segmented-control button').first().evaluate(node => getComputedStyle(node).transitionDuration), '0.001s');
+  assert.equal(await page.locator('.workspace-segments button').first().evaluate(node => getComputedStyle(node).transitionDuration), '0.001s');
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   await fs.writeFile('artifacts/navigation-segmented-checks.json', JSON.stringify({ visits, states, checks: ['physical thumbnail/title/edge clicks', 'keyboard activation', 'back/forward/reload', 'source-filtered destinations', 'iframe hit-test protection', 'mouse and directional segmented selection', 'desktop themes and overflow', 'reduced-motion emulation'] }, null, 2) + '\n');
 }
