@@ -1,4 +1,5 @@
 @import url('ui/scrollbars.css');
+@import url('assets/fonts/fonts.css');
 :root {
   color-scheme: dark;
   --surface: #111214; --surface-raised: #1b1d20; --surface-hover: #24272b;
@@ -10,8 +11,8 @@
   --radius: 16px; --radius-inner: 12px; --radius-control: 9px;
   --sidebar: 268px; --header: 72px; --ease: cubic-bezier(.23,1,.32,1);
   --content-width: 1140px; --content-gutter: 44px;
-  --font: 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif;
-  --mono: 'Cascadia Code', 'Consolas', monospace;
+  --font: 'Inter', 'Atlas CJK', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+  --mono: 'JetBrains Mono', 'Atlas CJK', 'Cascadia Code', 'Consolas', monospace;
 }
 :root[data-theme='light'] {
   color-scheme: light;
@@ -25,7 +26,7 @@
 }
 * { box-sizing: border-box; }
 html { overflow-x: clip; scrollbar-gutter: stable; }
-body { margin: 0; background: var(--surface); color: var(--text); font: 14px/1.7 var(--font); }
+body { margin: 0; background: var(--surface); color: var(--text); font: 14px/1.7 var(--font); font-synthesis: none; }
 button, input, select { font: inherit; color: inherit; }
 button { appearance: none; border: 0; cursor: pointer; background: transparent; }
 a { color: inherit; text-decoration: none; }
@@ -81,7 +82,7 @@ main { margin: var(--header) 0 0 var(--sidebar); padding: 40px var(--content-gut
 .content { max-width: var(--content-width); margin: auto; }
 .breadcrumb { color: var(--muted); font-size: 12px; margin-bottom: 24px; display: flex; gap: 10px; align-items: center; }
 .breadcrumb a:hover { color: var(--text); }
-h1 { font-size: 44px; font-weight: 650; line-height: 1.2; letter-spacing: -.045em; margin: 0; }
+h1 { font-size: 44px; font-weight: 650; line-height: 1.25; letter-spacing: -.025em; margin: 0; }
 .page-intro { margin: 15px 0 0; color: var(--muted); font-size: 14px; line-height: 1.9; max-width: 640px; }
 .catalog-bar { display: flex; align-items: center; justify-content: flex-end; gap: 16px; margin: 32px 0 24px; }
 .glide-select, .glide-select__menu {
@@ -113,12 +114,12 @@ h1 { font-size: 44px; font-weight: 650; line-height: 1.2; letter-spacing: -.045e
 .thumbnail[data-component='shared-viewer'] iframe { width: 100%; height: 100%; transform: none; }
 .thumbnail[data-component='material-toast'] iframe, .thumbnail[data-component='prompt'] iframe { width: 133.333333%; height: 133.333333%; transform: scale(.75); }
 .card-meta { padding: 14px 10px 9px; }
-.card-title { font-size: 14px; font-weight: 600; margin: 0; letter-spacing: -.015em; transition: color 200ms var(--ease); }
+.card-title { font-size: 14px; font-weight: 600; margin: 0; letter-spacing: 0; transition: color 200ms var(--ease); }
 .component-card:hover .card-title { color: var(--accent); }
-.card-english { font: 12px/1.6 var(--font); color: var(--muted); margin: 4px 0 12px; }
+.card-english { font: 13px/1.6 var(--font); color: var(--muted); margin: 4px 0 12px; }
 .card-bottom { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; color: var(--muted); padding-top: 8px; border-top: 1px solid var(--line-soft); }
 .empty-state { padding: 60px 0; color: var(--muted); border-top: 1px solid var(--line); }
-.detail-heading .english-title { color: var(--muted); font: 13px/1.6 var(--font); margin: 10px 0 0; }
+.detail-heading .english-title { color: var(--muted); font: 14px/1.6 var(--font); margin: 10px 0 0; }
 .variant-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 22px; }
 .variant-tabs a { font-size: 13px; padding: 7px 13px; border: 1px solid var(--line-soft); background: var(--surface-panel); border-radius: var(--radius-control); color: var(--muted); transition: color 200ms var(--ease), border-color 200ms var(--ease), background 200ms var(--ease); }
 .variant-tabs a:hover { color: var(--text); border-color: var(--line-hover); background: var(--surface-hover); }
@@ -157,6 +158,7 @@ h1 { font-size: 44px; font-weight: 650; line-height: 1.2; letter-spacing: -.045e
 .copy-button[data-state='copied'] .copy-icon { opacity: 0; transform: scale(.7); }
 .copy-button[data-state='copied'] .copy-check { opacity: 1; transform: none; }
 pre { margin: 0; padding: 20px; font: 13px/1.75 var(--mono); color: var(--code); overflow: auto; tab-size: 2; max-height: 490px; background: var(--surface-code); border-radius: var(--radius-inner); }
+pre code { font: inherit; font-variant-ligatures: none; }
 pre:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .code-resources { display: flex; gap: 16px; flex-wrap: wrap; padding: 12px 10px 6px; font-size: 13px; }
 #asset-links a { color: var(--accent); text-underline-offset: 3px; }

@@ -1,0 +1,458 @@
+{
+  "states": [
+    {
+      "width": 1600,
+      "height": 900,
+      "theme": "light",
+      "title": [
+        {
+          "familyName": "Atlas CJK",
+          "postScriptName": "AtlasCJK-Bold",
+          "isCustomFont": true,
+          "glyphCount": 4
+        }
+      ],
+      "english": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter",
+          "isCustomFont": true,
+          "glyphCount": 14
+        }
+      ],
+      "mixed": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter",
+          "isCustomFont": true,
+          "glyphCount": 15
+        },
+        {
+          "familyName": "Atlas CJK",
+          "postScriptName": "AtlasCJK",
+          "isCustomFont": true,
+          "glyphCount": 16
+        }
+      ]
+    },
+    {
+      "width": 1600,
+      "height": 900,
+      "theme": "dark",
+      "title": [
+        {
+          "familyName": "Atlas CJK",
+          "postScriptName": "AtlasCJK-Bold",
+          "isCustomFont": true,
+          "glyphCount": 4
+        }
+      ],
+      "english": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter",
+          "isCustomFont": true,
+          "glyphCount": 14
+        }
+      ],
+      "mixed": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter",
+          "isCustomFont": true,
+          "glyphCount": 15
+        },
+        {
+          "familyName": "Atlas CJK",
+          "postScriptName": "AtlasCJK",
+          "isCustomFont": true,
+          "glyphCount": 16
+        }
+      ]
+    },
+    {
+      "width": 1600,
+      "height": 900,
+      "code": [
+        {
+          "familyName": "JetBrains Mono",
+          "postScriptName": "JetBrainsMono-Regular",
+          "isCustomFont": true,
+          "glyphCount": 1012
+        }
+      ],
+      "monospaceWidths": [
+        7.79998779296875,
+        7.79998779296875,
+        7.79998779296875
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "theme": "light",
+      "title": [
+        {
+          "familyName": "Atlas CJK",
+          "postScriptName": "AtlasCJK-Bold",
+          "isCustomFont": true,
+          "glyphCount": 4
+        }
+      ],
+      "english": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter",
+          "isCustomFont": true,
+          "glyphCount": 14
+        }
+      ],
+      "mixed": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter",
+          "isCustomFont": true,
+          "glyphCount": 15
+        },
+        {
+          "familyName": "Atlas CJK",
+          "postScriptName": "AtlasCJK",
+          "isCustomFont": true,
+          "glyphCount": 16
+        }
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "theme": "dark",
+      "title": [
+        {
+          "familyName": "Atlas CJK",
+          "postScriptName": "AtlasCJK-Bold",
+          "isCustomFont": true,
+          "glyphCount": 4
+        }
+      ],
+      "english": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter",
+          "isCustomFont": true,
+          "glyphCount": 14
+        }
+      ],
+      "mixed": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter",
+          "isCustomFont": true,
+          "glyphCount": 15
+        },
+        {
+          "familyName": "Atlas CJK",
+          "postScriptName": "AtlasCJK",
+          "isCustomFont": true,
+          "glyphCount": 16
+        }
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "code": [
+        {
+          "familyName": "JetBrains Mono",
+          "postScriptName": "JetBrainsMono-Regular",
+          "isCustomFont": true,
+          "glyphCount": 1012
+        }
+      ],
+      "monospaceWidths": [
+        7.79998779296875,
+        7.79998779296875,
+        7.79998779296875
+      ]
+    },
+    {
+      "width": 1181,
+      "height": 600,
+      "theme": "light",
+      "title": [
+        {
+          "familyName": "Atlas CJK",
+          "postScriptName": "AtlasCJK-Bold",
+          "isCustomFont": true,
+          "glyphCount": 4
+        }
+      ],
+      "english": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter",
+          "isCustomFont": true,
+          "glyphCount": 14
+        }
+      ],
+      "mixed": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter",
+          "isCustomFont": true,
+          "glyphCount": 15
+        },
+        {
+          "familyName": "Atlas CJK",
+          "postScriptName": "AtlasCJK",
+          "isCustomFont": true,
+          "glyphCount": 16
+        }
+      ]
+    },
+    {
+      "width": 1181,
+      "height": 600,
+      "theme": "dark",
+      "title": [
+        {
+          "familyName": "Atlas CJK",
+          "postScriptName": "AtlasCJK-Bold",
+          "isCustomFont": true,
+          "glyphCount": 4
+        }
+      ],
+      "english": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter",
+          "isCustomFont": true,
+          "glyphCount": 14
+        }
+      ],
+      "mixed": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter",
+          "isCustomFont": true,
+          "glyphCount": 15
+        },
+        {
+          "familyName": "Atlas CJK",
+          "postScriptName": "AtlasCJK",
+          "isCustomFont": true,
+          "glyphCount": 16
+        }
+      ]
+    },
+    {
+      "width": 1181,
+      "height": 600,
+      "code": [
+        {
+          "familyName": "JetBrains Mono",
+          "postScriptName": "JetBrainsMono-Regular",
+          "isCustomFont": true,
+          "glyphCount": 1012
+        }
+      ],
+      "monospaceWidths": [
+        7.79998779296875,
+        7.79998779296875,
+        7.79998779296875
+      ]
+    },
+    {
+      "width": 1180,
+      "height": 600,
+      "theme": "light",
+      "title": [
+        {
+          "familyName": "Atlas CJK",
+          "postScriptName": "AtlasCJK-Bold",
+          "isCustomFont": true,
+          "glyphCount": 4
+        }
+      ],
+      "english": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter",
+          "isCustomFont": true,
+          "glyphCount": 14
+        }
+      ],
+      "mixed": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter",
+          "isCustomFont": true,
+          "glyphCount": 15
+        },
+        {
+          "familyName": "Atlas CJK",
+          "postScriptName": "AtlasCJK",
+          "isCustomFont": true,
+          "glyphCount": 16
+        }
+      ]
+    },
+    {
+      "width": 1180,
+      "height": 600,
+      "theme": "dark",
+      "title": [
+        {
+          "familyName": "Atlas CJK",
+          "postScriptName": "AtlasCJK-Bold",
+          "isCustomFont": true,
+          "glyphCount": 4
+        }
+      ],
+      "english": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter",
+          "isCustomFont": true,
+          "glyphCount": 14
+        }
+      ],
+      "mixed": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter",
+          "isCustomFont": true,
+          "glyphCount": 15
+        },
+        {
+          "familyName": "Atlas CJK",
+          "postScriptName": "AtlasCJK",
+          "isCustomFont": true,
+          "glyphCount": 16
+        }
+      ]
+    },
+    {
+      "width": 1180,
+      "height": 600,
+      "code": [
+        {
+          "familyName": "JetBrains Mono",
+          "postScriptName": "JetBrainsMono-Regular",
+          "isCustomFont": true,
+          "glyphCount": 1012
+        }
+      ],
+      "monospaceWidths": [
+        7.79998779296875,
+        7.79998779296875,
+        7.79998779296875
+      ]
+    },
+    {
+      "width": 1024,
+      "height": 600,
+      "theme": "light",
+      "title": [
+        {
+          "familyName": "Atlas CJK",
+          "postScriptName": "AtlasCJK-Bold",
+          "isCustomFont": true,
+          "glyphCount": 4
+        }
+      ],
+      "english": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter",
+          "isCustomFont": true,
+          "glyphCount": 14
+        }
+      ],
+      "mixed": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter",
+          "isCustomFont": true,
+          "glyphCount": 15
+        },
+        {
+          "familyName": "Atlas CJK",
+          "postScriptName": "AtlasCJK",
+          "isCustomFont": true,
+          "glyphCount": 16
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "height": 600,
+      "theme": "dark",
+      "title": [
+        {
+          "familyName": "Atlas CJK",
+          "postScriptName": "AtlasCJK-Bold",
+          "isCustomFont": true,
+          "glyphCount": 4
+        }
+      ],
+      "english": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter",
+          "isCustomFont": true,
+          "glyphCount": 14
+        }
+      ],
+      "mixed": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter",
+          "isCustomFont": true,
+          "glyphCount": 15
+        },
+        {
+          "familyName": "Atlas CJK",
+          "postScriptName": "AtlasCJK",
+          "isCustomFont": true,
+          "glyphCount": 16
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "height": 600,
+      "code": [
+        {
+          "familyName": "JetBrains Mono",
+          "postScriptName": "JetBrainsMono-Regular",
+          "isCustomFont": true,
+          "glyphCount": 1012
+        }
+      ],
+      "monospaceWidths": [
+        7.79998779296875,
+        7.79998779296875,
+        7.79998779296875
+      ]
+    }
+  ],
+  "loaded": [
+    {
+      "family": "Inter",
+      "weight": "100 900",
+      "display": "swap"
+    },
+    {
+      "family": "Atlas CJK",
+      "weight": "100 900",
+      "display": "swap"
+    },
+    {
+      "family": "JetBrains Mono",
+      "weight": "400",
+      "display": "swap"
+    }
+  ],
+  "pageErrors": [],
+  "boundary": "Chromium platform-font evidence, two desktop themes; original iframe font choices are unchanged."
+}

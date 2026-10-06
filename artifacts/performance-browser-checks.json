@@ -3,6 +3,7 @@
     "catalog loads only nearby demos and every card can subsequently load",
     "sidebar category segments filter destinations and keep keyboard navigation usable",
     "category tooltips support hover, keyboard focus, dismissal and cleanup",
+    "local bilingual fonts actually render, preserve code alignment and have readable fallbacks",
     "physical card navigation and segmented preview/code controls",
     "hidden code panels stop cloud, field and reel scheduling without replacing the frame",
     "manual reel pause survives code-panel and document-visibility changes",
@@ -51,7 +52,6 @@
     {
       "url": "http://127.0.0.1:18192/demos/viewer-laper.html?thumbnail=1&managed=1",
       "active": "false",
-      "ready": "true",
       "callbacks": 0,
       "draws": 0,
       "pending": 0
