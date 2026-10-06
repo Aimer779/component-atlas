@@ -62,7 +62,8 @@ button:focus-visible, a:focus-visible, select:focus-visible { outline: 2px solid
 :root[data-theme-transition]::view-transition-new(root) { z-index: 2; }
 .sidebar { position: fixed; top: calc(var(--header) + 16px); left: 16px; bottom: 16px; z-index: 25; width: calc(var(--sidebar) - 16px); display: flex; flex-direction: column; overflow: hidden; padding: 12px 12px 16px; border: 1px solid var(--line-soft); border-radius: var(--radius); background: var(--surface); }
 .sidebar-top { flex-shrink: 0; padding-bottom: 12px; border-bottom: 1px solid var(--line-soft); }
-.sidebar-list { flex: 1; min-height: 0; overflow-y: auto; padding-right: 4px; }
+.sidebar-list { flex: 1; min-height: 0; overflow-y: auto; padding-right: 4px; scrollbar-width: none; }
+.sidebar-list::-webkit-scrollbar { display: none; }
 .sidebar-list .nav-group:first-child { margin-top: 18px; padding-top: 0; border-top: 0; }
 .ui-icon { display: block; flex-shrink: 0; }
 .sidebar a { display: flex; align-items: center; justify-content: space-between; min-height: 36px; border: 1px solid transparent; border-radius: var(--radius-control); padding: 6px 11px; color: var(--secondary); font-size: 13px; transition: color 180ms var(--ease), background 180ms var(--ease), border-color 180ms var(--ease); }
