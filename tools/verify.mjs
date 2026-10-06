@@ -50,6 +50,11 @@ for (const record of records.filter(entry => entry.snapshot)) {
   const bytes = fs.readFileSync(path.join(root, record.snapshot));
   assert.equal(createHash('sha256').update(bytes).digest('hex'), record.sha256, `Snapshot drift: ${record.snapshot}`);
 }
+const bitsSource = JSON.parse(read('vendor/react-bits/source.json'));
+for (const record of bitsSource.files) {
+  const bytes = fs.readFileSync(path.join(root, 'vendor/react-bits', record.file));
+  assert.equal(createHash('sha256').update(bytes).digest('hex'), record.sha256, `React Bits source drift: ${record.file}`);
+}
 const font = fs.readFileSync(path.join(root, 'snapshots/assets/montserrat-Dk9Pm7OY.woff2'));
 assert.equal(font.subarray(0, 4).toString(), 'wOF2', 'Invalid local font');
 const scripts = files.filter(file => /\.(m?js)$/.test(file));
@@ -58,6 +63,6 @@ assert.ok(read('styles.css').includes('[hidden] { display: none !important; }'))
 assert.ok(read('demos/demo.css').includes('[hidden] { display: none !important; }'));
 assert.doesNotMatch(read('index.html'), /nav-toggle|sidebar-scrim/, 'Desktop-only shell must not restore the mobile drawer');
 assert.doesNotMatch(read('app.js'), /data-width|窄屏查看/, 'Desktop-only preview must not restore narrow-screen controls');
-execFileSync(process.execPath, ['--test', path.join(root, 'tools/regression.test.mjs')], { stdio: 'inherit' });
-console.log(`PASS: ${components.length} components, ${variants.length} variants, ${scripts.length} scripts, ${references} local references, ${records.filter(record => record.snapshot).length} snapshot hashes, WOFF2 header.`);
+execFileSync(process.execPath, ['--test', path.join(root, 'tools/regression.test.mjs'), path.join(root, 'tools/widgets.test.mjs')], { stdio: 'inherit' });
+console.log(`PASS: ${components.length} components, ${variants.length} variants, ${scripts.length} scripts, ${references} local references, ${records.filter(record => record.snapshot).length} snapshot hashes, ${bitsSource.files.length} React Bits source hashes, WOFF2 header.`);
 console.log('Scope: source, inventory, provenance, local assets and regressions. Browser behavior and visual review are recorded separately in NOTES.md.');

@@ -1,0 +1,32 @@
+{
+  "commit": "ca44b3f9ee180676a06d7de8ec6bea84cddff85b",
+  "date": "2026-10-06",
+  "repository": "https://github.com/DavidHDev/react-bits",
+  "files": [
+    {
+      "sha256": "2004ce25349676b1cb056a2169a6b1fc833b4cde3effd1302a0a4b1edb3aaebc",
+      "source": "src/content/Micro/GlideSelect/GlideSelect.css",
+      "file": "GlideSelect.css"
+    },
+    {
+      "sha256": "49124e97385df3d046c7338753d6239e79da899a01f3a4eeeb84e06e1cee1d98",
+      "source": "src/content/Micro/GlideSelect/GlideSelect.jsx",
+      "file": "GlideSelect.jsx"
+    },
+    {
+      "sha256": "f4c33af6739191537738662d223b68d77bc226f4b57ea883e16481d8cc5c73c9",
+      "source": "LICENSE.md",
+      "file": "LICENSE.md"
+    },
+    {
+      "sha256": "a454d593033ed53ec4633f18b025b368c9135da0a6a6892c14e8bd75ad87ac16",
+      "source": "src/components/common/Preview/PreviewSelect.jsx",
+      "file": "PreviewSelect.jsx"
+    },
+    {
+      "sha256": "b4b7b5a8ce8321893538bb7a8e6ba41838c95a09ea09f67921206dbfa1635bbc",
+      "source": "src/css/sidebar.css",
+      "file": "sidebar.css"
+    }
+  ]
+}

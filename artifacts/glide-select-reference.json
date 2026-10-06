@@ -1,0 +1,150 @@
+{
+  "nodes": [
+    {
+      "computed": {
+        "appearance": "button",
+        "background-color": "color(srgb 0.209412 0.209412 0.230588)",
+        "background-image": "none",
+        "border": "0px none rgb(245, 245, 245)",
+        "border-radius": "6px",
+        "box-shadow": "none",
+        "box-sizing": "border-box",
+        "color": "rgb(245, 245, 245)",
+        "corner-shape": "superellipse(1)",
+        "filter": "none",
+        "font": "500 13px / 13px Geist, sans-serif",
+        "isolation": "auto",
+        "overflow": "visible",
+        "padding": "0px 8px 0px 10px",
+        "position": "relative",
+        "transform": "none",
+        "transition": "background-color 0.1s, transform 0.16s cubic-bezier(0.23, 1, 0.32, 1)"
+      },
+      "html": "<button type=\"button\" role=\"combobox\" aria-haspopup=\"listbox\" aria-expanded=\"true\" aria-controls=\"«rd4»-list\" aria-label=\"Export format\" class=\"glide-select__trigger\" aria-activedescendant=\"«rd4»-0\"><span class=\"glide-select__label\">PNG</span><span class=\"glide-select__chevron\" aria-hidden=\"true\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" color=\"currentColor\" class=\"\" stroke-width=\"2.5\" stroke=\"currentColor\"><path d=\"M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\"></path></svg></span></button>",
+      "rect": {
+        "height": 32,
+        "width": 63.05208587646485,
+        "x": 744.8021240234375,
+        "y": 344
+      },
+      "selector": ".glide-select__trigger"
+    },
+    {
+      "computed": {
+        "appearance": "none",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "background-image": "none",
+        "border": "0px solid rgb(228, 228, 231)",
+        "border-radius": "0px",
+        "box-shadow": "none",
+        "box-sizing": "border-box",
+        "color": "color(srgb 0.960784 0.960784 0.960784 / 0.55)",
+        "corner-shape": "superellipse(1)",
+        "filter": "none",
+        "font": "500 13px / 13px Geist, sans-serif",
+        "isolation": "auto",
+        "overflow": "visible",
+        "padding": "0px",
+        "position": "static",
+        "transform": "matrix(-1, 0, 0, -1, 0, 0)",
+        "transition": "transform 0.2s cubic-bezier(0.23, 1, 0.32, 1)"
+      },
+      "html": "<span class=\"glide-select__chevron\" aria-hidden=\"true\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" color=\"currentColor\" class=\"\" stroke-width=\"2.5\" stroke=\"currentColor\"><path d=\"M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\"></path></svg></span>",
+      "rect": {
+        "height": 12,
+        "width": 12,
+        "x": 787.8541870117188,
+        "y": 354
+      },
+      "selector": ".glide-select__chevron"
+    },
+    {
+      "computed": {
+        "appearance": "none",
+        "background-color": "rgb(39, 39, 42)",
+        "background-image": "none",
+        "border": "0px solid rgb(228, 228, 231)",
+        "border-radius": "10px",
+        "box-shadow": "color(srgb 0 0 0 / 0.22) 0px 4px 16px 0px",
+        "box-sizing": "border-box",
+        "color": "rgb(255, 255, 255)",
+        "corner-shape": "superellipse(1)",
+        "filter": "none",
+        "font": "16px / 24px Geist, sans-serif",
+        "isolation": "auto",
+        "overflow": "visible",
+        "padding": "4px",
+        "position": "absolute",
+        "transform": "none",
+        "transition": "opacity cubic-bezier(0.23, 1, 0.32, 1), transform cubic-bezier(0.23, 1, 0.32, 1)"
+      },
+      "html": "<div class=\"glide-select__menu\" data-state=\"open\" data-side=\"bottom\" data-align=\"left\" style=\"transition-duration: 0ms;\"><div id=\"«rd4»-list\" role=\"listbox\" aria-label=\"Export format\" class=\"glide-select__list\" data-live=\"\"><span class=\"glide-select__pill\" aria-hidden=\"true\" style=\"transform: translateY(0px); opacity: 1; transition-duration: 0ms, 150ms;\"></span><div id=\"«rd4»-0\" role=\"option\" aria-selected=\"true\" data-index=\"0\" class=\"glide-select__option\"><span class=\"glide-select__name\">PNG</span><span class=\"glide-select__tag\">Lossless</span><span class=\"glide-select__check\" data-on=\"\" aria-hidden=\"true\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" color=\"currentColor\" class=\"\" stroke-width=\"2.5\" stroke=\"currentColor\"><path d=\"M5 14L8.5 17.5L19 6.5\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\"></path></svg></span></div><div id=\"«rd4»-1\" role=\"option\" aria-selected=\"false\" data-index=\"1\" class=\"glide-select__option\"><span class=\"glide-select__name\">JPG</span><span class=\"glide-select__tag\">Smallest</span><span class=\"glide-select__check\" aria-hidden=\"true\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" color=\"currentColor\" class=\"\" stroke-width=\"2.5\" stroke=\"currentColor\"><path d=\"M5 14L8.5 17.5L19 6.5\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\"></path></svg></span></div><div id=\"«rd4»-2\" role=\"option\" aria-selected=\"false\" data-index=\"2\" class=\"glide-select__option\"><span class=\"glide-select__name\">WebP</span><span class=\"glide-select__tag\">Modern</span><span class=\"glide-select__check\" aria-hidden=\"true\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" color=\"currentColor\" class=\"\" stroke-width=\"2.5\" stroke=\"currentColor\"><path d=\"M5 14L8.5 17.5L19 6.5\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\"></path></svg></span></div><div id=\"«rd4»-3\" role=\"option\" aria-selected=\"false\" data-index=\"3\" class=\"glide-select__option\"><span class=\"glide-select__name\">SVG</span><span class=\"glide-select__tag\">Vector</span><span class=\"glide-select__check\" aria-hidden=\"true\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" color=\"currentColor\" class=\"\" stroke-width=\"2.5\" stroke=\"currentColor\"><path d=\"M5 14L8.5 17.5L19 6.5\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\"></path></svg></span></div><div id=\"«rd4»-4\" role=\"option\" aria-selected=\"false\" data-index=\"4\" class=\"glide-select__option\"><span class=\"glide-select__name\">PDF</span><span class=\"glide-select__tag\">Print</span><span class=\"glide-select__check\" aria-hidden=\"true\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" color=\"currentColor\" class=\"\" stroke-width=\"2.5\" stroke=\"currentColor\"><path d=\"M5 14L8.5 17.5L19 6.5\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\"></path></svg></span></div></div></div>",
+      "rect": {
+        "height": 162,
+        "width": 176,
+        "x": 744.8021240234375,
+        "y": 382
+      },
+      "selector": ".glide-select__menu"
+    },
+    {
+      "computed": {
+        "appearance": "none",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "background-image": "none",
+        "border": "0px solid rgb(228, 228, 231)",
+        "border-radius": "6px",
+        "box-shadow": "none",
+        "box-sizing": "border-box",
+        "color": "rgb(245, 245, 245)",
+        "corner-shape": "superellipse(1)",
+        "filter": "none",
+        "font": "13px / 19.5px Geist, sans-serif",
+        "isolation": "auto",
+        "overflow": "visible",
+        "padding": "0px 8px 0px 10px",
+        "position": "relative",
+        "transform": "none",
+        "transition": "background-color 0.15s"
+      },
+      "html": "<div id=\"«rd4»-0\" role=\"option\" aria-selected=\"true\" data-index=\"0\" class=\"glide-select__option\"><span class=\"glide-select__name\">PNG</span><span class=\"glide-select__tag\">Lossless</span><span class=\"glide-select__check\" data-on=\"\" aria-hidden=\"true\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" color=\"currentColor\" class=\"\" stroke-width=\"2.5\" stroke=\"currentColor\"><path d=\"M5 14L8.5 17.5L19 6.5\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\"></path></svg></span></div>",
+      "rect": {
+        "height": 30,
+        "width": 168,
+        "x": 748.8021240234375,
+        "y": 386
+      },
+      "selector": ".glide-select__option"
+    },
+    {
+      "computed": {
+        "appearance": "none",
+        "background-color": "rgb(63, 63, 70)",
+        "background-image": "none",
+        "border": "0px solid rgb(228, 228, 231)",
+        "border-radius": "6px",
+        "box-shadow": "none",
+        "box-sizing": "border-box",
+        "color": "rgb(255, 255, 255)",
+        "corner-shape": "superellipse(1)",
+        "filter": "none",
+        "font": "16px / 24px Geist, sans-serif",
+        "isolation": "auto",
+        "overflow": "visible",
+        "padding": "0px",
+        "position": "absolute",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "transition": "transform cubic-bezier(0.23, 1, 0.32, 1), opacity 0.15s"
+      },
+      "html": "<span class=\"glide-select__pill\" aria-hidden=\"true\" style=\"transform: translateY(0px); opacity: 1; transition-duration: 0ms, 150ms;\"></span>",
+      "rect": {
+        "height": 30,
+        "width": 168,
+        "x": 748.8021240234375,
+        "y": 386
+      },
+      "selector": ".glide-select__pill"
+    }
+  ],
+  "url": "https://reactbits.dev/micro/glide-select"
+}

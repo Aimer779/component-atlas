@@ -1,5 +1,30 @@
 # 组件图鉴 · 提取与验收
 
+## React Bits 控件接入与侧栏展开（2026-10-06）
+
+范围：图鉴侧栏所有 15 行的导航 / 变体展开、来源筛选下拉、详情源码文件下拉。沿用官方组件机制并适配现有 HTML/JS 工程；示例组件、快照和提取清单不变。
+
+### 来源与实现
+
+- 官方仓库固定到 `ca44b3f9ee180676a06d7de8ec6bea84cddff85b`，原始文件与 MIT + Commons Clause / David Haz 版权声明保存在 `vendor/react-bits/`；路径和哈希在 `source.json`，每次完整检查核对。
+- [Glide Select](https://reactbits.dev/micro/glide-select)：使用 `src/content/Micro/GlideSelect/GlideSelect.css` 原文件；`ui/glide-select.js` 将官方 React 组件的状态与事件适配为 DOM 控制器。没有新增生产依赖或改用 React。
+- 沿用官方 trigger → chevron / menu → list → pill + options 结构；菜单 padding 4px、外圆角 10px、内圆角 6px、选项 30px、间距 1px、触发器与菜单间距 6px，高亮移动 220ms，旋转箭头 200ms。原站实时计算值在 `artifacts/glide-select-reference.json`。
+- 沿用官网 `PreviewSelect.jsx` 的 body portal 机制，避免源码工作台 overflow hidden 裁切菜单；滚动 / resize 时跟随触发器，越界时翻转或限制高度。退出路由或隐藏源码面板时清理弹层。官方 GlideSelect 原本为 root 内的 absolute 菜单，这是本轮有意差异。
+- 图鉴使用自己的明暗主题令牌，字体为系统中文，来源字段 12px、源码字段 11px；原示例为 13px Geist。按钮补 appearance none 与可见键盘焦点；保留源码路径的 title 提示。
+- 原站首次打开时运行时 transition-duration 为 0ms；本适配显示 180ms 进入、120ms 退出。选中与键盘退出即时关闭，遵循减少动态效果分支。
+- 官网文档 `src/css/sidebar.css` 的 `.sidebar-item:hover` 使用文本 2px 横移，图鉴将这组反馈限制在名称上；右侧展开按钮固定 32×32px，SVG 固定 14×14px，transform-origin 50% 50%。不再使用 summary 内嵌导航链接和文字伪元素箭头。
+- 名称进入组件，箭头单独展开，二者点击与键盘区域独立。展开使用 180ms grid 行高与 140ms 内容透明度；收起内容立即 inert。`expandedComponents` 保持同次浏览的展开状态，侧栏滚动位置在重绘前后保留。
+
+### 验证与证据
+
+- `node tools/verify.mjs`：16 项回归通过；16 份脚本语法、87 条本地资源引用、7 个样例快照与5份 React Bits 来源哈希通过。新增下拉首字查找、无匹配保持选择、上翻6px锚距及长列表 / 宽菜单边界回归。
+- 实际 Chromium 中，材质按钮箭头关闭 / 打开时图标与按钮中心均为 `(229.3333, 243.3646)`；展开操作保留 `#/catalog`，没有导航。收起后面板高度为 0、inert 属性存在，Tab 直接进入下一项名称。
+- 来源鼠标选 Laper 得到 9 张卡片，键盘 End / Enter 选 Cromma 得到 10 张卡片，已展开的材质按钮均保持。源码选择 `snapshots/cromma.css` 后实际显示对应源码；Escape 焦点仍在「源码文件」，Tab 正常进入下一控件。
+- 预览 / 源码切换与跳转设计系统均没有残留 portal。鼠标点击外部按退出动画关闭；连续展开 / 收起与重新打开使用同一状态，不产生多个弹层。
+- 双主题实测 1440×900、1024×768、1280×600，无横滚；来源菜单在视口内，距触发器 6px且右边缘差值 0。源码7项列表在短窗口中完整可见。上翻 / 高度限制通过确定性几何回归，未强制改变真实页面取景来制造上翻截图。
+- 实际图像评审：固定箭头与计数清楚对齐，变体留白及下拉内外圆角一致；明暗主题的当前选项、悬浮项与勾选可识别。参考与当前计算值、浏览器操作结果在 `artifacts/controls-checks.json`；截图为 `controls-dark.jpg` / `controls-light.jpg`。
+- 未实测其他浏览器、真实系统 reduced-motion 设置、屏幕阅读器和触摸设备；手机窄屏按用户要求不在范围。自动检查与桌面运行证据分别记录。
+
 ## 外壳质感与明暗主题（2026-10-06）
 
 本轮沿用 React Bits 材质机制并适配图鉴主题，覆盖全部 15 张组件卡片、目录与变体链接、页头导航、分类与来源控件、详情工作台、源码表面、设计系统和来源页。来源组件保留原材质；仅调整五个缩略图的取景。

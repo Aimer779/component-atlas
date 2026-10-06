@@ -1,0 +1,148 @@
+{
+  "arrow": {
+    "closed": {
+      "button": [
+        229.33334350585935,
+        243.36459350585935
+      ],
+      "expanded": "false",
+      "icon": [
+        229.33334350585935,
+        243.36459350585935
+      ],
+      "url": "#/catalog"
+    },
+    "open": {
+      "button": [
+        229.33334350585935,
+        243.36459350585935
+      ],
+      "expanded": "true",
+      "icon": [
+        229.33334350585935,
+        243.36459350585935
+      ],
+      "url": "#/catalog"
+    }
+  },
+  "layouts": [
+    {
+      "overflow": 0,
+      "popup": {
+        "bottom": 443.75,
+        "gap": 6,
+        "left": 1204.666748046875,
+        "padding": "4px",
+        "radius": "10px",
+        "right": 1380.666748046875,
+        "rightDelta": 0,
+        "top": 343.75
+      },
+      "sidebarButtons": 15,
+      "theme": "dark",
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "overflow": 0,
+      "popup": {
+        "bottom": 433.75,
+        "gap": 6,
+        "left": 802.6666870117188,
+        "padding": "4px",
+        "radius": "10px",
+        "right": 978.6666870117188,
+        "rightDelta": 0,
+        "top": 333.75
+      },
+      "sidebarButtons": 15,
+      "theme": "dark",
+      "viewport": [
+        1024,
+        768
+      ]
+    },
+    {
+      "overflow": 0,
+      "popup": {
+        "bottom": 443.75,
+        "gap": 6,
+        "left": 1044.666748046875,
+        "padding": "4px",
+        "radius": "10px",
+        "right": 1220.666748046875,
+        "rightDelta": 0,
+        "top": 343.75
+      },
+      "sidebarButtons": 15,
+      "theme": "dark",
+      "viewport": [
+        1280,
+        600
+      ]
+    },
+    {
+      "overflow": 0,
+      "popup": {
+        "bottom": 443.75,
+        "gap": 6,
+        "left": 1204.666748046875,
+        "right": 1380.666748046875,
+        "rightDelta": 0,
+        "top": 343.75
+      },
+      "theme": "light",
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "overflow": 0,
+      "popup": {
+        "bottom": 433.75,
+        "gap": 6,
+        "left": 802.6666870117188,
+        "right": 978.6666870117188,
+        "rightDelta": 0,
+        "top": 333.75
+      },
+      "theme": "light",
+      "viewport": [
+        1024,
+        768
+      ]
+    },
+    {
+      "overflow": 0,
+      "popup": {
+        "bottom": 421.75,
+        "gap": 6,
+        "left": 1044.666748046875,
+        "right": 1220.666748046875,
+        "rightDelta": 0,
+        "top": 321.75
+      },
+      "theme": "light",
+      "viewport": [
+        1280,
+        600
+      ]
+    }
+  ],
+  "behavior": {
+    "mouseSource": "Laper -> 9 cards",
+    "keyboardSource": "End + Enter -> Cromma -> 10 cards",
+    "expandedState": "buttons expanded after both filters",
+    "codeSelection": "snapshots/cromma.css loaded",
+    "escape": "menu removed and source-file combobox retains focus",
+    "tab": "menu removed and focus advances",
+    "routeCleanup": "no portal in preview or system",
+    "collapsed": "zero height, inert attribute, Tab goes to language-menu name",
+    "rapid": "six sidebar toggles keep centered icon; three select toggles leave one menu",
+    "outsideClick": "exit finishes with no menu"
+  },
+  "consoleErrors": []
+}
