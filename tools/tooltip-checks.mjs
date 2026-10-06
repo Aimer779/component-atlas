@@ -8,7 +8,7 @@ export async function checkTooltips(browser, url) {
   page.on('pageerror', error => errors.push(String(error)));
   try {
     await page.clock.install({ time: new Date('2026-10-06T00:00:00Z') });
-    await page.goto(`${url}/#/system`, { waitUntil: 'networkidle' });
+    await page.goto(`${url}/#/sources`, { waitUntil: 'networkidle' });
     await page.clock.pauseAt(new Date('2026-10-06T01:00:00Z'));
     const button = name => page.getByRole('button', { name, exact: true });
     const tip = page.locator('#category-tooltip');

@@ -1,0 +1,46 @@
+[
+  {
+    "computed": {
+      "appearance": "button",
+      "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+      "border": "0px solid lab(89.5164 0.0511706 -3.03215)",
+      "border-radius": "16px",
+      "box-shadow": "none",
+      "box-sizing": "border-box",
+      "color": "lab(4.38504 0.200026 -3.38308)",
+      "corner-shape": "superellipse(1)",
+      "filter": "none",
+      "font": "530 16px / 24px neueMontreal, \"neueMontreal Fallback\"",
+      "height": "334px",
+      "isolation": "auto",
+      "overflow": "visible",
+      "padding": "0px",
+      "position": "static",
+      "transition": "all",
+      "width": "122.167px"
+    },
+    "html": "<button class=\"group flex flex-col text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-2xl\"><div class=\"relative h-16 w-full rounded-2xl ring-1 ring-inset ring-black/10 sm:h-20\" style=\"background-color:#0007cb\"><span class=\"absolute top-2.5 right-2.5 flex items-center gap-1 rounded-full px-2 py-1 text-xs font-medium opacity-0 transition-opacity group-hover:opacity-100 bg-white/15 text-white\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-copy size-3\" aria-hidden=\"true\"><rect width=\"14\" height=\"14\" x=\"8\" y=\"8\" rx=\"2\" ry=\"2\"></rect><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"></path></svg>Copy</span></div><div class=\"flex flex-col gap-0.5 pt-2.5\"><div class=\"flex items-start justify-between gap-2\"><span class=\"min-w-0 text-sm font-semibold text-foreground\">Electric Violet</span></div><span class=\"font-mono text-xs text-muted-foreground\">#0007cb</span><span class=\"mt-1 text-caption text-muted-foreground\">Brand accent — used sparingly for emphasis moments, selected icon strokes, and tag punctuation; the only saturated color in the system creates instant focus when it appears against the warm neutral canvas</span></div></button>"
+  },
+  {
+    "computed": {
+      "appearance": "none",
+      "background": "rgb(0, 7, 203) none repeat scroll 0% 0% / auto padding-box border-box",
+      "border": "0px solid lab(89.5164 0.0511706 -3.03215)",
+      "border-radius": "16px",
+      "box-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0 0 0 / 0.1) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+      "box-sizing": "border-box",
+      "color": "lab(4.38504 0.200026 -3.38308)",
+      "corner-shape": "superellipse(1)",
+      "filter": "none",
+      "font": "530 16px / 24px neueMontreal, \"neueMontreal Fallback\"",
+      "height": "80px",
+      "isolation": "auto",
+      "overflow": "visible",
+      "padding": "0px",
+      "position": "relative",
+      "transition": "all",
+      "width": "122.167px"
+    },
+    "html": "<div class=\"relative h-16 w-full rounded-2xl ring-1 ring-inset ring-black/10 sm:h-20\" style=\"background-color:#0007cb\"><span class=\"absolute top-2.5 right-2.5 flex items-center gap-1 rounded-full px-2 py-1 text-xs font-medium opacity-0 transition-opacity group-hover:opacity-100 bg-white/15 text-white\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-copy size-3\" aria-hidden=\"true\"><rect width=\"14\" height=\"14\" x=\"8\" y=\"8\" rx=\"2\" ry=\"2\"></rect><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"></path></svg>Copy</span></div>"
+  }
+]

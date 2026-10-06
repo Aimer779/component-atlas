@@ -1,0 +1,74 @@
+{
+  "nodes": [
+    {
+      "label": "Copy Electric Violet"
+    },
+    {
+      "computed": {
+        "appearance": "button",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "background-image": "none",
+        "border": "0px solid lab(89.5164 0.0511706 -3.03215)",
+        "border-radius": "0px",
+        "box-shadow": "none",
+        "box-sizing": "border-box",
+        "color": "lab(4.38504 0.200026 -3.38308)",
+        "corner-shape": "superellipse(1)",
+        "filter": "none",
+        "font-family": "Saans, sans-serif",
+        "font-size": "56px",
+        "font-weight": "400",
+        "grid-column": "auto",
+        "height": "56px",
+        "isolation": "auto",
+        "max-width": "none",
+        "object-fit": "fill",
+        "overflow": "hidden",
+        "padding": "0px",
+        "position": "static",
+        "transition": "color 0.15s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), fill 0.15s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.15s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.15s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.15s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.15s cubic-bezier(0.4, 0, 0.2, 1)",
+        "width": "503.333px"
+      },
+      "html": "<button class=\"w-full truncate text-foreground text-left cursor-pointer hover:text-foreground/80 transition-colors\" style=\"font-family:'Saans', sans-serif;font-size:56px;font-weight:400;line-height:1;letter-spacing:-0.03em\" title=\"Click to copy &quot;Saans&quot;\">The quick brown fox jumps</button>",
+      "label": "The quick brown fox jumps"
+    },
+    {
+      "computed": {
+        "appearance": "button",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "background-image": "none",
+        "border": "0px solid lab(89.5164 0.0511706 -3.03215)",
+        "border-radius": "0px",
+        "box-shadow": "none",
+        "box-sizing": "border-box",
+        "color": "lab(47.7319 0.122339 -4.52256)",
+        "corner-shape": "superellipse(1)",
+        "filter": "none",
+        "font-family": "\"JetBrains Mono\", \"JetBrains Mono Fallback\"",
+        "font-size": "12px",
+        "font-weight": "530",
+        "grid-column": "auto",
+        "height": "16px",
+        "isolation": "auto",
+        "max-width": "none",
+        "object-fit": "fill",
+        "overflow": "visible",
+        "padding": "0px",
+        "position": "static",
+        "transition": "color 0.15s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), fill 0.15s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.15s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.15s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.15s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.15s cubic-bezier(0.4, 0, 0.2, 1)",
+        "width": "38.6458px"
+      },
+      "html": "<button class=\"group inline-flex items-center gap-1.5 font-mono text-xs text-muted-foreground transition-colors hover:text-foreground\" title=\"Click to copy\">4px<span class=\"opacity-0 group-hover:opacity-100 transition-opacity\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-copy size-3\" aria-hidden=\"true\"><rect width=\"14\" height=\"14\" x=\"8\" y=\"8\" rx=\"2\" ry=\"2\"></rect><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"></path></svg></span></button>",
+      "label": "4px"
+    }
+  ],
+  "styles": [
+    "https://styles.refero.design/_next/static/chunks/0t~aa41foq8uq.css?dpl=dpl_CPN4X6jHvabj3mXQiXreg2N8NVew",
+    "https://styles.refero.design/_next/static/chunks/0o7i-03ay-xu5.css?dpl=dpl_CPN4X6jHvabj3mXQiXreg2N8NVew",
+    "https://styles.refero.design/_next/static/chunks/0s23.41a-ilj4.css?dpl=dpl_CPN4X6jHvabj3mXQiXreg2N8NVew"
+  ],
+  "viewport": [
+    1280,
+    720
+  ]
+}

@@ -82,7 +82,7 @@ export async function checkThemeReveal(browser, url) {
     await reveal(); await page.setViewportSize({ width: 1024, height: 600 }); await finished();
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
     await reveal(); await page.getByRole('link', { name: '设计系统', exact: true }).click(); await finished();
-    await expect(page.locator('main .palette').first()).toBeVisible();
+    await expect(page.locator('main [data-system-palette]')).toBeVisible();
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
 
     await reveal(); await page.emulateMedia({ reducedMotion: 'reduce' }); await finished();

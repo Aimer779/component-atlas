@@ -1,9 +1,9 @@
 /** Copies the current file; changing files or destroying cancels stale feedback. */
-export function mountCopyButton(button, { notify, write = text => navigator.clipboard.writeText(text) }) {
+export function mountCopyButton(button, { notify, idleLabel = '复制源码', write = text => navigator.clipboard.writeText(text) }) {
   const label = button.querySelector('[data-copy-label]');
   let source = '', revision = 0, timer;
   function idle() {
-    button.dataset.state = 'idle'; label.textContent = '复制源码'; button.disabled = !source;
+    button.dataset.state = 'idle'; label.textContent = idleLabel; button.disabled = !source;
   }
   async function copy() {
     if (!source || button.disabled) return;
@@ -16,7 +16,7 @@ export function mountCopyButton(button, { notify, write = text => navigator.clip
       clearTimeout(timer); timer = setTimeout(idle, 1800);
     } catch {
       if (version !== revision) return;
-      idle(); notify('复制失败，请选中源码手动复制。');
+      idle(); notify('复制失败，请选中文字手动复制。');
     }
   }
   button.addEventListener('click', copy);
