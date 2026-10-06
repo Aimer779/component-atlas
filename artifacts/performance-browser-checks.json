@@ -1,0 +1,87 @@
+{
+  "checks": [
+    "catalog loads only nearby demos and every card can subsequently load",
+    "hidden code panels stop cloud, field and reel scheduling without replacing the frame",
+    "manual reel pause survives code-panel and document-visibility changes",
+    "spring stops after convergence and restarts for both scroll directions and hidden-panel recovery",
+    "billing selection survives preview suspension, theme change and source copying",
+    "all 23 variants retain computed styles in full-size and thumbnail states",
+    "catalog remains usable at desktop and short-window sizes in both themes"
+  ],
+  "comparedStates": 73,
+  "comparedNodes": 2329,
+  "fieldsPerNode": 28,
+  "pseudoStates": 3,
+  "externalRequests": [],
+  "pageErrors": [],
+  "finalWork": [
+    {
+      "url": "http://127.0.0.1:18192/#/catalog?project=Laper",
+      "callbacks": 5,
+      "draws": 0,
+      "pending": 0
+    },
+    {
+      "url": "http://127.0.0.1:18192/demos/button-laper-primary.html?thumbnail=1&managed=1",
+      "active": "false",
+      "ready": "true",
+      "callbacks": 0,
+      "draws": 0,
+      "pending": 0
+    },
+    {
+      "url": "http://127.0.0.1:18192/demos/menu-laper.html?thumbnail=1&managed=1",
+      "active": "true",
+      "ready": "true",
+      "callbacks": 0,
+      "draws": 0,
+      "pending": 0
+    },
+    {
+      "url": "http://127.0.0.1:18192/demos/billing-laper.html?thumbnail=1&managed=1",
+      "active": "false",
+      "ready": "true",
+      "callbacks": 0,
+      "draws": 0,
+      "pending": 0
+    },
+    {
+      "url": "http://127.0.0.1:18192/demos/viewer-laper.html?thumbnail=1&managed=1",
+      "active": "false",
+      "callbacks": 0,
+      "draws": 0,
+      "pending": 0
+    },
+    {
+      "url": "about:blank",
+      "callbacks": 0,
+      "draws": 0,
+      "pending": 0
+    },
+    {
+      "url": "about:blank",
+      "callbacks": 0,
+      "draws": 0,
+      "pending": 0
+    },
+    {
+      "url": "about:blank",
+      "callbacks": 0,
+      "draws": 0,
+      "pending": 0
+    },
+    {
+      "url": "about:blank",
+      "callbacks": 0,
+      "draws": 0,
+      "pending": 0
+    },
+    {
+      "url": "about:blank",
+      "callbacks": 0,
+      "draws": 0,
+      "pending": 0
+    }
+  ],
+  "boundary": "Headless Chromium; simulated visibility change, not measured laptop power or other browsers."
+}

@@ -1,0 +1,174 @@
+{
+  "label": "before",
+  "viewport": [
+    1280,
+    720
+  ],
+  "dpr": 1.5,
+  "browser": "153.0.8010.12",
+  "cold": {
+    "requests": 113,
+    "decodedResponseBytes": 5809888,
+    "loadedDemos": 15
+  },
+  "warm": {
+    "requests": 113,
+    "decodedResponseBytes": 5809888
+  },
+  "idle": [
+    {
+      "url": "http://127.0.0.1:18190/",
+      "callbacks": 0,
+      "draws": 0,
+      "pending": 0,
+      "callbacksIn500ms": 0,
+      "drawsIn500ms": 0
+    },
+    {
+      "url": "http://127.0.0.1:18190/demos/button-cromma-tag.html?thumbnail=1",
+      "ready": "true",
+      "callbacks": 0,
+      "draws": 0,
+      "pending": 0,
+      "callbacksIn500ms": 0,
+      "drawsIn500ms": 0
+    },
+    {
+      "url": "http://127.0.0.1:18190/demos/menu-laper.html?thumbnail=1",
+      "ready": "true",
+      "callbacks": 0,
+      "draws": 0,
+      "pending": 0,
+      "callbacksIn500ms": 0,
+      "drawsIn500ms": 0
+    },
+    {
+      "url": "http://127.0.0.1:18190/demos/billing-laper.html?thumbnail=1",
+      "ready": "true",
+      "callbacks": 0,
+      "draws": 0,
+      "pending": 0,
+      "callbacksIn500ms": 0,
+      "drawsIn500ms": 0
+    },
+    {
+      "url": "http://127.0.0.1:18190/demos/prompt-cromma.html?thumbnail=1",
+      "ready": "true",
+      "callbacks": 0,
+      "draws": 0,
+      "pending": 0,
+      "callbacksIn500ms": 0,
+      "drawsIn500ms": 0
+    },
+    {
+      "url": "http://127.0.0.1:18190/demos/accordion-cromma.html?thumbnail=1",
+      "ready": "true",
+      "callbacks": 0,
+      "draws": 0,
+      "pending": 0,
+      "callbacksIn500ms": 0,
+      "drawsIn500ms": 0
+    },
+    {
+      "url": "http://127.0.0.1:18190/demos/viewer-laper.html?thumbnail=1",
+      "ready": "true",
+      "callbacks": 0,
+      "draws": 0,
+      "pending": 0,
+      "callbacksIn500ms": 0,
+      "drawsIn500ms": 0
+    },
+    {
+      "url": "http://127.0.0.1:18190/demos/toast-cromma.html?thumbnail=1",
+      "ready": "true",
+      "callbacks": 2,
+      "draws": 2,
+      "pending": 0,
+      "callbacksIn500ms": 0,
+      "drawsIn500ms": 0
+    },
+    {
+      "url": "http://127.0.0.1:18190/demos/card-laper.html?thumbnail=1",
+      "ready": "true",
+      "callbacks": 0,
+      "draws": 0,
+      "pending": 0,
+      "callbacksIn500ms": 0,
+      "drawsIn500ms": 0
+    },
+    {
+      "url": "http://127.0.0.1:18190/demos/aurora-cromma.html?thumbnail=1",
+      "ready": "true",
+      "callbacks": 0,
+      "draws": 0,
+      "pending": 0,
+      "callbacksIn500ms": 0,
+      "drawsIn500ms": 0
+    },
+    {
+      "url": "http://127.0.0.1:18190/demos/field-static.html?thumbnail=1",
+      "ready": "true",
+      "callbacks": 0,
+      "draws": 2,
+      "pending": 0,
+      "callbacksIn500ms": 0,
+      "drawsIn500ms": 0
+    },
+    {
+      "url": "http://127.0.0.1:18190/demos/cloud-hero.html?thumbnail=1",
+      "ready": "true",
+      "callbacks": 90,
+      "draws": 90,
+      "pending": 1,
+      "callbacksIn500ms": 23,
+      "drawsIn500ms": 23
+    },
+    {
+      "url": "http://127.0.0.1:18190/demos/reveal-cromma.html?thumbnail=1",
+      "ready": "true",
+      "callbacks": 2,
+      "draws": 0,
+      "pending": 0,
+      "callbacksIn500ms": 0,
+      "drawsIn500ms": 0
+    },
+    {
+      "url": "http://127.0.0.1:18190/demos/reel-laper.html?thumbnail=1",
+      "ready": "true",
+      "callbacks": 87,
+      "draws": 0,
+      "pending": 1,
+      "callbacksIn500ms": 23,
+      "drawsIn500ms": 0
+    },
+    {
+      "url": "http://127.0.0.1:18190/demos/spring-laper.html?thumbnail=1",
+      "ready": "true",
+      "callbacks": 87,
+      "draws": 0,
+      "pending": 1,
+      "callbacksIn500ms": 23,
+      "drawsIn500ms": 0
+    },
+    {
+      "url": "http://127.0.0.1:18190/demos/outline-laper.html?thumbnail=1",
+      "ready": "true",
+      "callbacks": 0,
+      "draws": 0,
+      "pending": 0,
+      "callbacksIn500ms": 0,
+      "drawsIn500ms": 0
+    }
+  ],
+  "spring": {
+    "url": "http://127.0.0.1:18190/demos/spring-laper.html",
+    "ready": "true",
+    "callbacks": 38,
+    "draws": 0,
+    "pending": 1
+  },
+  "externalAttempts": [
+    "https://imagedelivery.net/1W11ZO-eGbuX7N6NEDrE4Q/textures/paper_background/public"
+  ],
+  "boundary": "Headless Chromium workload measurement; not laptop GPU power or user-perceived load-time measurement."
+}

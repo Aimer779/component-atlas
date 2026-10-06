@@ -7,6 +7,13 @@
   const thumbnail = new URLSearchParams(location.search).has('thumbnail');
   body.dataset.thumbnail = String(thumbnail);
   const sample = document.querySelector('#sample');
+  const layers = [];
+  const mountField = (host, options) => {
+    const layer = window.CrommaField.mount(host, { ...options, activity: window.AtlasActivity });
+    if (layer) layers.push(layer);
+    return layer;
+  };
+  addEventListener('pagehide', () => layers.forEach(layer => layer.destroy()), { once: true });
   let toastTimer;
   function notify(message) {
     document.querySelector('.demo-toast')?.remove();
@@ -26,7 +33,7 @@
       if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); control.click(); }
     }));
     const host = sample.querySelector('span.h-44 > div');
-    if (host) window.CrommaField.mount(host, { kind: 'newton', tint: 'var(--primary)' });
+    if (host) mountField(host, { kind: 'newton', tint: 'var(--primary)' });
   }
   if (mode === 'billing') {
     const toggle = sample.querySelector('[role="switch"]');
@@ -150,8 +157,6 @@
     form.addEventListener('submit', submit); send.addEventListener('click', submit);
     form.querySelectorAll('button:not([aria-label="Send"])').forEach(button => button.addEventListener('click', event => { event.preventDefault(); notify('辅助按钮点击已触发。'); }));
     sync();
-    const field = form.querySelector('.cromma-edge span.absolute.inset-0 > div');
-    if (field) window.CrommaField.mount(field, { kind: 'newton', tint: 'var(--sky)', animated: true });
   }
   if (mode === 'accordion') {
     const controls = [...sample.querySelectorAll('button')];
@@ -174,12 +179,12 @@
     });
   }
   if (mode === 'field') {
-    window.CrommaField.mount(sample.querySelector('[data-field]'), { kind: 'newton', tint: variant === 'field-static' ? 'var(--primary)' : 'var(--sky)', animated: variant === 'field-animated' });
+    mountField(sample.querySelector('[data-field]'), { kind: 'newton', tint: variant === 'field-static' ? 'var(--primary)' : 'var(--sky)', animated: variant === 'field-animated' && !reduced });
   }
   if (mode === 'cloud') {
     const host = sample.querySelector('[data-cloud]');
     const footer = variant === 'cloud-footer';
-    const layer = window.HeroCloud.create(host, { shadow: footer ? 0 : .24, scale: 1, opacity: 1, drift: footer, frameMode: footer ? 'footer' : undefined, cycleMs: footer ? 8000 : 0, static: reduced });
+    const layer = window.HeroCloud.create(host, { shadow: footer ? 0 : .24, scale: 1, opacity: 1, drift: footer, frameMode: footer ? 'footer' : undefined, cycleMs: footer ? 8000 : 0, static: reduced, activity: window.AtlasActivity });
     const resize = () => layer.resize({ width: host.clientWidth, height: host.clientHeight }, innerWidth < 640);
     resize(); const observer = new ResizeObserver(resize); observer.observe(host);
     if (!footer) layer.ready();

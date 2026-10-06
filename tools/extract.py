@@ -5,6 +5,7 @@ import json
 import shutil
 import hashlib
 import re
+import subprocess
 from adapt_engines import build_engines
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -96,12 +97,15 @@ def build():
         shutil.copyfile(WORKSPACE / source, destination)
         provenance.append({"source": source, "snapshot": f"snapshots/{target}", "sha256": hashlib.sha256(destination.read_bytes()).hexdigest()})
     build_engines(ROOT)
+    subprocess.run(["node", str(ROOT / "tools/build-assets.mjs")], check=True, cwd=ROOT)
 
     def emit(slug, theme, mode, fragment, origin, selector, extra=""):
         # Sample controls stay local, even when their original node was a product link.
         fragment = re.sub(r'\shref="[^"]*"', ' href="#"', fragment)
         fragment = re.sub(r'\sdata-fast-goal="[^"]*"', '', fragment)
-        scripts = []
+        fragment = fragment.replace('https://imagedelivery.net/1W11ZO-eGbuX7N6NEDrE4Q/textures/paper_background/public', '../assets/paper-background.jpg')
+        fragment = fragment.replace('../snapshots/assets/editor-workspace.png', '../assets/editor-workspace.webp')
+        scripts = ["demos/activity.js"]
         if mode == "menu" and theme == "laper":
             scripts.append("snapshots/lang-flags.js")
         if mode in {"field", "toast"}:
@@ -114,19 +118,21 @@ def build():
         tags = "\n".join(f'<script {"type=\"module\" " if script.endswith("motion.js") else ""}src="../{script}"></script>' for script in scripts)
         document = f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{slug} · Component Atlas</title><link rel="stylesheet" href="../snapshots/{theme}.css">
+<title>{slug} · Component Atlas</title><link rel="stylesheet" href="../runtime/{theme}.css">
 <link rel="stylesheet" href="demo.css"></head>
 <body data-demo="{mode}" data-theme="{theme}" data-variant="{slug}">
 <main id="sample" class="sample {extra}">{fragment}</main>
 {tags}</body></html>
 '''
         (ROOT / "demos" / f"{slug}.html").write_text(document, encoding="utf-8", newline="\n")
-        files = [f"demos/{slug}.html", f"snapshots/{theme}.css", "demos/demo.css", "ui/scrollbars.css", *scripts]
+        files = [f"demos/{slug}.html", f"runtime/{theme}.css", "demos/demo.css", "ui/scrollbars.css", *scripts]
         if "demos/motion.js" in scripts:
             files.append("demos/motion-core.js")
         assets = ["snapshots/assets/montserrat-Dk9Pm7OY.woff2"]
         if mode in {"viewer", "spring"}:
-            assets.append("snapshots/assets/editor-workspace.png")
+            assets.append("assets/editor-workspace.webp")
+        if mode == "reel":
+            assets.append("assets/paper-background.jpg")
         provenance.append({"variant": slug, "source": origin, "selector": selector, "theme": theme, "mode": mode, "files": files, "assets": assets})
 
     find_text = lambda root, text: first(root, lambda n: n.tag in {"a", "button"} and n.text().strip() == text)
@@ -194,6 +200,7 @@ def build():
     fragment = '<button type="button" data-toast-open class="cromma-tag relative overflow-hidden rounded-2xl h-8 px-4">显示材质提示</button><div class="laper-toast-viewport absolute bottom-6 left-1/2 w-125 max-w-[calc(100vw-2rem)]" role="status" aria-live="polite"></div><template id="toast-template"><div class="laper-toast flex min-w-75 max-w-125 items-center gap-3 overflow-hidden rounded-2xl bg-card px-4 py-3">' + toast + '</div></template>'
     emit("toast-cromma", "cromma", "toast", fragment, "cromma-landing/script.js", "showComingSoon(); .laper-toast; toast-progress", "relative")
     (ROOT / "provenance.json").write_text(json.dumps(provenance, ensure_ascii=False, indent=2), encoding="utf-8", newline="\n")
+    subprocess.run(["node", str(ROOT / "tools/build-styles.mjs")], check=True, cwd=ROOT)
     print(f"Extracted {len(list((ROOT / 'demos').glob('*.html')))} variants. Source experiments unchanged.")
 
 

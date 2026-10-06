@@ -186,7 +186,10 @@ function mountField(host, options) {
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.drawArrays(gl.TRIANGLES, 0, 3);
   };
+  let active = options.activity?.active !== false;
+  let disposed = false;
   const resize = () => {
+    if (!active || disposed || !host.clientWidth || !host.clientHeight) return;
     const w = host.clientWidth || 1;
     const h = host.clientHeight || 1;
     const bw = Math.max(1, Math.floor(w * dpr));
@@ -200,25 +203,34 @@ function mountField(host, options) {
   resize();
   const observer = "ResizeObserver" in window ? new ResizeObserver(resize) : null;
   observer?.observe(host);
-  let raf = 0;
+  let raf = 0, last = 0;
   const motion = options.animated && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (motion) {
-    const started = performance.now();
-    let last = 0;
-    const frame = (now) => {
-      raf = requestAnimationFrame(frame);
-      if (now - last < 1000 / 24) return;
+  const frame = (now) => {
+    raf = 0;
+    if (!active || disposed) return;
+    if (last && now - last >= 1000 / 24) {
+      time += (now - last) / 1000;
       last = now;
-      time = 8 + (now - started) / 1000;
-      paint(host.clientWidth || 1, host.clientHeight || 1);
-    };
+      paint(host.clientWidth, host.clientHeight);
+    } else if (!last) last = now;
     raf = requestAnimationFrame(frame);
-  }
+  };
+  const setActive = next => {
+    if (disposed || active === next) return;
+    active = next; last = 0;
+    cancelAnimationFrame(raf); raf = 0;
+    if (active) {
+      resize();
+      if (motion) raf = requestAnimationFrame(frame);
+    }
+  };
+  if (motion && active) raf = requestAnimationFrame(frame);
+  const unsubscribe = options.activity?.subscribe(setActive);
   window.__fieldStatus = "ok";
-  let disposed = false;
   return { canvas, destroy() {
     if (disposed) return;
     disposed = true;
+    unsubscribe?.();
     cancelAnimationFrame(raf);
     observer?.disconnect();
     gl.deleteBuffer(buf);

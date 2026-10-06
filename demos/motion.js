@@ -63,22 +63,32 @@ function mountReel() {
     card.classList.add('laper-script-float'); card.style.animationDelay = `${index % 4 * .2 + 2.5}s`;
   });
   if (reduced) { button.disabled = true; button.textContent = '减少动态效果：静态剧本'; return; }
-  let elapsed = 0, last = performance.now(), offset = 0, paused = false, raf;
+  let elapsed = 0, last = performance.now(), offset = 0, paused = false, raf = 0;
+  let active = window.AtlasActivity.active, half = row.scrollWidth / 2;
+  const observer = new ResizeObserver(() => { half = row.scrollWidth / 2; });
+  observer.observe(row);
+  function sync() {
+    cancelAnimationFrame(raf); raf = 0;
+    last = performance.now();
+    row.style.setProperty('--play-state', paused || !active ? 'paused' : 'running');
+    if (active && !paused) raf = requestAnimationFrame(step);
+  }
   button.addEventListener('click', () => {
     paused = !paused; button.setAttribute('aria-pressed', String(paused)); button.textContent = paused ? '继续循环' : '暂停循环';
-    row.style.setProperty('--play-state', paused ? 'paused' : 'running');
+    sync();
   });
   const step = now => {
+    raf = 0;
+    if (!active || paused) return;
     const delta = Math.min(50, now - last); last = now;
-    const half = row.scrollWidth / 2;
-    if (!paused && !document.hidden && half > 0) {
+    if (half > 0) {
       offset = (offset + reelDistance(elapsed, elapsed + delta)) % half;
       elapsed += delta; row.style.transform = `translate3d(${-offset}px, 0, 0)`;
     }
     raf = requestAnimationFrame(step);
   };
-  raf = requestAnimationFrame(step);
-  window.addEventListener('pagehide', () => cancelAnimationFrame(raf), { once: true });
+  const unsubscribe = window.AtlasActivity.subscribe(value => { active = value; sync(); });
+  window.addEventListener('pagehide', () => { unsubscribe(); observer.disconnect(); cancelAnimationFrame(raf); }, { once: true });
 }
 
 function mountSpring() {
@@ -88,26 +98,63 @@ function mountSpring() {
   if (thumbnail) viewport.scrollTop = section.offsetTop;
   if (reduced) { frame.style.transform = 'scale(1)'; output.textContent = '1.000'; return; }
   const state = { value: .96, velocity: 0 };
-  let last = performance.now(), raf;
+  let last = performance.now(), raf = 0, target = .96;
+  let active = window.AtlasActivity.active;
+  function paint() {
+    frame.style.transform = `scale(${state.value})`;
+    const text = state.value.toFixed(3);
+    if (output.textContent !== text) output.textContent = text;
+  }
   const tick = now => {
-    const rect = section.getBoundingClientRect(), box = viewport.getBoundingClientRect();
-    const top = rect.top - box.top;
-    const target = scrollTarget(viewport.clientHeight, top);
-    if (target !== null) springStep(state, target, (now - last) / 1000);
+    raf = 0;
+    if (!active) return;
+    springStep(state, target, (now - last) / 1000);
     last = now;
-    frame.style.transform = `scale(${state.value})`; output.textContent = state.value.toFixed(3);
+    // Snap only below the visible precision; a settled spring no longer reads layout or schedules frames.
+    if (Math.abs(state.value - target) < 1e-6 && Math.abs(state.velocity) < 1e-5) {
+      state.value = target; state.velocity = 0; paint(); return;
+    }
+    paint();
     raf = requestAnimationFrame(tick);
   };
-  raf = requestAnimationFrame(tick);
-  window.addEventListener('pagehide', () => cancelAnimationFrame(raf), { once: true });
+  function wake() {
+    if (!active) return;
+    const next = scrollTarget(viewport.clientHeight, section.getBoundingClientRect().top - viewport.getBoundingClientRect().top);
+    if (next === null) return;
+    target = next;
+    if (!raf && (Math.abs(state.value - target) >= 1e-6 || Math.abs(state.velocity) >= 1e-5)) {
+      last = performance.now(); raf = requestAnimationFrame(tick);
+    }
+  }
+  viewport.addEventListener('scroll', wake, { passive: true });
+  const observer = new ResizeObserver(wake);
+  observer.observe(viewport); observer.observe(section);
+  const unsubscribe = window.AtlasActivity.subscribe(value => {
+    active = value;
+    if (active) wake();
+    else { cancelAnimationFrame(raf); raf = 0; }
+  });
+  window.addEventListener('pagehide', () => {
+    unsubscribe(); observer.disconnect(); viewport.removeEventListener('scroll', wake); cancelAnimationFrame(raf);
+  }, { once: true });
 }
 
 function mountToast() {
   const viewport = sample.querySelector('.laper-toast-viewport');
-  let current, timer, closeTimer, field;
+  let current, timer, closeTimer, field, closeCurrent, expiry = 0, remaining = 5000;
   function clear() {
     clearTimeout(timer); clearTimeout(closeTimer); field?.destroy(); field = null;
-    current?.remove(); current = null;
+    current?.remove(); current = null; closeCurrent = null; timer = 0;
+  }
+  function syncTimer(active) {
+    if (thumbnail || !closeCurrent) return;
+    if (!active) {
+      if (timer) remaining = Math.max(0, expiry - performance.now());
+      clearTimeout(timer); timer = 0;
+    } else if (!timer) {
+      expiry = performance.now() + remaining;
+      timer = setTimeout(closeCurrent, remaining);
+    }
   }
   function show() {
     clear(); current = sample.querySelector('#toast-template').content.firstElementChild.cloneNode(true);
@@ -115,22 +162,24 @@ function mountToast() {
     toast.dataset.starting = ''; toast.style.setProperty('--toast-index', '0'); toast.style.setProperty('--toast-offset-y', '0px');
     toast.style.boxShadow = 'inset 0 0 0 .5px var(--tag-hairline), inset 0 .5px 0 0 var(--tag-edge-top), inset 0 -.5px 0 0 var(--tag-edge-bottom), inset 0 2px 0 -1px var(--tag-highlight-top), inset 0 -2px 0 -1px var(--tag-highlight-bottom), var(--tag-drop), 0 12px 32px -8px rgba(0,0,0,.14)';
     viewport.append(toast);
-    field = window.CrommaField.mount(toast.querySelector('[data-toast-field]'), { kind: 'newton', tint: 'var(--info)' });
+    field = window.CrommaField.mount(toast.querySelector('[data-toast-field]'), { kind: 'newton', tint: 'var(--info)', activity: window.AtlasActivity });
     requestAnimationFrame(() => requestAnimationFrame(() => { if (current === toast) toast.removeAttribute('data-starting'); }));
     let closing = false;
     const close = () => {
       if (closing || current !== toast) return;
-      closing = true; clearTimeout(timer); toast.dataset.ending = '';
+      closing = true; clearTimeout(timer); timer = 0; closeCurrent = null; toast.dataset.ending = '';
       closeTimer = setTimeout(clear, reduced ? 0 : 500);
     };
     toast.querySelector('[data-close]').addEventListener('click', close);
+    closeCurrent = close; remaining = 5000;
     if (thumbnail) toast.querySelector('circle[stroke-dasharray]').style.animationPlayState = 'paused';
-    else timer = setTimeout(close, 5000);
+    else syncTimer(window.AtlasActivity.active);
   }
   if (reduced) viewport.dataset.reducedMotion = '';
   sample.querySelector('[data-toast-open]').addEventListener('click', show);
   if (thumbnail) show();
-  window.addEventListener('pagehide', clear, { once: true });
+  const unsubscribe = window.AtlasActivity.subscribe(syncTimer);
+  window.addEventListener('pagehide', () => { unsubscribe(); clear(); }, { once: true });
 }
 
 ({ viewer: mountViewer, reel: mountReel, spring: mountSpring, toast: mountToast })[mode]?.();

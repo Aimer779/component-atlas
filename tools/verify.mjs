@@ -5,10 +5,19 @@ import { execFileSync } from 'node:child_process';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { components, groups, projects, countVariants } from '../data.js';
+import { resourceReferences } from './resources.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
-const files = fs.readdirSync(root, { recursive: true }).filter(file => !file.startsWith('.git' + path.sep) && !file.includes('__pycache__') && fs.statSync(path.join(root, file)).isFile());
+const excluded = new Set(['.git', 'node_modules', 'test-results', '__pycache__']);
+function inventory(directory = '') {
+  return fs.readdirSync(path.join(root, directory), { withFileTypes: true }).flatMap(entry => {
+    if (excluded.has(entry.name)) return [];
+    const file = path.join(directory, entry.name);
+    return entry.isDirectory() ? inventory(file) : [file];
+  });
+}
+const files = inventory();
 const variants = components.flatMap(component => component.variants);
 const records = JSON.parse(read('provenance.json'));
 assert.equal(new Set(components.map(component => component.id)).size, components.length, 'Duplicate component route');
@@ -30,13 +39,14 @@ for (const component of components) {
     assert.ok(html.includes('id="sample"'), 'Missing sample root');
     assert.ok(!/href="https?:/.test(html), 'Sample control navigates externally');
     assert.ok(!/\b(src|href)="https?:/.test(html), 'Remote demo resource');
+    assert.ok(!resourceReferences(html, 'demo.html').some(ref => /^https?:/.test(ref)), 'Remote inline demo resource');
   }
 }
 
 let references = 0;
 for (const file of files.filter(file => /\.(html|css)$/.test(file))) {
   const source = read(file);
-  const refs = file.endsWith('.html') ? [...source.matchAll(/\b(?:src|href)="([^"#]+)"/g)].map(match => match[1]) : [...source.matchAll(/url\(\s*["']?([^\s"')]+)["']?\s*\)/g)].map(match => match[1]);
+  const refs = resourceReferences(source, file);
   for (const ref of refs) {
     if (/^(https?:|data:|#)/.test(ref)) continue;
     const target = path.resolve(path.dirname(path.join(root, file)), ref.split(/[?#]/)[0]);
@@ -63,6 +73,7 @@ assert.ok(read('styles.css').includes('[hidden] { display: none !important; }'))
 assert.ok(read('demos/demo.css').includes('[hidden] { display: none !important; }'));
 assert.doesNotMatch(read('index.html'), /nav-toggle|sidebar-scrim/, 'Desktop-only shell must not restore the mobile drawer');
 assert.doesNotMatch(read('app.js'), /data-width|窄屏查看/, 'Desktop-only preview must not restore narrow-screen controls');
-execFileSync(process.execPath, ['--test', path.join(root, 'tools/regression.test.mjs'), path.join(root, 'tools/widgets.test.mjs'), path.join(root, 'tools/copy-button.test.mjs')], { stdio: 'inherit' });
+execFileSync(process.execPath, [path.join(root, 'tools/build-styles.mjs'), '--check'], { stdio: 'inherit' });
+execFileSync(process.execPath, ['--test', path.join(root, 'tools/regression.test.mjs'), path.join(root, 'tools/widgets.test.mjs'), path.join(root, 'tools/copy-button.test.mjs'), path.join(root, 'tools/performance.test.mjs')], { stdio: 'inherit' });
 console.log(`PASS: ${components.length} components, ${variants.length} variants, ${scripts.length} scripts, ${references} local references, ${records.filter(record => record.snapshot).length} snapshot hashes, ${bitsSource.files.length} React Bits source hashes, WOFF2 header.`);
 console.log('Scope: source, inventory, provenance, local assets and regressions. Browser behavior and visual review are recorded separately in NOTES.md.');

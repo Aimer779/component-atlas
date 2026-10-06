@@ -63,3 +63,4 @@ body[data-thumbnail='true'][data-demo='menu'] .sample { align-items: flex-start;
 body[data-thumbnail='true'][data-demo='outline'] .sample svg { width: 88%; height: auto; }
 @media (max-width: 420px) { .sample:not(.full) { padding: 20px; } .faq-sample button { padding: 12px; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; } }
+body[data-active='false'] *, body[data-active='false'] *::before, body[data-active='false'] *::after { animation-play-state: paused !important; }

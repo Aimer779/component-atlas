@@ -392,6 +392,10 @@ function createCloud(root, options) {
   let sweepAt = -1;
   let pulse = 0;
   let raf = 0;
+  let active = options.activity?.active !== false;
+  let pausedAt = performance.now();
+  let disposed = false;
+  const packed = new Float32Array(CLOUD_COUNT * 4);
   let placed = false;
   let cycleTimer = 0;
   let sweepTimer = 0;
@@ -453,13 +457,15 @@ function createCloud(root, options) {
   }
 
   function draw(nowMs) {
+    raf = 0;
+    if (!active || disposed) return;
     const sec = reduced ? 0 : (nowMs - t0) / 1000;
     const dt = Math.min(0.1, (nowMs - last) / 1000);
     last = nowMs;
     drift += (driftTarget - drift) * (1 - Math.exp(-dt / 0.25));
     const k = morphEase(Math.min(1, (nowMs - morphStart) / Math.max(1, morphDur)));
     const ak = Math.min(1, (nowMs - alphaStart) / Math.max(1, fadeDur));
-    const packed = new Float32Array(CLOUD_COUNT * 4);
+
     let minY = Infinity;
     let maxY = -Infinity;
     let minX = Infinity;
@@ -514,20 +520,40 @@ function createCloud(root, options) {
     if (!reduced) raf = requestAnimationFrame(draw);
   }
 
-  raf = requestAnimationFrame(draw);
+  if (active && !reduced) raf = requestAnimationFrame(draw);
 
-  if (options.cycleMs && !reduced) {
+  function startCycle() {
+    if (!options.cycleMs || reduced || !active || disposed) return;
     cycleTimer = window.setInterval(() => {
       pulse += 1;
       morph(blobsLive(pulse, frame), 2600, [0.32, 0.72, 0, 1]);
-      window.clearTimeout(sweepTimer);
-      sweepTimer = window.setTimeout(() => {
-        sweepAt = performance.now();
-      }, 820);
+      sweepAt = performance.now() + 820;
     }, options.cycleMs);
   }
+  function setActive(next) {
+    if (disposed || active === next) return;
+    active = next;
+    if (!active) {
+      pausedAt = performance.now();
+      cancelAnimationFrame(raf); raf = 0;
+      window.clearInterval(cycleTimer); cycleTimer = 0;
+      return;
+    }
+    const elapsed = performance.now() - pausedAt;
+    t0 += elapsed; morphStart += elapsed; alphaStart += elapsed;
+    if (sweepAt >= 0) sweepAt += elapsed;
+    last = performance.now();
+    if (reduced) draw(last);
+    else if (!raf) raf = requestAnimationFrame(draw);
+    startCycle();
+  }
+  startCycle();
+  const unsubscribe = options.activity?.subscribe(setActive);
 
   function destroy() {
+    if (disposed) return;
+    disposed = true;
+    unsubscribe?.();
     cancelAnimationFrame(raf);
     window.clearInterval(cycleTimer);
     window.clearTimeout(sweepTimer);

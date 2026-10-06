@@ -42,9 +42,10 @@
     "mode": "button",
     "files": [
       "demos/button-laper-primary.html",
-      "snapshots/laper.css",
+      "runtime/laper.css",
       "demos/demo.css",
       "ui/scrollbars.css",
+      "demos/activity.js",
       "demos/demo.js"
     ],
     "assets": [
@@ -59,9 +60,10 @@
     "mode": "button",
     "files": [
       "demos/button-laper-outline.html",
-      "snapshots/laper.css",
+      "runtime/laper.css",
       "demos/demo.css",
       "ui/scrollbars.css",
+      "demos/activity.js",
       "demos/demo.js"
     ],
     "assets": [
@@ -76,9 +78,10 @@
     "mode": "button",
     "files": [
       "demos/button-cromma-tag.html",
-      "snapshots/cromma.css",
+      "runtime/cromma.css",
       "demos/demo.css",
       "ui/scrollbars.css",
+      "demos/activity.js",
       "demos/demo.js"
     ],
     "assets": [
@@ -93,9 +96,10 @@
     "mode": "button",
     "files": [
       "demos/button-cromma-primary.html",
-      "snapshots/cromma.css",
+      "runtime/cromma.css",
       "demos/demo.css",
       "ui/scrollbars.css",
+      "demos/activity.js",
       "demos/demo.js"
     ],
     "assets": [
@@ -110,9 +114,10 @@
     "mode": "menu",
     "files": [
       "demos/menu-laper.html",
-      "snapshots/laper.css",
+      "runtime/laper.css",
       "demos/demo.css",
       "ui/scrollbars.css",
+      "demos/activity.js",
       "snapshots/lang-flags.js",
       "demos/demo.js"
     ],
@@ -128,9 +133,10 @@
     "mode": "menu",
     "files": [
       "demos/menu-cromma.html",
-      "snapshots/cromma.css",
+      "runtime/cromma.css",
       "demos/demo.css",
       "ui/scrollbars.css",
+      "demos/activity.js",
       "demos/demo.js"
     ],
     "assets": [
@@ -145,9 +151,10 @@
     "mode": "billing",
     "files": [
       "demos/billing-laper.html",
-      "snapshots/laper.css",
+      "runtime/laper.css",
       "demos/demo.css",
       "ui/scrollbars.css",
+      "demos/activity.js",
       "demos/demo.js"
     ],
     "assets": [
@@ -162,9 +169,10 @@
     "mode": "prompt",
     "files": [
       "demos/prompt-cromma.html",
-      "snapshots/cromma.css",
+      "runtime/cromma.css",
       "demos/demo.css",
       "ui/scrollbars.css",
+      "demos/activity.js",
       "demos/demo.js"
     ],
     "assets": [
@@ -179,9 +187,10 @@
     "mode": "accordion",
     "files": [
       "demos/accordion-cromma.html",
-      "snapshots/cromma.css",
+      "runtime/cromma.css",
       "demos/demo.css",
       "ui/scrollbars.css",
+      "demos/activity.js",
       "demos/demo.js"
     ],
     "assets": [
@@ -196,9 +205,10 @@
     "mode": "aurora",
     "files": [
       "demos/aurora-cromma.html",
-      "snapshots/cromma.css",
+      "runtime/cromma.css",
       "demos/demo.css",
       "ui/scrollbars.css",
+      "demos/activity.js",
       "demos/demo.js"
     ],
     "assets": [
@@ -213,9 +223,10 @@
     "mode": "field",
     "files": [
       "demos/field-static.html",
-      "snapshots/cromma.css",
+      "runtime/cromma.css",
       "demos/demo.css",
       "ui/scrollbars.css",
+      "demos/activity.js",
       "engines/field.js",
       "demos/demo.js"
     ],
@@ -231,9 +242,10 @@
     "mode": "field",
     "files": [
       "demos/field-animated.html",
-      "snapshots/cromma.css",
+      "runtime/cromma.css",
       "demos/demo.css",
       "ui/scrollbars.css",
+      "demos/activity.js",
       "engines/field.js",
       "demos/demo.js"
     ],
@@ -249,9 +261,10 @@
     "mode": "cloud",
     "files": [
       "demos/cloud-hero.html",
-      "snapshots/cromma.css",
+      "runtime/cromma.css",
       "demos/demo.css",
       "ui/scrollbars.css",
+      "demos/activity.js",
       "engines/clouds.js",
       "demos/demo.js"
     ],
@@ -267,9 +280,10 @@
     "mode": "cloud",
     "files": [
       "demos/cloud-footer.html",
-      "snapshots/cromma.css",
+      "runtime/cromma.css",
       "demos/demo.css",
       "ui/scrollbars.css",
+      "demos/activity.js",
       "engines/clouds.js",
       "demos/demo.js"
     ],
@@ -285,9 +299,10 @@
     "mode": "reveal",
     "files": [
       "demos/reveal-cromma.html",
-      "snapshots/cromma.css",
+      "runtime/cromma.css",
       "demos/demo.css",
       "ui/scrollbars.css",
+      "demos/activity.js",
       "demos/demo.js"
     ],
     "assets": [
@@ -302,9 +317,10 @@
     "mode": "reveal",
     "files": [
       "demos/reveal-laper.html",
-      "snapshots/laper.css",
+      "runtime/laper.css",
       "demos/demo.css",
       "ui/scrollbars.css",
+      "demos/activity.js",
       "demos/demo.js"
     ],
     "assets": [
@@ -319,9 +335,10 @@
     "mode": "outline",
     "files": [
       "demos/outline-laper.html",
-      "snapshots/laper.css",
+      "runtime/laper.css",
       "demos/demo.css",
       "ui/scrollbars.css",
+      "demos/activity.js",
       "demos/demo.js"
     ],
     "assets": [
@@ -336,9 +353,10 @@
     "mode": "card",
     "files": [
       "demos/card-laper.html",
-      "snapshots/laper.css",
+      "runtime/laper.css",
       "demos/demo.css",
       "ui/scrollbars.css",
+      "demos/activity.js",
       "demos/demo.js"
     ],
     "assets": [
@@ -353,9 +371,10 @@
     "mode": "card",
     "files": [
       "demos/card-cromma.html",
-      "snapshots/cromma.css",
+      "runtime/cromma.css",
       "demos/demo.css",
       "ui/scrollbars.css",
+      "demos/activity.js",
       "demos/demo.js"
     ],
     "assets": [
@@ -370,16 +389,17 @@
     "mode": "viewer",
     "files": [
       "demos/viewer-laper.html",
-      "snapshots/laper.css",
+      "runtime/laper.css",
       "demos/demo.css",
       "ui/scrollbars.css",
+      "demos/activity.js",
       "demos/demo.js",
       "demos/motion.js",
       "demos/motion-core.js"
     ],
     "assets": [
       "snapshots/assets/montserrat-Dk9Pm7OY.woff2",
-      "snapshots/assets/editor-workspace.png"
+      "assets/editor-workspace.webp"
     ]
   },
   {
@@ -390,15 +410,17 @@
     "mode": "reel",
     "files": [
       "demos/reel-laper.html",
-      "snapshots/laper.css",
+      "runtime/laper.css",
       "demos/demo.css",
       "ui/scrollbars.css",
+      "demos/activity.js",
       "demos/demo.js",
       "demos/motion.js",
       "demos/motion-core.js"
     ],
     "assets": [
-      "snapshots/assets/montserrat-Dk9Pm7OY.woff2"
+      "snapshots/assets/montserrat-Dk9Pm7OY.woff2",
+      "assets/paper-background.jpg"
     ]
   },
   {
@@ -409,16 +431,17 @@
     "mode": "spring",
     "files": [
       "demos/spring-laper.html",
-      "snapshots/laper.css",
+      "runtime/laper.css",
       "demos/demo.css",
       "ui/scrollbars.css",
+      "demos/activity.js",
       "demos/demo.js",
       "demos/motion.js",
       "demos/motion-core.js"
     ],
     "assets": [
       "snapshots/assets/montserrat-Dk9Pm7OY.woff2",
-      "snapshots/assets/editor-workspace.png"
+      "assets/editor-workspace.webp"
     ]
   },
   {
@@ -429,9 +452,10 @@
     "mode": "toast",
     "files": [
       "demos/toast-cromma.html",
-      "snapshots/cromma.css",
+      "runtime/cromma.css",
       "demos/demo.css",
       "ui/scrollbars.css",
+      "demos/activity.js",
       "engines/field.js",
       "demos/demo.js",
       "demos/motion.js",

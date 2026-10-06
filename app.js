@@ -1,6 +1,7 @@
 import { components, groups, projects } from './data.js';
 import { mountGlideSelect } from './ui/glide-select.js';
 import { mountCopyButton } from './ui/copy-button.js';
+import { mountPreviews } from './ui/previews.js';
 
 const main = document.querySelector('#main');
 const sidebar = document.querySelector('#sidebar');
@@ -58,7 +59,7 @@ function renderCatalog(query) {
     <div class="catalog-grid">${collection.map(item => {
       const variants = item.variants.filter(variant => project === 'all' || variant.project === project), first = variants[0];
       const meta = [project === 'all' ? [...new Set(variants.map(variant => variant.project))].join(' / ') : '', variants.length > 1 ? `${variants.length} 个变体` : ''].filter(Boolean);
-      return `<a class="component-card" href="${variantUrl(item, first)}"><div class="thumbnail" data-component="${item.id}"><iframe title="${item.name}缩略预览" src="demos/${first.id}.html?thumbnail=1" loading="lazy" tabindex="-1" aria-hidden="true" inert></iframe></div><div class="card-meta"><h2 class="card-title">${item.name}</h2><p class="card-english">${item.english}</p>${meta.length ? `<div class="card-bottom">${meta.map(value => `<span>${value}</span>`).join('')}</div>` : ''}</div></a>`;
+      return `<a class="component-card" href="${variantUrl(item, first)}"><div class="thumbnail" data-component="${item.id}"><iframe title="${item.name}缩略预览" data-src="demos/${first.id}.html?thumbnail=1&managed=1" tabindex="-1" aria-hidden="true" inert></iframe></div><div class="card-meta"><h2 class="card-title">${item.name}</h2><p class="card-english">${item.english}</p>${meta.length ? `<div class="card-bottom">${meta.map(value => `<span>${value}</span>`).join('')}</div>` : ''}</div></a>`;
     }).join('')}</div>${collection.length ? '' : '<p class="empty-state">这个分类下没有来自该实验的组件，请切换分类或来源。</p>'}</div>`;
   function apply(nextCategory, nextProject) {
     const values = new URLSearchParams();
@@ -68,6 +69,7 @@ function renderCatalog(query) {
   }
   main.querySelectorAll('[data-category]').forEach(button => button.addEventListener('click', () => apply(button.dataset.category, project)));
   registerWidget(mountGlideSelect(main.querySelector('#source-select'), { label: '按实验来源查看', value: project, options: [{ value: 'all', label: '所有来源' }, ...projects.map(name => ({ value: name, label: name }))], align: 'right', onChange: value => apply(category, value) }));
+  registerWidget(mountPreviews(main));
 }
 
 function renderComponent(item, variant) {
@@ -76,7 +78,7 @@ function renderComponent(item, variant) {
     <div class="detail-heading"><h1>${item.name}</h1><p class="english-title">${item.english}</p><p class="page-intro">${item.description}</p></div>
     <nav class="variant-tabs" aria-label="组件变体">${item.variants.map(entry => `<a href="${variantUrl(item, entry)}" ${entry.id === variant.id ? 'aria-current="page"' : ''}>${entry.name}</a>`).join('')}</nav>
     <section class="workspace" aria-label="组件预览与源码"><div class="workspace-toolbar"><div class="view-tabs" role="tablist" aria-label="展示内容"><button role="tab" id="preview-tab" aria-controls="preview-panel" aria-selected="true" data-view="preview">预览</button><button role="tab" id="code-tab" aria-controls="code-panel" aria-selected="false" tabindex="-1" data-view="code">源码</button></div><div class="preview-actions"><button type="button" data-reset>重播 ↻</button><a href="demos/${variant.id}.html" target="_blank" rel="noopener" aria-label="单独打开预览">↗</a></div></div>
-    <div id="preview-panel" role="tabpanel" aria-labelledby="preview-tab"><div class="preview-stage" data-tall="${tall}"><iframe id="demo-frame" title="${item.name}：${variant.name}交互预览" src="demos/${variant.id}.html"></iframe></div></div>
+    <div id="preview-panel" role="tabpanel" aria-labelledby="preview-tab"><div class="preview-stage" data-tall="${tall}"><iframe id="demo-frame" title="${item.name}：${variant.name}交互预览" data-src="demos/${variant.id}.html?managed=1"></iframe></div></div>
     <div id="code-panel" role="tabpanel" aria-labelledby="code-tab" hidden><div class="code-toolbar"><div id="code-file"></div><button type="button" class="copy-button" data-copy data-state="idle" disabled><span class="copy-symbol" aria-hidden="true"><svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><svg class="copy-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg></span><span data-copy-label aria-live="polite">复制源码</span></button></div><pre><code id="source-code">正在读取本地源码…</code></pre><nav class="code-resources" id="asset-links" aria-label="预览素材" hidden></nav></div></section>
     <div class="detail-grid"><section><h2>使用说明</h2><h3>适用场景</h3><p>${item.use}</p><h3>实现机制</h3><p>${item.mechanism}</p><h3>注意事项</h3><p>${item.caution}</p></section><section><h2>关键参数</h2><table class="parameter-table"><tbody>${item.parameters.map(([name, value]) => `<tr><th scope="row">${name}</th><td>${escape(value)}</td></tr>`).join('')}</tbody></table><details class="source-details"><summary>提取来源：${variant.project}</summary><div class="provenance"><code id="origin-path">正在读取来源…</code><a href="${variant.project === 'Laper' ? 'https://laper.ai/' : 'https://cromma.ai/'}" target="_blank" rel="noopener">原站 ↗</a> &nbsp;·&nbsp; <a href="#/sources">提取记录</a></div></details></section></div></div>`;
   const version = renderVersion;
@@ -92,7 +94,8 @@ function renderComponent(item, variant) {
     resources.hidden = !record.assets.length;
   }).catch(() => { if (version === renderVersion) main.querySelector('#origin-path').textContent = '来源记录读取失败，请使用本地服务器打开。'; });
   const frame = main.querySelector('#demo-frame');
-  main.querySelector('[data-reset]').addEventListener('click', () => { frame.src = `demos/${variant.id}.html`; });
+  const previews = registerWidget(mountPreviews(main));
+  main.querySelector('[data-reset]').addEventListener('click', () => { frame.src = frame.dataset.src; });
   const tabs = [...main.querySelectorAll('[data-view]')];
   function showTab(tab) {
     codeSelect.close(true);
@@ -100,6 +103,7 @@ function renderComponent(item, variant) {
     tabs.forEach(button => { const active = button === tab; button.setAttribute('aria-selected', String(active)); button.tabIndex = active ? 0 : -1; });
     main.querySelector('#code-panel').hidden = !code; main.querySelector('#preview-panel').hidden = code;
     main.querySelector('.preview-actions').hidden = code;
+    previews.setEnabled(!code);
     if (code) loadSource();
   }
   tabs.forEach(tab => {
@@ -136,7 +140,7 @@ function renderSystem() {
     <section class="doc-section"><h2>形状与材质</h2><p>圆角由半径与 corner-shape 共同决定。来源中的 Squircle 是材质的一部分；标签按钮还需要多层 inset 高光、细边缘与按压状态。</p><div class="shape-grid"><div><div class="shape-example">round / 16px</div><p>普通圆角，弧线更明显。</p></div><div><div class="shape-example squircle">squircle / 16px</div><p>同一半径，转角更连续。</p></div><div><div class="shape-example capsule">round / 999px</div><p>两端半圆，用于明确的胶囊形。</p></div></div></section>
     <section class="doc-section"><h2>字体与间距</h2><table class="parameter-table"><tbody><tr><th>图鉴标题</th><td>44px / 650</td></tr><tr><th>图鉴正文 / 导航</th><td>正文 14px，导航 13–14px，辅助文字至少 12px；系统中文字体</td></tr><tr><th>代码与参数</th><td>代码 / 参数 13px，文件名 12px；Cascadia Code → Consolas → monospace</td></tr><tr><th>预览字体</th><td>本地 Montserrat；中文系统字体；剧本使用 Courier</td></tr><tr><th>间距基础</th><td>4 / 8 / 12 / 16 / 24 / 32 / 48px</td></tr><tr><th>布局</th><td>72px 顶栏、268px 目录区、最大 1140px 内容</td></tr><tr><th>卡片与预览</th><td>16px 外圆角 / 12px 内圆角 / 6px 内边距</td></tr></tbody></table></section>
     <section class="doc-section"><h2>运动与可访问性</h2><p>保留来源的运动时长与缓动。提供重播和独立打开；键盘焦点可见，菜单支持方向键，状态同步到 aria-expanded / aria-checked。减少动态效果时，关闭循环背景与文字位移。</p><table class="parameter-table"><tbody><tr><th>开关</th><td>150ms ease-out</td></tr><tr><th>按钮</th><td>200ms；材质与缩放</td></tr><tr><th>手风琴</th><td>300ms；行高、透明度与图标</td></tr><tr><th>Laper 进入</th><td>700ms cubic-bezier(.16,1,.3,1)</td></tr><tr><th>云形</th><td>1800ms cubic-bezier(.32,.72,0,1)</td></tr></tbody></table></section>
-    <section class="doc-section"><h2>提取与复用</h2><p>每个条目有中文名称、英文术语、可操作预览、变体、来源、参数、使用建议与适配差异。图鉴不虚构你的个人偏好；体验后再把采纳或拒绝的理由补进去。</p><p>第一版的样式文件保留完整快照以维持原材质，组件 DOM 已独立提取。后续真正接入产品时，再按使用到的组件裁剪 CSS，并处理来源素材的许可。</p><div class="token-code"><pre><code>:root {
+    <section class="doc-section"><h2>提取与复用</h2><p>每个条目有中文名称、英文术语、可操作预览、变体、来源、参数、使用建议与适配差异。图鉴不虚构你的个人偏好；体验后再把采纳或拒绝的理由补进去。</p><p>原始样式快照作为来源证据保留。预览加载从现有组件与交互代码生成的精简样式。接入产品时，一并复制依赖和令牌，并核实素材许可。</p><div class="token-code"><pre><code>:root {
   --background: #fcfdfc; /* 参考值 → 背景角色 */
   --primary: #1a4a35;    /* 参考值 → 主色角色 */
   --toggle-on: var(--primary); /* 组件角色 */
