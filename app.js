@@ -3,6 +3,7 @@ import { mountGlideSelect } from './ui/glide-select.js';
 import { mountCopyButton } from './ui/copy-button.js';
 import { mountPreviews } from './ui/previews.js';
 import { icon } from './vendor/lucide/icons.js';
+import { mountCategoryTooltips } from './ui/category-tooltips.js';
 
 const main = document.querySelector('#main');
 const sidebar = document.querySelector('#sidebar');
@@ -32,8 +33,8 @@ function renderSidebar(section, current, selectedVariant, query) {
   const category = categories.some(entry => entry.id === requested) ? requested : 'all';
   if (current) expandedComponents.add(current.id);
   sidebar.innerHTML = `<div class="sidebar-top"><div class="segmented-control category-segments" role="group" aria-label="组件分类">
-    ${categories.map(entry => `<button type="button" data-category="${entry.id}" aria-label="${entry.name}" title="${entry.name}" aria-pressed="${entry.id === category}" tabindex="${entry.id === category ? 0 : -1}">${icon(categoryIcons[entry.id])}</button>`).join('')}
-    </div><a class="nav-overview" href="#/catalog" ${section === 'catalog' && category === 'all' ? 'aria-current="page"' : ''}>组件总览</a></div>
+    ${categories.map(entry => `<button type="button" data-category="${entry.id}" aria-label="${entry.name}" aria-pressed="${entry.id === category}" tabindex="${entry.id === category ? 0 : -1}">${icon(categoryIcons[entry.id])}</button>`).join('')}
+    </div></div>
     <div class="sidebar-list">${groups.filter(group => category === 'all' || category === group.id).map(group => `<section class="nav-group"><h2>${group.name}</h2>
       ${components.filter(item => item.group === group.id).map(item => {
         const open = expandedComponents.has(item.id);
@@ -43,6 +44,7 @@ function renderSidebar(section, current, selectedVariant, query) {
     </section>`).join('')}</div>`;
   sidebar.querySelector('.sidebar-list').scrollTop = scrollTop;
   const filters = [...sidebar.querySelectorAll('[data-category]')];
+  registerWidget(mountCategoryTooltips(sidebar.querySelector('.category-segments')));
   function applyCategory(button, keyboard = false) {
     const values = new URLSearchParams();
     if (button.dataset.category !== 'all') values.set('category', button.dataset.category);

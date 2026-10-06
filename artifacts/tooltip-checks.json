@@ -1,0 +1,617 @@
+{
+  "states": [
+    {
+      "width": 1600,
+      "height": 900,
+      "theme": "light",
+      "name": "全部",
+      "rect": {
+        "x": 31,
+        "y": 145,
+        "width": 46,
+        "height": 32
+      }
+    },
+    {
+      "width": 1600,
+      "height": 900,
+      "theme": "light",
+      "name": "基础交互",
+      "rect": {
+        "x": 31,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1600,
+      "height": 900,
+      "theme": "light",
+      "name": "内容展示",
+      "rect": {
+        "x": 63,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1600,
+      "height": 900,
+      "theme": "light",
+      "name": "背景效果",
+      "rect": {
+        "x": 107,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1600,
+      "height": 900,
+      "theme": "light",
+      "name": "文字与动效",
+      "rect": {
+        "x": 151,
+        "y": 145,
+        "width": 82,
+        "height": 32
+      }
+    },
+    {
+      "width": 1600,
+      "height": 900,
+      "theme": "dark",
+      "name": "全部",
+      "rect": {
+        "x": 189,
+        "y": 145,
+        "width": 46,
+        "height": 32
+      }
+    },
+    {
+      "width": 1600,
+      "height": 900,
+      "theme": "dark",
+      "name": "基础交互",
+      "rect": {
+        "x": 31,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1600,
+      "height": 900,
+      "theme": "dark",
+      "name": "内容展示",
+      "rect": {
+        "x": 63,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1600,
+      "height": 900,
+      "theme": "dark",
+      "name": "背景效果",
+      "rect": {
+        "x": 107,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1600,
+      "height": 900,
+      "theme": "dark",
+      "name": "文字与动效",
+      "rect": {
+        "x": 151,
+        "y": 145,
+        "width": 82,
+        "height": 32
+      }
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "theme": "light",
+      "name": "全部",
+      "rect": {
+        "x": 189,
+        "y": 145,
+        "width": 46,
+        "height": 32
+      }
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "theme": "light",
+      "name": "基础交互",
+      "rect": {
+        "x": 31,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "theme": "light",
+      "name": "内容展示",
+      "rect": {
+        "x": 63,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "theme": "light",
+      "name": "背景效果",
+      "rect": {
+        "x": 107,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "theme": "light",
+      "name": "文字与动效",
+      "rect": {
+        "x": 151,
+        "y": 145,
+        "width": 82,
+        "height": 32
+      }
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "theme": "dark",
+      "name": "全部",
+      "rect": {
+        "x": 189,
+        "y": 145,
+        "width": 46,
+        "height": 32
+      }
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "theme": "dark",
+      "name": "基础交互",
+      "rect": {
+        "x": 31,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "theme": "dark",
+      "name": "内容展示",
+      "rect": {
+        "x": 63,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "theme": "dark",
+      "name": "背景效果",
+      "rect": {
+        "x": 107,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "theme": "dark",
+      "name": "文字与动效",
+      "rect": {
+        "x": 151,
+        "y": 145,
+        "width": 82,
+        "height": 32
+      }
+    },
+    {
+      "width": 1181,
+      "height": 600,
+      "theme": "light",
+      "name": "全部",
+      "rect": {
+        "x": 189,
+        "y": 145,
+        "width": 46,
+        "height": 32
+      }
+    },
+    {
+      "width": 1181,
+      "height": 600,
+      "theme": "light",
+      "name": "基础交互",
+      "rect": {
+        "x": 31,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1181,
+      "height": 600,
+      "theme": "light",
+      "name": "内容展示",
+      "rect": {
+        "x": 63,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1181,
+      "height": 600,
+      "theme": "light",
+      "name": "背景效果",
+      "rect": {
+        "x": 107,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1181,
+      "height": 600,
+      "theme": "light",
+      "name": "文字与动效",
+      "rect": {
+        "x": 151,
+        "y": 145,
+        "width": 82,
+        "height": 32
+      }
+    },
+    {
+      "width": 1181,
+      "height": 600,
+      "theme": "dark",
+      "name": "全部",
+      "rect": {
+        "x": 189,
+        "y": 145,
+        "width": 46,
+        "height": 32
+      }
+    },
+    {
+      "width": 1181,
+      "height": 600,
+      "theme": "dark",
+      "name": "基础交互",
+      "rect": {
+        "x": 31,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1181,
+      "height": 600,
+      "theme": "dark",
+      "name": "内容展示",
+      "rect": {
+        "x": 63,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1181,
+      "height": 600,
+      "theme": "dark",
+      "name": "背景效果",
+      "rect": {
+        "x": 107,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1181,
+      "height": 600,
+      "theme": "dark",
+      "name": "文字与动效",
+      "rect": {
+        "x": 151,
+        "y": 145,
+        "width": 82,
+        "height": 32
+      }
+    },
+    {
+      "width": 1180,
+      "height": 600,
+      "theme": "light",
+      "name": "全部",
+      "rect": {
+        "x": 28.59375,
+        "y": 145,
+        "width": 46,
+        "height": 32
+      }
+    },
+    {
+      "width": 1180,
+      "height": 600,
+      "theme": "light",
+      "name": "基础交互",
+      "rect": {
+        "x": 28.59375,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1180,
+      "height": 600,
+      "theme": "light",
+      "name": "内容展示",
+      "rect": {
+        "x": 55.78125,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1180,
+      "height": 600,
+      "theme": "light",
+      "name": "背景效果",
+      "rect": {
+        "x": 94.984375,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1180,
+      "height": 600,
+      "theme": "light",
+      "name": "文字与动效",
+      "rect": {
+        "x": 134.1875,
+        "y": 145,
+        "width": 82,
+        "height": 32
+      }
+    },
+    {
+      "width": 1180,
+      "height": 600,
+      "theme": "dark",
+      "name": "全部",
+      "rect": {
+        "x": 167.390625,
+        "y": 145,
+        "width": 46,
+        "height": 32
+      }
+    },
+    {
+      "width": 1180,
+      "height": 600,
+      "theme": "dark",
+      "name": "基础交互",
+      "rect": {
+        "x": 28.59375,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1180,
+      "height": 600,
+      "theme": "dark",
+      "name": "内容展示",
+      "rect": {
+        "x": 55.78125,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1180,
+      "height": 600,
+      "theme": "dark",
+      "name": "背景效果",
+      "rect": {
+        "x": 94.984375,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1180,
+      "height": 600,
+      "theme": "dark",
+      "name": "文字与动效",
+      "rect": {
+        "x": 134.1875,
+        "y": 145,
+        "width": 82,
+        "height": 32
+      }
+    },
+    {
+      "width": 1024,
+      "height": 600,
+      "theme": "light",
+      "name": "全部",
+      "rect": {
+        "x": 167.390625,
+        "y": 145,
+        "width": 46,
+        "height": 32
+      }
+    },
+    {
+      "width": 1024,
+      "height": 600,
+      "theme": "light",
+      "name": "基础交互",
+      "rect": {
+        "x": 28.59375,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1024,
+      "height": 600,
+      "theme": "light",
+      "name": "内容展示",
+      "rect": {
+        "x": 55.78125,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1024,
+      "height": 600,
+      "theme": "light",
+      "name": "背景效果",
+      "rect": {
+        "x": 94.984375,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1024,
+      "height": 600,
+      "theme": "light",
+      "name": "文字与动效",
+      "rect": {
+        "x": 134.1875,
+        "y": 145,
+        "width": 82,
+        "height": 32
+      }
+    },
+    {
+      "width": 1024,
+      "height": 600,
+      "theme": "dark",
+      "name": "全部",
+      "rect": {
+        "x": 167.390625,
+        "y": 145,
+        "width": 46,
+        "height": 32
+      }
+    },
+    {
+      "width": 1024,
+      "height": 600,
+      "theme": "dark",
+      "name": "基础交互",
+      "rect": {
+        "x": 28.59375,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1024,
+      "height": 600,
+      "theme": "dark",
+      "name": "内容展示",
+      "rect": {
+        "x": 55.78125,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1024,
+      "height": 600,
+      "theme": "dark",
+      "name": "背景效果",
+      "rect": {
+        "x": 94.984375,
+        "y": 145,
+        "width": 70,
+        "height": 32
+      }
+    },
+    {
+      "width": 1024,
+      "height": 600,
+      "theme": "dark",
+      "name": "文字与动效",
+      "rect": {
+        "x": 134.1875,
+        "y": 145,
+        "width": 82,
+        "height": 32
+      }
+    }
+  ],
+  "checks": [
+    "duplicate overview removed",
+    "220ms controlled hover delay",
+    "instant label switching",
+    "tooltip remains while hovered",
+    "Escape dismissal",
+    "quick hover cancellation",
+    "keyboard focus and Tab",
+    "five labels in desktop themes",
+    "viewport bounds and body portal",
+    "navigation cleanup"
+  ],
+  "pageErrors": []
+}

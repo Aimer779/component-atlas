@@ -58,7 +58,6 @@ button:focus-visible, a:focus-visible, select:focus-visible { outline: 2px solid
 .sidebar a:hover { color: var(--text); background: var(--surface-hover); }
 .sidebar-list a:focus-visible { outline-offset: -2px; }
 .sidebar a[aria-current='page'] { color: var(--accent); background: var(--accent-soft); border-color: var(--accent-line); }
-.sidebar .nav-overview { font-size: 13px; color: var(--text); margin-top: 10px; }
 .sidebar a small { color: var(--muted); font: 12px var(--mono); }
 .nav-group { margin-top: 22px; }
 .nav-group h2 { font-size: 12px; font-weight: 500; color: var(--muted); margin: 0 12px 9px; }
@@ -133,6 +132,8 @@ h1 { font-size: 44px; font-weight: 650; line-height: 1.2; letter-spacing: -.045e
 .segmented-control button:focus-visible { outline-offset: 1px; }
 .category-segments { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .category-segments button { display: grid; place-items: center; min-width: 0; height: 32px; padding: 0; }
+.category-tooltip { position: fixed; z-index: 90; max-width: calc(100vw - 16px); padding: 6px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-raised); color: var(--text); font-size: 12px; line-height: 1.5; white-space: nowrap; box-shadow: 0 4px 12px var(--shadow); animation: category-tooltip-enter 100ms var(--ease); }
+@keyframes category-tooltip-enter { from { opacity: 0; transform: translateY(-2px); } to { opacity: 1; transform: none; } }
 .workspace-segments button { display: flex; align-items: center; justify-content: center; gap: 6px; min-width: 82px; }
 .workspace-segments .ui-icon { width: 15px; height: 15px; }
 .preview-actions { display: flex; gap: 5px; align-items: center; font-size: 13px; color: var(--muted); }
@@ -201,3 +202,4 @@ pre:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 @media (max-width: 1180px) { :root { --sidebar: 244px; --content-gutter: 30px; } main { padding-block: 30px; } .catalog-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; } }
 @media (max-width: 1000px) { .detail-grid { gap: 25px; } .thumbnail { height: 175px; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 1ms !important; scroll-behavior: auto !important; } .nav-label { transform: none !important; } .glide-select[data-swap] .glide-select__label { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .category-tooltip { animation: none; } }
