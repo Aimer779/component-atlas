@@ -19,6 +19,7 @@ node serve.mjs
 - 总览按类别或来源查看；详情有交互预览、重播和源码复制。
 - 右上角太阳 / 月亮按钮切换明暗主题，刷新后保留选择；示例沿用来源外观，切换保留其操作状态。
 - 来源与源码下拉使用 React Bits Glide Select 的原生适配版：支持滑动高亮、键盘选择、Escape / Tab 关闭和视口边界定位。原始源码与许可保存在 [vendor/react-bits](vendor/react-bits/README.md)。
+- 页面、侧栏、源码、菜单和预览共用细圆角滚动条，适配明暗主题；示例依赖中的 `ui/scrollbars.css` 也列入源码下拉。
 - `demos/*.html` 是独立样例，对应的 `snapshots/`、`engines/` 和演示模块依赖在源码下拉中列出。
 - [design.md](design.md) 记录设计系统，[NOTES.md](NOTES.md) 记录来源、差异和验证边界。
 - 每个演示按钮只提供本地交互，不进入原产品流程。

@@ -126,7 +126,7 @@ test('each variant lists its actual direct files, transitive motion module and l
   const records = JSON.parse(read('../provenance.json')).filter(record => record.variant);
   for (const record of records) {
     const html = read(`../demos/${record.variant}.html`);
-    const dependencies = [...html.matchAll(/(?:src|href)="\.\.\/([^"#]+)"/g)].map(match => match[1]);
+    const dependencies = [...html.matchAll(/(?:src|href)="\.\.\/([^"#]+)"/g), ...read('../demos/demo.css').matchAll(/url\(['"]\.\.\/([^'"]+)['"]\)/g)].map(match => match[1]);
     for (const dependency of dependencies) assert.ok([...record.files, ...record.assets].includes(dependency), `${record.variant}: ${dependency}`);
     if (record.files.includes('demos/motion.js')) assert.ok(record.files.includes('demos/motion-core.js'));
     if (record.variant === 'menu-laper') assert.ok(record.files.includes('snapshots/lang-flags.js'));

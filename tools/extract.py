@@ -121,7 +121,7 @@ def build():
 {tags}</body></html>
 '''
         (ROOT / "demos" / f"{slug}.html").write_text(document, encoding="utf-8", newline="\n")
-        files = [f"demos/{slug}.html", f"snapshots/{theme}.css", "demos/demo.css", *scripts]
+        files = [f"demos/{slug}.html", f"snapshots/{theme}.css", "demos/demo.css", "ui/scrollbars.css", *scripts]
         if "demos/motion.js" in scripts:
             files.append("demos/motion-core.js")
         assets = ["snapshots/assets/montserrat-Dk9Pm7OY.woff2"]

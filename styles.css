@@ -1,3 +1,4 @@
+@import url('ui/scrollbars.css');
 :root {
   color-scheme: dark;
   --surface: #111214; --surface-raised: #1b1d20; --surface-hover: #24272b;
@@ -19,6 +20,7 @@
   --text: #202620; --secondary: #454f47; --muted: #657067;
   --accent: #386332; --accent-soft: #3863320c; --accent-line: #38633226;
   --highlight: #ffffff; --shadow: #2335230c; --code: #42533c;
+  --scrollbar-thumb: #859081; --scrollbar-hover: #647161; --scrollbar-active: #475844;
 }
 * { box-sizing: border-box; }
 html { overflow-x: clip; scrollbar-gutter: stable; }
@@ -47,7 +49,7 @@ button:focus-visible, a:focus-visible, select:focus-visible { outline: 2px solid
 .theme-toggle svg { width: 18px; height: 18px; grid-area: 1 / 1; transition: transform 240ms var(--ease), opacity 160ms var(--ease); }
 .theme-moon, [data-theme='light'] .theme-sun { opacity: 0; transform: rotate(-45deg) scale(.6); }
 [data-theme='light'] .theme-moon { opacity: 1; transform: none; }
-.sidebar { position: fixed; top: calc(var(--header) + 16px); left: 16px; bottom: 16px; z-index: 25; width: calc(var(--sidebar) - 16px); overflow-y: auto; padding: 20px 12px 24px; border: 1px solid var(--line-soft); border-radius: var(--radius); background: var(--surface); scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
+.sidebar { position: fixed; top: calc(var(--header) + 16px); left: 16px; bottom: 16px; z-index: 25; width: calc(var(--sidebar) - 16px); overflow-y: auto; padding: 20px 12px 24px; border: 1px solid var(--line-soft); border-radius: var(--radius); background: var(--surface); }
 .sidebar-head { color: var(--muted); font-size: 10px; letter-spacing: .08em; padding: 0 12px 14px; font-family: var(--mono); }
 .sidebar a { display: flex; align-items: center; justify-content: space-between; min-height: 36px; border: 1px solid transparent; border-radius: var(--radius-control); padding: 6px 11px; color: var(--secondary); font-size: 12px; transition: color 180ms var(--ease), background 180ms var(--ease), border-color 180ms var(--ease); }
 .sidebar a:hover { color: var(--text); background: var(--surface-hover); }
@@ -101,7 +103,7 @@ h1 { font-size: 44px; font-weight: 650; line-height: 1.2; letter-spacing: -.045e
 .glide-select__chevron { display: grid; place-items: center; width: 12px; height: 12px; flex-shrink: 0; transform-origin: center; }
 .glide-select__chevron svg { display: block; }
 .glide-select__trigger:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-.glide-select__menu.gs-portal { position: fixed; z-index: 80; min-width: 0; bottom: auto; right: auto; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; box-shadow: 0 4px 16px #00000038, inset 0 0 0 1px var(--line); }
+.glide-select__menu.gs-portal { position: fixed; z-index: 80; min-width: 0; bottom: auto; right: auto; overflow-y: auto; overscroll-behavior: contain; box-shadow: 0 4px 16px #00000038, inset 0 0 0 1px var(--line); }
 .glide-select__menu .glide-select__list { touch-action: pan-y; }
 .glide-select__option[aria-selected='true'] .glide-select__name { color: var(--accent); }
 .catalog-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
@@ -149,6 +151,7 @@ h1 { font-size: 44px; font-weight: 650; line-height: 1.2; letter-spacing: -.045e
 .text-button { color: var(--muted); font-size: 11px; }
 .text-button:hover { color: var(--text); }
 pre { margin: 0; padding: 22px; font: 12px/1.75 var(--mono); color: var(--code); overflow: auto; tab-size: 2; max-height: 490px; background: var(--surface-code); border-radius: var(--radius-inner); }
+pre:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .code-note { padding: 14px 18px; font-size: 11px; color: var(--muted); border-top: 1px solid var(--line); }
 #asset-links { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
 #asset-links a { color: var(--accent); text-underline-offset: 3px; }

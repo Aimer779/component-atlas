@@ -1,5 +1,17 @@
 # 组件图鉴 · 提取与验收
 
+## 滚动条视觉优化（2026-10-06）
+
+- 范围：页面视口、固定侧栏、源码区横纵轴、受限高度的 Glide Select 菜单、预览中的语言面板与滚动弹簧区域。统一样式在 `ui/scrollbars.css`，外壳与预览通过 CSS import 共用。原始快照与官方组件文件不改。
+- 采用 CSS 修饰浏览器原生滚动条：10px 轨道，2px 透明边缘形成 6px 圆角滑块，透明轨道与 corner，移除箭头；滑块最短 32px，悬浮 / 拖动增加对比度。明暗主题采用各自令牌，预览用来源 foreground / background 派生灰度。
+- Chromium 的 `scrollbar-color` / `scrollbar-width` 非 auto 会覆盖 WebKit 伪元素，见 [MDN scrollbar-color](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/scrollbar-color)。因此支持伪元素时用 auto，避免旧侧栏 thin / color 规则压过圆角样式；其他实现使用标准 thin / color。强制颜色模式使用系统颜色与尺寸。未引入滚动库或新增脚本行为。
+- 同步提取器与 23 个变体的 files，包含共享样式。现有依赖回归检查 CSS import 和字体引用，保证源码下拉不漏新依赖。
+- 实际 Chromium：根视口、侧栏、代码、菜单与预览均为 10px 滚动条、999px 滑块圆角、2px 透明边缘、padding-box 裁切、按钮 display none；明暗主题分别切换正确。运行记录在 `artifacts/scrollbar-checks.json`。
+- 鼠标拖动侧栏滑块到 scrollTop 252.67；主页面滚轮到 871.33；源码 Page Down 到 14，长 CSS 源码 Arrow Right 到 34.67；弹簧预览 Page Down 到 155.33；短窗口菜单 End 到 25.33，最后一个选项可见。保留原生输入与内容可达性。
+- 视觉评审：主页面、侧栏、代码和菜单的滑块粗细一致，透明轨道融入各自底色，圆角没有裁掉文字或控件；源码键盘焦点使用主题强调色。双主题与桌面 / 短窗口检查，具体视口与溢出结果在同一记录；截图 `scrollbars-dark.jpg` / `scrollbars-light.jpg`。
+- 完整检查 `node tools/verify.mjs`：16 项回归、16 份脚本语法、89 条本地引用、7 个样例快照哈希与5份 React Bits 来源哈希通过。没有为单纯 CSS 外观新增实现镜像测试。
+- 未实测 Firefox、Safari、真实系统强制颜色设置或触摸设备；标准滚动条在其他浏览器的形状由其实现决定。手机窄屏按用户要求不在范围。
+
 ## React Bits 控件接入与侧栏展开（2026-10-06）
 
 范围：图鉴侧栏所有 15 行的导航 / 变体展开、来源筛选下拉、详情源码文件下拉。沿用官方组件机制并适配现有 HTML/JS 工程；示例组件、快照和提取清单不变。
