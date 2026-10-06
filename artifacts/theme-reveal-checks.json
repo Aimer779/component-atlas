@@ -1,0 +1,152 @@
+{
+  "samples": [
+    {
+      "width": 1280,
+      "height": 720,
+      "target": "light",
+      "frames": {
+        "clipPath": [
+          "circle(0px at 1208px 35.5px)",
+          "circle(1388.4539063289067px at 1208px 35.5px)"
+        ]
+      },
+      "options": {
+        "duration": 520,
+        "easing": "cubic-bezier(.4,0,.2,1)",
+        "pseudoElement": "::view-transition-new(root)"
+      },
+      "currentTime": 0,
+      "button": {
+        "x": 1208,
+        "y": 35.5
+      },
+      "theme": "light"
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "target": "dark",
+      "frames": {
+        "clipPath": [
+          "circle(0px at 1208px 35.5px)",
+          "circle(1388.4539063289067px at 1208px 35.5px)"
+        ]
+      },
+      "options": {
+        "duration": 520,
+        "easing": "cubic-bezier(.4,0,.2,1)",
+        "pseudoElement": "::view-transition-new(root)"
+      },
+      "currentTime": 0,
+      "button": {
+        "x": 1208,
+        "y": 35.5
+      },
+      "theme": "dark"
+    },
+    {
+      "width": 1024,
+      "height": 600,
+      "target": "light",
+      "frames": {
+        "clipPath": [
+          "circle(0px at 966px 35.5px)",
+          "circle(1118.8459456064538px at 966px 35.5px)"
+        ]
+      },
+      "options": {
+        "duration": 520,
+        "easing": "cubic-bezier(.4,0,.2,1)",
+        "pseudoElement": "::view-transition-new(root)"
+      },
+      "currentTime": 0,
+      "button": {
+        "x": 966,
+        "y": 35.5
+      },
+      "theme": "light"
+    },
+    {
+      "width": 1024,
+      "height": 600,
+      "target": "dark",
+      "frames": {
+        "clipPath": [
+          "circle(0px at 966px 35.5px)",
+          "circle(1118.8459456064538px at 966px 35.5px)"
+        ]
+      },
+      "options": {
+        "duration": 520,
+        "easing": "cubic-bezier(.4,0,.2,1)",
+        "pseudoElement": "::view-transition-new(root)"
+      },
+      "currentTime": 0,
+      "button": {
+        "x": 966,
+        "y": 35.5
+      },
+      "theme": "dark"
+    },
+    {
+      "width": 1600,
+      "height": 900,
+      "target": "light",
+      "frames": {
+        "clipPath": [
+          "circle(0px at 1481px 35.5px)",
+          "circle(1714.8531278217386px at 1481px 35.5px)"
+        ]
+      },
+      "options": {
+        "duration": 520,
+        "easing": "cubic-bezier(.4,0,.2,1)",
+        "pseudoElement": "::view-transition-new(root)"
+      },
+      "currentTime": 0,
+      "button": {
+        "x": 1481,
+        "y": 35.5
+      },
+      "theme": "light"
+    },
+    {
+      "width": 1600,
+      "height": 900,
+      "target": "dark",
+      "frames": {
+        "clipPath": [
+          "circle(0px at 1481px 35.5px)",
+          "circle(1714.8531278217386px at 1481px 35.5px)"
+        ]
+      },
+      "options": {
+        "duration": 520,
+        "easing": "cubic-bezier(.4,0,.2,1)",
+        "pseudoElement": "::view-transition-new(root)"
+      },
+      "currentTime": 0,
+      "button": {
+        "x": 1481,
+        "y": 35.5
+      },
+      "theme": "dark"
+    }
+  ],
+  "checks": [
+    "both directions from the upper-right button",
+    "farthest-corner coverage",
+    "520ms native animation",
+    "rapid pointer input and reversal",
+    "keyboard focus",
+    "Escape/resize/navigation interruption",
+    "reduced-motion preference and change",
+    "iframe state preservation",
+    "refresh persistence",
+    "scrolled-page position retention",
+    "no-API immediate switching",
+    "failed-snapshot recovery",
+    "cross-tab storage synchronization"
+  ],
+  "pageErrors": []
+}

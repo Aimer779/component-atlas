@@ -15,7 +15,7 @@ function themeHarness(saved, blocked = false) {
     getItem() { if (blocked) throw new Error('Storage blocked'); return saved; },
     setItem(key, value) { if (blocked) throw new Error('Storage blocked'); values.set(key, value); },
   };
-  vm.runInNewContext(read('../theme.js'), { document, localStorage, Event: class {}, window: { addEventListener(name, callback) { windowEvents[name] = callback; } } });
+  vm.runInNewContext(read('../theme.js'), { document, localStorage, Event: class {}, window: { matchMedia: () => ({ matches: false, addEventListener() {} }), addEventListener(name, callback) { windowEvents[name] = callback; } } });
   return { root, button, events, windowEvents, values };
 }
 

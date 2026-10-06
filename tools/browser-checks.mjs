@@ -7,6 +7,7 @@ import { checkNavigation } from './navigation-checks.mjs';
 import { checkSidebar } from './sidebar-checks.mjs';
 import { checkTooltips } from './tooltip-checks.mjs';
 import { checkFonts } from './font-checks.mjs';
+import { checkThemeReveal } from './theme-browser-checks.mjs';
 
 const server = await startServer(18192);
 const browser = await chromium.launch({ headless: true });
@@ -99,6 +100,7 @@ try {
   await check('sidebar category segments filter destinations and keep keyboard navigation usable', () => checkSidebar(page, server.url));
   await check('category tooltips support hover, keyboard focus, dismissal and cleanup', () => checkTooltips(browser, server.url));
   await check('local bilingual fonts actually render, preserve code alignment and have readable fallbacks', () => checkFonts(browser, server.url));
+  await check('native theme reveal preserves state and settles interrupted transitions', () => checkThemeReveal(browser, server.url));
   await check('physical card navigation and segmented preview/code controls', () => checkNavigation(page, server.url));
 
   await check('hidden code panels stop cloud, field and reel scheduling without replacing the frame', async () => {

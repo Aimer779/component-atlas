@@ -1,5 +1,25 @@
 # 组件图鉴 · 提取与验收
 
+## 2026-10-06 · 从主题按钮铺开的亮暗过渡
+
+范围：外壳主题切换及其过渡生命周期。保留本地存储、主题按钮语义、字体、组件样式与 iframe 实例，没有新增生产依赖。
+
+研究依据：2026-10-06 核对 [MDN 圆形揭示示例](https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API/Using#controlling_view_transitions_with_javascript)、[Chrome 同文档过渡指南](https://developer.chrome.com/docs/web-platform/view-transitions/same-document#animating_with_javascript) 与 [skipTransition](https://developer.mozilla.org/en-US/docs/Web/API/ViewTransition/skipTransition)。采用 Document.startViewTransition 包住 DOM 更新，在 ready 后通过 Web Animations API 动画化新快照。动画失败不应阻断主题变更。
+
+- 两种切换方向均从右上角按钮中心开始。圆形半径按最远视口角计算，覆盖至左下角；时长 520ms，缓动 cubic-bezier(.4,0,.2,1)。只生成浏览器原生快照，不复制页面或 iframe。
+- 关闭默认旧 / 新快照淡入淡出及混合，分别指定叠放顺序。在快照期间关闭外壳局部 CSS 过渡，捕获完整的新主题颜色；结束后移除临时标记。过渡层 pointer-events none，按钮和导航仍可交互。
+- 目标主题与当前 DOM 主题分开记录。每次输入更新版本，旧异步回调不能覆盖最新选择。快速再次点击先取消显式动画、skip 旧过渡，再立即应用目标主题；旧快照释放前不启动另一组快照。
+- 初版连续中断触发过 Chromium 渲染进程崩溃。最终实现增加显式动画取消，并保留过渡占用直到 finished。修正后完整检查与补充检查通过，未重新触发；没有把崩溃的底层原因当成已确认的浏览器源码结论。
+- Escape、resize、hash 导航、隐藏文档及 reduced-motion 变化会结束当前过渡，保留最新主题。减少动态效果、API 缺失或快照失败时直接切换。跨标签 storage 更新保持即时，不回写外部选择。
+
+检查：`pnpm verify` 的 31 项 Node 回归、字体 / 资产检查、12 项浏览器检查通过。23 个变体的 73 种状态、2329 个节点仍通过来源样式对照。无页面脚本错误或外部资源请求。
+
+新增受控回归验证快照更新前 / 后的快速反转、旧回调、显式动画取消、storage 覆盖、resize / 导航 / Escape / 隐藏文档 / reduced-motion 中断与启动失败。真实 Chromium 另测 1280×720、1024×600、1600×900 双向动画，圆心与按钮吻合，半径覆盖最远角。核对物理连续点击、Space 与焦点、偏好变化、iframe 计费状态保持、刷新持久化和无横滚。补充检查确认滚动位置不跳动；注入重复 view-transition-name 使快照失败后，主题仍切换且没有未处理拒绝。两个真实页面的存储同步通过。
+
+视觉评审：查看双向动画在 15%、50%、80% 的中间帧，颜色边界按圆形展开，内容未错位。自然速度的完整双向播放录屏为 `artifacts/theme-reveal.webm`，与暂停采样分开录制。当前内置浏览器也播放两种方向，检查结束后恢复原主题并保留页面。证据为 `artifacts/theme-reveal-checks.json`、`artifacts/theme-reveal-*.png` 与 `artifacts/theme-acceptance.png`。
+
+未检查其它浏览器、真实后台生命周期、真实系统 reduced-motion 设置与实体 GPU 帧率 / 功耗。缺少 API 使用即时切换的模拟已检查；隐藏文档通过受控回归验证。原有桌面范围保留。
+
 ## 2026-10-06 · 导航计数徽标与分组标签
 
 范围：侧栏主导航的变体计数，以及四个分组标题。分类、链接目标、展开按钮和组件预览保留。
